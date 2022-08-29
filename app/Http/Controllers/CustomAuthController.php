@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OtpMail;
+
 
 class CustomAuthController extends Controller
 {
@@ -36,7 +39,9 @@ class CustomAuthController extends Controller
         $user->name = $request->name;
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
-        $res = $user->save();
+
+       $res = $user->save();
+        
 
         if($res){
             return back()->with('success','You have registered successfuly');
@@ -59,8 +64,14 @@ class CustomAuthController extends Controller
             if(Hash::check($request->password, $user->password)){
                 $request->session()->put('loginId',$user->id);
 
-              
-                return redirect('dashboard');
+                $pin = mt_rand(1000000, 9999999);
+                $user->verification_code = $pin;
+                $user->save();
+
+                Mail::to($user->email)->send(new OtpMail($pin));
+
+                return redirect('email');
+
             }
 
                 else{
@@ -98,36 +109,56 @@ $request->validate([
     public function emailUser(Request $request)
     {
 
-        $request->validate([
-            'email'=>'required',
-        ]);
-        if($request='email')
-        {
-            return view('email');
+        $userId = $request->session()->get('loginId');
+
+        $user = User::where('id','=', $userId)->first();
+
+        
+        if($user->verification_code == $request->number){
+            
+            return redirect('dashboard');
         }
-        else
-        {
-            $request->validate([
-                'email'=>'required',
-            ]);
+        // else{
+        //     print('fail');
+        //     // session()->forget('loginId');
+        //     // print('session ended');
+        else{
+            return back()->with('fail','The pin is incorrect');
+           
+            
         }
+           
+           
+        // }
+      
+        // $request->validate([
+        //     'email'=>'required',
+        // ]);
+        // if($request='email')
+        // {
+        //     return view('email');
+        // }
+        // else
+        // {
+        //     $request->validate([
+        //         'email'=>'required',
+        //     ]);
+        // }
        
     }
     public function adminUser(Request $request)
     {
-
-        $request->validate([
-            'number'=>'required',
-        ]);
-        if($request='number')
-        {
-            return view('admin');
-        }
-        else
-        {
-            $request->validate([
-                'number'=>'required',
-            ]);
+        $token = $request->input('g-recaptcha-response');
+    
+    if(strlen($token) > 0 ){
+        return view('agentlogin');
+     }
+    else{
+        
+    $request->validate([
+        'g-recaptcha-response' => 'required|captcha'
+    ]);
+                
         }
        
     }

@@ -36,13 +36,13 @@ Route::get('/adminlogin', function () {
 Route::get('/agentlogin',[CustomAuthController::class,'agentlogin']);
 
 
-Route::post('admin',[CustomAuthController::class,'adminUser'])->name('admin');
+Route::post('agentlogin',[CustomAuthController::class,'adminUser'])->name('agentlogin');
 
 Route::post('login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 
 
 
-Route::post('email',[CustomAuthController::class,'emailUser'])->name('email');
+Route::post('email/verification',[CustomAuthController::class,'emailUser'])->name('email/verification');
 
 
 
