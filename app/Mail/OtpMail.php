@@ -22,7 +22,7 @@ class OtpMail extends Mailable
     {
         $this->data = $data;
     }
-
+    
     /**
      * Build the message.
      *
@@ -32,9 +32,15 @@ class OtpMail extends Mailable
     {
         // return $this->markdown('emails.otpmail');
 
-        return $this->markdown('emails.otpmail')
-        // ->from('ruhaim860@gmail.com',env('APP_NAME'))
-        ->subject('Hello')
-        ->with(['data' => $this->data]);
+        // return $this->markdown('emails.otpmail')
+        // // ->from('ruhaim860@gmail.com',env('APP_NAME'))
+        // ->subject('Hello')
+        // ->with(['data' => $this->data]);
+
+        return $this->from('callpointvk@gmail.com')
+               ->subject('Mail From EDGE')
+               ->markdown('emails.otpmail',["data"=>$this->data]);
     }
+
+    
 }

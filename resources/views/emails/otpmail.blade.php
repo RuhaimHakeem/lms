@@ -7,10 +7,7 @@ EDGE
 
 The verification code is: {{ $data }}
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
-
 Thanks,<br>
+{{ config('app.name')}}
 
 @endcomponent
