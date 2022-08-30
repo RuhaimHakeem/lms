@@ -89,23 +89,7 @@ class CustomAuthController extends Controller
         return "Welcome to the Dashboard";
     }
 
-    public function logUser(Request $request)
-    {
-        $token = $request->input('g-recaptcha-response');
-    
-    if(strlen($token) > 0 ){
-        return view('login');
-     }
-    else{
-        
-$request->validate([
-    'g-recaptcha-response' => 'required|captcha'
-]);
-                
-        }
-       
-    }
-    
+   
     public function emailUser(Request $request)
     {
 
@@ -115,36 +99,18 @@ $request->validate([
 
         
         if($user->verification_code == $request->number){
-            
+
+            $user->verification_code = null;
+            $user->update();
             return redirect('dashboard');
         }
-        // else{
-        //     print('fail');
-        //     // session()->forget('loginId');
-        //     // print('session ended');
+       
         else{
             return back()->with('fail','The pin is incorrect');
            
-            
         }
            
            
-        // }
-      
-        // $request->validate([
-        //     'email'=>'required',
-        // ]);
-        // if($request='email')
-        // {
-        //     return view('email');
-        // }
-        // else
-        // {
-        //     $request->validate([
-        //         'email'=>'required',
-        //     ]);
-        // }
-       
     }
     public function adminUser(Request $request)
     {

@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
            
 
-            User::where('updated_at', '<', Carbon::now()->subMinutes(1))->update(['verification_code' => null]);
+            // User::where('updated_at', '<', Carbon::now()->subMinutes(1))->update(['verification_code' => null]);
         })->everyMinute();
 
      }

@@ -1,9 +1,11 @@
 @component('mail::message')
 # Welcome
 
-Hello World
+EDGE
 
-PIN: {{ $data }}
+<h3>VERIFY YOUR LOGIN</h3>
+
+The verification code is: {{ $data }}
 
 @component('mail::button', ['url' => ''])
 Button Text
