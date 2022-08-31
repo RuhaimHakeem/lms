@@ -32,6 +32,10 @@ Route::get('/adminlogin', function () {
     return view('adminlogin');
 }); 
 
+Route::get('/dashboardnew', function () {
+    return view('dashboardnew');
+}); 
+
 
 Route::get('/agentlogin',[CustomAuthController::class,'agentlogin']);
 
