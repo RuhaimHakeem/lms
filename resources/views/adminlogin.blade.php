@@ -114,7 +114,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Indicator progress-->
 									</button>
 								</div>
-                                <a href="admin" style="font-size:15px;text-align: right"><p >Agent Login..?</p></a>
+                                <a href="agentlogin" style="font-size:15px;text-align: right"><p >Agent Login..?</p></a>
 								<!--end::Submit button-->
 								<!--begin::Sign up-->
 								

@@ -37,6 +37,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -139,9 +140,14 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Indicator progress-->
                                 </button>
                             </div>
+                            <div class="link">
                             <a href="adminlogin" style="font-size:15px;text-align: right">
                                 <p>Admin Login..?</p>
                             </a>
+                            <a href="agentregister" style="font-size:15px;text-align: right">
+                                <p>Agent Register</p>
+                            </a>
+                            </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
 
