@@ -102,7 +102,13 @@ class CustomAuthController extends Controller
 
             $user->verification_code = null;
             $user->update();
-            return redirect('dashboard');
+            if($user->admin == 1) {
+                return redirect('dashboardnew');
+            }
+            else {
+                return redirect('dashboard');
+            }
+            
         }
        
         else{
@@ -127,5 +133,39 @@ class CustomAuthController extends Controller
                 
         }
        
+    }
+
+    public function adminLogin(Request $request){
+
+       
+        $request->validate([
+            'name'=>'required',
+            'password'=>'required'
+        ]);
+        
+        $user = User::where('name','=',$request->name)->first();
+        if($user->admin == 1){
+            if($request->password == $user->password){
+                $request->session()->put('loginId',$user->id);
+
+                $pin = mt_rand(1000000, 9999999);
+                $user->verification_code = $pin;
+                $user->save();
+
+                Mail::to($user->email)->send(new OtpMail($pin));
+
+                return redirect('email');
+
+            }
+
+                else{
+                    return back()->with('fail','Password not matches.');
+                }
+            }
+
+        
+        else{
+            return back()->with('fail','This username is not valid');
+        }
     }
 }

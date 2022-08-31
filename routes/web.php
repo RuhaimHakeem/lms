@@ -39,6 +39,8 @@ Route::get('/dashboardnew', function () {
 
 Route::get('/agentlogin',[CustomAuthController::class,'agentlogin']);
 
+Route::post('adminlogin',[CustomAuthController::class,'adminLogin'])->name('adminlogin');
+
 
 Route::post('agentlogin',[CustomAuthController::class,'adminUser'])->name('agentlogin');
 
