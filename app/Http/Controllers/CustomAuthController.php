@@ -13,15 +13,7 @@ use App\Mail\OtpMail;
 
 class CustomAuthController extends Controller
 {
-    public function agentlogin(){
-        return view("agentlogin");
-    }
-
-    public function email(){
-        return view("email");
-    }
-
-    public function registeragent(Request $request){
+      public function registeragent(Request $request){
         return view("adminregister");
     }
 
@@ -103,7 +95,7 @@ class CustomAuthController extends Controller
             $user->verification_code = null;
             $user->update();
             if($user->admin == 1) {
-                return redirect('dashboardnew');
+                return redirect('admindashboard');
             }
             else {
                 return redirect('dashboard');

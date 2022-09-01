@@ -141,12 +141,12 @@ License: For each use you must have a valid license purchased only from above li
                                 </button>
                             </div>
                             <div class="link">
-                            <a href="adminlogin" style="font-size:15px;text-align: right">
-                                <p>Admin Login..?</p>
-                            </a>
-                            <a href="agentregister" style="font-size:15px;text-align: right">
-                                <p>Agent Register</p>
-                            </a>
+                                <a href="adminlogin" style="font-size:15px;text-align: right">
+                                    <p>Admin Login..?</p>
+                                </a>
+                                <a href="agentregister" style="font-size:15px;text-align: right">
+                                    <p>Agent Register</p>
+                                </a>
                             </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
@@ -161,10 +161,13 @@ License: For each use you must have a valid license purchased only from above li
 
 
                     <div style="color:gray">
-                   <div class="d-flex" > <img alt="Logo" src="../media/logos/prag.png" class="h-15px "  style="margin-right:0.2rem"/><p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS </p></div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank" >https://pragicts.com | edge@pragicts.com</p>
+                        <div class="d-flex"> <img alt="Logo" src="../media/logos/prag.png" class="h-15px "
+                                style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
 
-</div>
+                    </div>
 
 
 

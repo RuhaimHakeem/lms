@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,29 +16,38 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('authentications.index');
 });
 
 
 
 Route::get('/email', function () {
-    return view('email');
+    return view('authentications.email');
 });
 
 Route::get('/agentregister', function () {
-    return view('agentregister');
+    return view('authentications.agentregister');
 }); 
 
 Route::get('/adminlogin', function () {
-    return view('adminlogin');
+    return view('authentications.adminlogin');
 }); 
 
-Route::get('/dashboardnew', function () {
-    return view('dashboardnew');
+Route::get('/admindashboard', function () {
+    return view('admin.admindashboard');
 }); 
 
+Route::get('/agentlogin', function (){
+    return view("agentlogin");
+});
 
-Route::get('/agentlogin',[CustomAuthController::class,'agentlogin']);
+
+
+Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload');
+
+Route::post('uploadlead',[AdminController::class,'upload'])->name('uploadlead');
+
+
 
 Route::post('adminlogin',[CustomAuthController::class,'adminLogin'])->name('adminlogin');
 
