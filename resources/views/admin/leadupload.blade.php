@@ -497,6 +497,12 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
                         <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
+                            @if(Session::has('success'))
+                            <div class="alert alert-success">{{Session::get('success')}}</div>
+                            @endif
+                            @if(Session::has('fail'))
+                            <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                            @endif
                             @csrf
                             <div class='d-flex flex-column'>
                                 <p class="text-left fs-2 fw-bold px-6">Lead Bulk Upload</p>
@@ -512,36 +518,30 @@ License: For each use you must have a valid license purchased only from above li
                         </form>
 
 
+                        @if(count($leads) > 0)
+                        <h1>{{count($leads)}} are added</h1>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Batchid</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phonenumber</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($leads as $lead)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <th scope="row">{{$lead->batchid}}</th>
+                                    <td>{{$lead->name}}</td>
+                                    <td>{{$lead->email}}</td>
+                                    <td>{{$lead->phonenumber}}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
+                        @endif
 
                     </div>
                     <!--end::Content-->
