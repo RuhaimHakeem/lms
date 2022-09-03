@@ -17,10 +17,10 @@ class CreateLeadsTable extends Migration
         
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('batchid')->unique();
+            $table->string('batchid');
             $table->string('name');
             $table->string('email');
-            $table->tinyInteger('phonenumber')->unique();
+            $table->string('phonenumber')->unique();
             $table->timestamps();
         });
     }

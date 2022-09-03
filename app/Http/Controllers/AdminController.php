@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Lead;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\LeadsImport;
 
 class AdminController extends Controller
 {
@@ -14,25 +16,11 @@ class AdminController extends Controller
 
     public function upload(Request $request){
 
-        $now = Carbon::now();
-        $unique_code = $now->format('YmdHis');
-
-        $lead = new Lead();
-        $lead->batchid = $unique_code; 
-        $lead->name = $request->name;
-        $lead->email = 'ruhaim860@gmail.com';
-        $lead->phonenumber = '123';
-        $res = $lead->save();
+        $file = $request->file;
+           
     
-        
-        
-        if(!$res) {
-            return redirect('/admindashboard');
-        }
-
-        else {
-            print("all good");
-        }
+        Excel::import(new LeadsImport, $file);
+        echo "Inserted Successfully";
 
     }
   

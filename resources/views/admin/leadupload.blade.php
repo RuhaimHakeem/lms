@@ -496,20 +496,52 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <form action="{{route('uploadlead')}}" method="POST">
+                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class='d-flex flex-column'>
                                 <p class="text-left fs-2 fw-bold px-6">Lead Bulk Upload</p>
                                 <div class='d-flex  px-6'>
                                     <p class="text-left fs-5 px-2">Upload File</p>
-                                    <p class="text-left fs-5">select</p>
+                                    <input type="file" name="file">
                                 </div>
-                                <input type="text" placeholder="User Name" name="name" autocomplete="off" />
+
                                 <div class="px-6 w-25">
 
                                     <button type='submit' class="btn btn-secondary btn-sm">Upload</button>
                                 </div>
                         </form>
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </div>
                     <!--end::Content-->

@@ -115,21 +115,14 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::Wrapper-->
                 </div>
-                <div class="d-grid ">
-                    <!--begin::Links-->
+                <footer class=" d-flex mb-2 px-2 page-footer fixed-bottom font-small pt-5" style="color:gray;">
+                    <div class="d-flex px-2">
+                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS </p>
+                    </div>
+                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
 
-
-                    <div style="color:gray">
-                   <div class="d-flex" > <img alt="Logo" src="../media/logos/prag.png" class="h-15px "  style="margin-right:0.2rem"/><p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS </p></div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank" >https://pragicts.com | edge@pragicts.com</p>
-
-</div>
-
-
-
-
-                    <!--end::Links-->
-                </div>
+                </footer>
 
                 <!--end::Footer-->
             </div>
