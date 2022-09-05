@@ -517,8 +517,12 @@ License: For each use you must have a valid license purchased only from above li
 
                                                     <img src="../media/logos/users.png"
                                                         class="mb-7 border-bottom border-3">
-
-                                                    <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">75</span>
+                                                    @if(count($leads) > 0)
+                                                    <span
+                                                        class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
+                                                    @else
+                                                    <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
+                                                    @endif
                                                     <!--end::Subtitle-->
                                                 </div>
                                                 <!--end::Title-->

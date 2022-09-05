@@ -17,23 +17,24 @@ class LeadsImport implements ToCollection
     {
         $now = Carbon::now();
         $unique_code = $now->format('YmdHis');
-                
-        foreach($collection as $key=>$value){
 
-           if($key > 0){
+     
+            foreach($collection as $key=>$value){
 
-                $lead = new Lead();
-                $lead->batchid = $unique_code; 
-                $lead->name = $value[0];
-                $lead->email = $value[1];
-                $lead->phonenumber = $value[2];
-                $res = $lead->save();
-            
-            }
-            
-        }
+                if($key > 0){
+     
+                     $lead = new Lead();
+                     $lead->batchid = $unique_code; 
+                     $lead->name = $value[0];
+                     $lead->email = $value[1];
+                     $lead->phonenumber = $value[2];
+                     $res = $lead->save();
+                 
+                 }
+           }          
+      
         if($res){
-            Session::put('code', $unique_code);
+             Session::put('code', $unique_code);
         }
     }
 }

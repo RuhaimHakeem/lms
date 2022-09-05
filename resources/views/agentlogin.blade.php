@@ -64,12 +64,12 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Theme mode setup on page load-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root"
-        style="background-image: url(../media/misc/edge-login-background.jpg);">
+        style="background-image: url(../media/misc/lmp-backgroundnew.jpg);background-size: cover;">
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <!--begin::Body-->
-            <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10 order-2 order-lg-1"
-                style="background-color:white;opacity:0.9">
+            <div class="d-flex flex-column flex-lg-row-fluid w-lg-10 p-10 order-2 order-lg-1"
+                style="background-color:white;opacity:0.85">
                 <!--begin::Form-->
                 <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                     <!--begin::Wrapper-->
@@ -160,13 +160,13 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Links-->
 
 
-                <footer class=" d-flex mb-2 px-2 page-footer fixed-bottom font-small pt-5" style="color:gray;">
+                <footer class=" d-flex mb-2 px-2 page-footer fixed-bottom font-small pt-5"
+                    style="color:gray;font-size:10px">
                     <div class="d-flex px-2">
                         <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS </p>
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
                     </div>
                     <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-
                 </footer>
 
                 <!--end::Links-->

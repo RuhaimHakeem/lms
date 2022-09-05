@@ -40,6 +40,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -161,7 +162,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white">UPLOAD LEEDS</h3><img src="../media/logos/profile.png"
+                                        <h3 style="color:white">ADMIN PANEL</h3><img src="../media/logos/profile.png"
                                             alt="user" />
                                     </div>
                                 </div>
@@ -504,23 +505,25 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="alert alert-danger">{{Session::get('fail')}}</div>
                             @endif
                             @csrf
-                            <div class='d-flex flex-column'>
-                                <p class="text-left fs-2 fw-bold px-6">Lead Bulk Upload</p>
-                                <div class='d-flex  px-6'>
-                                    <p class="text-left fs-5 px-2">Upload File</p>
-                                    <input type="file" name="file">
+                            <div class='d-flex flex-column fs-5 px-2'>
+                                <p class="text-left fs-2 fw-bold">Lead Bulk Upload</p>
+                                <div class='d-flex flex-row'>
+                                    <p class="text-left me-2 mt-1">Upload File</p>
+                                    <input type="file" name="file" required>
                                 </div>
 
-                                <div class="px-6 w-25">
+                                <div class="">
 
                                     <button type='submit' class="btn btn-secondary btn-sm">Upload</button>
                                 </div>
+                            </div>
                         </form>
 
 
                         @if(count($leads) > 0)
-                        <h1>{{count($leads)}} are added</h1>
-                        <table class="table">
+                        <h3 class="ms-5 mt-7">{{count($leads)}} Leads Uploaded</h3>
+
+                        <table class="table ms-5 mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">Batchid</th>
@@ -532,23 +535,30 @@ License: For each use you must have a valid license purchased only from above li
                             <tbody>
                                 @foreach($leads as $lead)
                                 <tr>
-                                    <th scope="row">{{$lead->batchid}}</th>
+                                    <td>{{$lead->batchid}}</td>
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->email}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                         @endif
+
 
                     </div>
                     <!--end::Content-->
                 </div>
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
-
+                <footer class="d-flex justify-content-end mb-2 px-2 page-footer font-small pt-5"
+                    style="color:gray;font-size:10px">
+                    <div class="d-flex px-2">
+                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                    </div>
+                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                </footer>
                 <!--end::Footer-->
             </div>
             <!--end:::Main-->

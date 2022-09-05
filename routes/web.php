@@ -33,15 +33,12 @@ Route::get('/adminlogin', function () {
     return view('authentications.adminlogin');
 }); 
 
-Route::get('/admindashboard', function () {
-    return view('admin.admindashboard');
-}); 
-
 Route::get('/agentlogin', function (){
     return view("agentlogin");
 });
 
 
+Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('admindashboard');
 
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload');
 
