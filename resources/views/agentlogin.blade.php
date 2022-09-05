@@ -141,12 +141,10 @@ License: For each use you must have a valid license purchased only from above li
                                 </button>
                             </div>
                             <div class="link">
-                                <a href="adminlogin" style="font-size:15px;text-align: right">
+                                <a href="adminlogin" style="font-size:15px;text-align: left">
                                     <p>Admin Login..?</p>
                                 </a>
-                                <a href="agentregister" style="font-size:15px;text-align: right">
-                                    <p>Agent Register</p>
-                                </a>
+                           
                             </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
