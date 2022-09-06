@@ -9,13 +9,23 @@ use Hash;
 use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OtpMail;
+use Carbon\Carbon;
 
 
 class CustomAuthController extends Controller
 {
-      public function registeragent(Request $request){
+    public function registeragent(Request $request){
         return view("adminregister");
     }
+
+    public function loginadmin() {
+        
+        return view('authentications.adminlogin');
+    }
+
+    public function agentregister () {
+        return view('authentications.agentregister');
+    } 
 
 
  
@@ -89,33 +99,40 @@ class CustomAuthController extends Controller
 
         $user = User::where('id','=', $userId)->first();
 
-        
-        if($user->verification_code == $request->number){
+        if($user){
+            if($user->verification_code == $request->number && $user->verified == false){
 
-            $user->verification_code = null;
-            $user->update();
-            if($user->admin == 1) {
-                return redirect('admindashboard');
-            }
-            else {
-                return redirect('dashboard');
+                $user->verification_code = null;
+                $user->verified = true;
+                $user->update();
+                if($user->admin == 1) {
+                    return redirect('admindashboard');
+                }
+                else {
+                    return redirect('dashboard');
+                }
+                
             }
             
+            else {
+                return back()->with('fail','The pin is incorrect');
+            }  
         }
-       
-        else{
-            return back()->with('fail','The pin is incorrect');
-           
+        else {
+            return redirect('adminlogin')->with('fail','You have been logged out automatically. Please try again');
         }
            
            
     }
-    public function adminUser(Request $request)
+
+    
+    
+    public function recaptcha(Request $request)
     {
         $token = $request->input('g-recaptcha-response');
     
     if(strlen($token) > 0 ){
-        return view('agentlogin');
+        return view('authentications.adminlogin');
      }
     else{
         
@@ -125,7 +142,7 @@ class CustomAuthController extends Controller
                 
         }
        
-    }
+}
 
     public function adminLogin(Request $request){
 

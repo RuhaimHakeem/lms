@@ -25,33 +25,36 @@ Route::get('/email', function () {
     return view('authentications.email');
 });
 
-Route::get('/agentregister', function () {
-    return view('authentications.agentregister');
-}); 
-
-Route::get('/adminlogin', function () {
-    return view('authentications.adminlogin');
-}); 
-
-Route::get('/agentlogin', function (){
-    return view("agentlogin");
-});
+ 
 
 
-Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('admindashboard');
+// Route::get('/agentlogin', function (){
+//     return view("agentlogin");
+// });
 
-Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload');
+
+Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
+
+Route::get('/agentregister',[AdminController::class,'agentregister'])->name('agentregister')->middleware('isLoggedIn');
+
+Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('admindashboard')->middleware('isLoggedIn');
+
+Route::get('/admindashboard/viewleads',[AdminController::class,'viewleads'])->name('viewleads')->middleware('isLoggedIn');
+
+Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');
+
+Route::get('/logout',[AdminController::class,'logout'])->name('logout');
 
 Route::post('uploadlead',[AdminController::class,'upload'])->name('uploadlead');
+
+Route::post('recaptcha',[CustomAuthController::class,'recaptcha'])->name('recaptcha');
 
 
 
 Route::post('adminlogin',[CustomAuthController::class,'adminLogin'])->name('adminlogin');
 
 
-Route::post('agentlogin',[CustomAuthController::class,'adminUser'])->name('agentlogin');
-
-Route::post('login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
+// Route::post('login-user',[CustomAuthController::class,'loginUser'])->name('login-user');
 
 
 

@@ -66,14 +66,13 @@ License: For each use you must have a valid license purchased only from above li
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <!--begin::Body-->
-            <div class="d-flex flex-column  order-2 order-lg-1"
-                style="background-color:white;opacity:0.85">
+            <div class="d-flex flex-column  order-2 order-lg-1" style="background-color:white;opacity:0.85">
                 <!--begin::Form-->
                 <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                     <!--begin::Wrapper-->
                     <div class="w-lg-500px p-10">
                         <!--begin::Form-->
-                        <form action="{{route('agentlogin')}}" method="post" class="form w-100 " novalidate="novalidate"
+                        <form action="{{route('recaptcha')}}" method="POST" class="form w-100 " novalidate="novalidate"
                             id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="#">
                             @csrf
                             <!--begin::Heading-->

@@ -498,30 +498,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
 
-                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
-                            @if($errors->any())
-                            @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger w-50 mx-4 ">{{$error}}</div>
-                            @endforeach
-                            @endif
-                            @csrf
-                            <div class='d-flex flex-column fs-5 px-2'>
-                                <p class="text-left fs-2 fw-bold">Lead Bulk Upload</p>
-                                <div class='d-flex flex-row'>
-                                    <p class="text-left me-2 mt-1">Upload File</p>
-                                    <input type="file" name="file" accept=".xlsx,.xls,.csv" required>
-                                </div>
-
-                                <div class="">
-
-                                    <button type='submit' class="btn btn-secondary btn-sm">Upload</button>
-                                </div>
-                            </div>
-                        </form>
-
-
                         @if(count($leads) > 0)
-                        <h3 class="ms-5 mt-7">{{count($leads)}} Leads Uploaded</h3>
 
                         <table class="table ms-5 mt-3">
                             <thead>
@@ -544,6 +521,12 @@ License: For each use you must have a valid license purchased only from above li
                             </tbody>
                         </table>
                         @endif
+
+
+
+
+
+
 
 
                     </div>

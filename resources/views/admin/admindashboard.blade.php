@@ -217,7 +217,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="/agentlogin" class="menu-link px-5">Sign Out</a>
+                                        <a href="logout" class="menu-link px-5">Sign Out</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -507,46 +507,49 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Content-->
                         <div id="kt_app_content" class="app-content flex-column-fluid">
                             <!--begin::Content container-->
-                            <div id="kt_app_content_container" class="app-container container-fluid">
-                                <!--begin::Row-->
-                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
-                                        <!--begin::Card widget 20-->
-                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
-                                            <!--begin::Header-->
-                                            <div class="card-header pt-5 justify-content-center">
-                                                <!--begin::Title-->
-                                                <div class="card-title d-flex flex-column align-items-center">
-                                                    <!--begin::Amount-->
+                            <a href="/admindashboard/viewleads">
+                                <div id="kt_app_content_container" class="app-container container-fluid"
+                                    <!--begin::Row-->
+                                    <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                                        <!--begin::Col-->
+                                        <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                            <!--begin::Card widget 20-->
+                                            <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                                <!--begin::Header-->
+                                                <div class="card-header pt-5 justify-content-center">
+                                                    <!--begin::Title-->
+                                                    <div class="card-title d-flex flex-column align-items-center">
+                                                        <!--begin::Amount-->
 
-                                                    <span
-                                                        class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Leads</span>
+                                                        <span
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Leads</span>
 
-                                                    <img src="../media/logos/users.png"
-                                                        class="mb-7 border-bottom border-3">
-                                                    @if(count($leads) > 0)
-                                                    <span
-                                                        class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
-                                                    @else
-                                                    <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
-                                                    @endif
-                                                    <!--end::Subtitle-->
+                                                        <img src="../media/logos/users.png"
+                                                            class="mb-7 border-bottom border-3">
+                                                        @if(count($leads) > 0)
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
+                                                        @else
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
+                                                        @endif
+                                                        <!--end::Subtitle-->
+                                                    </div>
+                                                    <!--end::Title-->
                                                 </div>
-                                                <!--end::Title-->
+                                                <!--end::Header-->
+                                                <!--begin::Card body-->
+
+                                                <!--end::Card body-->
                                             </div>
-                                            <!--end::Header-->
-                                            <!--begin::Card body-->
+                                            <!--end::Card widget 20-->
+                                            <!--begin::Card widget 7-->
 
-                                            <!--end::Card body-->
                                         </div>
-                                        <!--end::Card widget 20-->
-                                        <!--begin::Card widget 7-->
-
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <!--end::Content-->
                     </div>

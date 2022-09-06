@@ -68,8 +68,7 @@ License: For each use you must have a valid license purchased only from above li
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <!--begin::Body-->
-            <div class="d-flex flex-column  order-2 order-lg-1"
-                style="background-color:white;opacity:0.85">
+            <div class="d-flex flex-column  order-2 order-lg-1" style="background-color:white;opacity:0.85">
                 <!--begin::Form-->
                 <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                     <!--begin::Wrapper-->
@@ -144,7 +143,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <a href="adminlogin" style="font-size:15px;text-align: left">
                                     <p>Admin Login..?</p>
                                 </a>
-                           
+
                             </div>
                             <!--end::Submit button-->
                             <!--begin::Sign up-->
