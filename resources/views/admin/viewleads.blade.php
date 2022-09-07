@@ -512,12 +512,12 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 
 
-                                    <!-- <select name="details" id="" class="form-control input-sm">
+                                    <select name="details" id="" class="form-control input-sm">
                                         @foreach ($leads as $lead )
                                         <option value="{{$lead->name}}">{{$lead->name}}</option>
 
                                         @endforeach
-                                    </select> -->
+                                    </select>
 
 
                                 </div>
@@ -540,7 +540,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th scope="col">Name</th>
                                     <th scope="col">Phonenumber</th>
                                     <th scope="col">Email</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -550,7 +550,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                     <td>{{$lead->email}}</td>
-                                    
+
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -558,7 +558,11 @@ License: For each use you must have a valid license purchased only from above li
                         @endif
 
 
-
+                        <!-- <script>
+                             console.log('hello');
+                            var jobs = @json($leads);
+                             console.log(jobs)
+                        </script> -->
 
 
 
@@ -593,7 +597,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Javascript-->
     <script>
     var hostUrl = "../";
-    </script>
+    </>
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
@@ -623,7 +627,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="../js/custom/utilities/modals/users-search.js"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
-</body>
+    </body>
 <!--end::Body-->
 
 </html>

@@ -22,9 +22,14 @@ class AdminController extends Controller
        
       
        $leads = DB::table('leads')->get();
-            return view('admin.viewleads', [
-                'leads' => $leads,
-            ]);
+       if($leads){  
+
+        return view('admin.viewleads', [
+            'leads' => $leads,
+        ]);
+
+       }
+           
        
     }
 
@@ -76,10 +81,12 @@ class AdminController extends Controller
         if(Session::has('loginId')){
 
          $leads = DB::table('leads')->get();
+
+         return view('admin.admindashboard', [
+                'leads' => $leads,
+            ]);
         }
-        return view('admin.admindashboard', [
-            'leads' => $leads,
-        ]);
+       
 
        
    }

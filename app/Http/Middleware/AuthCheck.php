@@ -22,15 +22,15 @@ class AuthCheck
         $userId = $request->session()->get('loginId');
 
         $user = User::where('id','=', $userId)->first();
+            if(Session::has('loginId') && $user->verified == 0){
+                Session::forget('loginId');
+                return redirect('/')->with('fail','You have to log in first.');
+            }
 
-        if(Session::has('loginId') && $user->verified == 0){
-            Session::forget('loginId');
-            return redirect('/')->with('fail','You have to log in first.');
-        }
+            else if(!Session::has('loginId')) {
+                return redirect('/')->with('fail','You have to log in first.');
+            }
 
-        else if(!Session::has('loginId')) {
-            return redirect('/')->with('fail','You have to log in first.');
-        }
 
         return $next($request);
     }

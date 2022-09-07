@@ -23,14 +23,7 @@ class AlreadyLoggedIn
         $user = User::where('id','=', $userId)->first();
 
         if($user){
-            if(Session::has('loginId') && $user->verified==true && (url('adminlogin') == $request->url()) ){
-                return back();
-            }
-    
-            else if(Session::has('loginId') && $user->verified==true && (url('/') == $request->url())){
-                return back();
-            }
-            else if(Session::has('loginId') && (url('/email') == $request->url()) && $user->verified==true){
+            if(Session::has('loginId') && $user->verified==true ){
                 return back();
             }
         }
