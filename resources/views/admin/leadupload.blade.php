@@ -459,7 +459,16 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
-
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="../agentregister">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Agent Registration</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
                                             <a class="menu-link" href="#">
@@ -545,8 +554,9 @@ License: For each use you must have a valid license purchased only from above li
                                 <tr>
                                     <th scope="col">Batchid</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">Phonenumber</th>
+                                    <th scope="col">Email</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -554,8 +564,9 @@ License: For each use you must have a valid license purchased only from above li
                                 <tr>
                                     <td>{{$lead->batchid}}</td>
                                     <td>{{$lead->name}}</td>
-                                    <td>{{$lead->email}}</td>
                                     <td>{{$lead->phonenumber}}</td>
+                                    <td>{{$lead->email}}</td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>
