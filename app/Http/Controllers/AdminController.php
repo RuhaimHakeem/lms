@@ -12,17 +12,37 @@ use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class AdminController extends Controller
 {
 
     public function viewleads() {
-
-        $leads = DB::table('leads')->get();
+  
        
-        return view('admin.viewleads', [
-            'leads' => $leads,
-        ]);
+      
+       $leads = DB::table('leads')->get();
+            return view('admin.viewleads', [
+                'leads' => $leads,
+            ]);
+       
     }
+
+    // public function search(Request $request)
+    // {
+    //     $value = $request->get('details');
+    //     if($value == "All") {
+    //         $leads = DB::table('leads')->get();
+    //         return redirect()->to('/admindashboard/viewleads');
+    //     }
+    //     else {
+    //         $leads = DB::table('leads')->where('name', $value)->get();
+    //         if($leads){
+    //             return redirect()->to('/admindashboard/viewleads');
+    //         }
+    //     }
+
+    // }
  
     public function leadupload(){
 

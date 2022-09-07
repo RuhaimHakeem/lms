@@ -106,17 +106,18 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center "style="color:white">
-                        <div id="clock"></div>
-                        <script>
-                        let clock = document.getElementById("clock");
+                        <div class="d-flex flex-column justify-content-center " style="color:white">
+                            <div id="clock"></div>
+                            <script>
+                            let clock = document.getElementById("clock");
 
-                        //Set Time 
-                        setInterval(function() {
-                            let date = new Date();
-                            clock.innerHTML = date.toLocaleString(); //Method
-                        }, 1000);
-                        </script></div>
+                            //Set Time 
+                            setInterval(function() {
+                                let date = new Date();
+                                clock.innerHTML = date.toLocaleString(); //Method
+                            }, 1000);
+                            </script>
+                        </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
                             data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
@@ -173,8 +174,8 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img src="../media/logos/profile.png"
-                                            alt="user" />
+                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                            src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
                                 <!--begin::User account menu-->
@@ -229,7 +230,12 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="logout" class="menu-link px-5">Sign Out</a>
+                                        <form action="logout" method="POST">
+                                            @csrf
+                                            <button type="submit" href="logout"
+                                                class="menu-link px-5 mx-4 btn btn-light">Sign
+                                                Out</button>
+                                        </form>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -363,7 +369,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class='menu-link' href="/admindashboard/viewleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>

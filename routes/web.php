@@ -15,35 +15,26 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('authentications.index');
-});
-
-
-
-Route::get('/email', function () {
-    return view('authentications.email');
-});
-
- 
-
-
 // Route::get('/agentlogin', function (){
 //     return view("agentlogin");
 // });
+Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware('alreadyLoggedIn','verifyUser');
 
+Route::get('/email',[CustomAuthController::class,'email'])->name('email')->middleware('alreadyLoggedIn');
 
-Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
+Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn','verifyUser');
 
-Route::get('/agentregister',[AdminController::class,'agentregister'])->name('agentregister')->middleware('isLoggedIn');
+Route::get('/agentregister',[CustomAuthController::class,'agentregister'])->name('agentregister')->middleware('isLoggedIn');
 
 Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('admindashboard')->middleware('isLoggedIn');
 
 Route::get('/admindashboard/viewleads',[AdminController::class,'viewleads'])->name('viewleads')->middleware('isLoggedIn');
 
+Route::post('search', [AdminController::class,'search'])->name('search');
+
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');
 
-Route::get('/logout',[AdminController::class,'logout'])->name('logout');
+Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
 Route::post('uploadlead',[AdminController::class,'upload'])->name('uploadlead');
 

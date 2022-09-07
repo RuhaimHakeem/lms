@@ -19,8 +19,8 @@ class CreateLeadsTable extends Migration
             $table->id();
             $table->string('batchid');
             $table->string('name');
-            $table->string('email');
             $table->string('phonenumber');
+            $table->string('email');
             $table->timestamps();
         });
     }

@@ -27,6 +27,14 @@ class CustomAuthController extends Controller
         return view('authentications.agentregister');
     } 
 
+    public function email () {
+        return view('authentications.email');
+    }
+
+    public function index () {
+        return view('authentications.index');
+    }
+
 
  
 
@@ -70,7 +78,10 @@ class CustomAuthController extends Controller
                 $user->verification_code = $pin;
                 $user->save();
 
-                Mail::to($user->email)->send(new OtpMail($pin));
+               $res = Mail::to($user->email)->send(new OtpMail($pin));
+               if(!$res){     
+                    return back()->with('fail','Failed. Please try again');
+               }
 
                 return redirect('email');
 
@@ -119,7 +130,7 @@ class CustomAuthController extends Controller
             }  
         }
         else {
-            return redirect('adminlogin')->with('fail','You have been logged out automatically. Please try again');
+            return redirect('adminlogin')->with('fail','You have been logged out. Please try again');
         }
            
            
@@ -131,14 +142,14 @@ class CustomAuthController extends Controller
     {
         $token = $request->input('g-recaptcha-response');
     
-    if(strlen($token) > 0 ){
-        return view('authentications.adminlogin');
-     }
-    else{
-        
-    $request->validate([
-        'g-recaptcha-response' => 'required|captcha'
-    ]);
+        if(strlen($token) > 0 ){
+            return redirect('adminlogin');
+        }
+        else{
+            
+        $request->validate([
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
                 
         }
        
@@ -173,6 +184,7 @@ class CustomAuthController extends Controller
             }    
         }
         else {
+         
             return back()->with('fail','This username is not valid');
         }
         

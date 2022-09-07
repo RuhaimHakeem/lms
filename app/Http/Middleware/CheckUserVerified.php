@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Models\User;
 
-class AlreadyLoggedIn
+class CheckUserVerified
 {
     /**
      * Handle an incoming request.
@@ -18,23 +18,19 @@ class AlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-
         $userId = Session::get('loginId');;
         $user = User::where('id','=', $userId)->first();
-
         if($user){
-            if(Session::has('loginId') && $user->verified==true && (url('adminlogin') == $request->url()) ){
-                return back();
+            if(Session::has('loginId') && $user->verified == false || $user->verified == null  && (url('/') == $request->url())){
+                Session::forget('loginId');
+                return redirect('/')->with('fail','You have to log in first.');
             }
     
-            else if(Session::has('loginId') && $user->verified==true && (url('/') == $request->url())){
-                return back();
-            }
-            else if(Session::has('loginId') && (url('/email') == $request->url()) && $user->verified==true){
-                return back();
+            if(Session::has('loginId') && $user->verified == false || $user->verified == null && (url('/adminlogin') == $request->url())){
+                Session::forget('loginId');
+                return redirect('/adminlogin')->with('fail','You have to log in first.'); 
             }
         }
-        
         
 
         return $next($request);

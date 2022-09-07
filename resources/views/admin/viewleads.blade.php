@@ -16,6 +16,9 @@ License: For each use you must have a valid license purchased only from above li
 <head>
     <base href="">
     <title>EDGE</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -106,17 +109,18 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center "style="color:white">
-                        <div id="clock"></div>
-                        <script>
-                        let clock = document.getElementById("clock");
+                        <div class="d-flex flex-column justify-content-center " style="color:white">
+                            <div id="clock"></div>
+                            <script>
+                            let clock = document.getElementById("clock");
 
-                        //Set Time 
-                        setInterval(function() {
-                            let date = new Date();
-                            clock.innerHTML = date.toLocaleString(); //Method
-                        }, 1000);
-                        </script></div>
+                            //Set Time 
+                            setInterval(function() {
+                                let date = new Date();
+                                clock.innerHTML = date.toLocaleString(); //Method
+                            }, 1000);
+                            </script>
+                        </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
                             data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
@@ -173,8 +177,8 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img src="../media/logos/profile.png"
-                                            alt="user" />
+                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                            src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
                                 <!--begin::User account menu-->
@@ -229,7 +233,12 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="logout" class="menu-link px-5">Sign Out</a>
+                                        <form action="logout" method="POST">
+                                            @csrf
+                                            <button type="submit" href="logout"
+                                                class="menu-link px-5 mx-4 btn btn-light">Sign
+                                                Out</button>
+                                        </form>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -363,7 +372,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class='menu-link' href="/admindashboard/viewleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -492,12 +501,16 @@ License: For each use you must have a valid license purchased only from above li
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                    <!--begin::Title-->
 
-                                    <!--end::Title-->
-                                    <!--begin::Breadcrumb-->
 
-                                    <!--end::Breadcrumb-->
+                                    <!-- <select name="details" id="" class="form-control input-sm">
+                                        @foreach ($leads as $lead )
+                                        <option value="{{$lead->name}}">{{$lead->name}}</option>
+
+                                        @endforeach
+                                    </select> -->
+
+
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->

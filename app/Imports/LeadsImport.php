@@ -23,18 +23,11 @@ class LeadsImport implements ToCollection, WithHeadingRow, WithValidation
      
             foreach($rows as $row){
 
-                    //  $lead = new Lead();
-                    //  $lead->batchid = $unique_code; 
-                    //  $lead->name = $value[0];
-                    //  $lead->email = $value[1];
-                    //  $lead->phonenumber = $value[2];
-                    //  $res = $lead->save();
-
                      $data=[
                         'batchid'=> $unique_code,
                         'name'=>$row['name'],
-                        'email'=>$row['email'],
-                        'phonenumber'=>$row['phonenumber'],   
+                        'phonenumber'=>$row['phonenumber'],
+                        'email'=>$row['email'],   
                     ];
                    $res = Lead::create($data);
            }          
@@ -49,8 +42,8 @@ class LeadsImport implements ToCollection, WithHeadingRow, WithValidation
         
         return[
             'name'=>'required',
-            'email'=>'required|unique:leads,email',
             'phonenumber'=>'required',
+            'email'=>'required',
         ];
     }
 }
