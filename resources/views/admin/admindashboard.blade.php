@@ -99,12 +99,24 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
+                            
                         </a>
                     </div>
                     <!--end::Mobile logo-->
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
+                        <div class="d-flex flex-column justify-content-center "style="color:white">
+                        <div id="clock"></div>
+                        <script>
+                        let clock = document.getElementById("clock");
+
+                        //Set Time 
+                        setInterval(function() {
+                            let date = new Date();
+                            clock.innerHTML = date.toLocaleString(); //Method
+                        }, 1000);
+                        </script></div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
                             data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"
@@ -161,7 +173,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white">ADMIN PANEL</h3><img src="../media/logos/profile.png"
+                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img src="../media/logos/profile.png"
                                             alt="user" />
                                     </div>
                                 </div>

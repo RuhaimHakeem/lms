@@ -72,7 +72,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Wrapper-->
                     <div class="w-lg-500px p-10">
                         <!--begin::Form-->
-                        <form action="{{route('recaptcha')}}" method="POST" class="form w-100 " novalidate="novalidate"
+                        <form action="{{route('recaptcha')}}" method="post" class="form w-100 " novalidate="novalidate"
                             id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="#">
                             @csrf
                             <!--begin::Heading-->

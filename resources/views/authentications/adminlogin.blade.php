@@ -72,7 +72,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Wrapper-->
                     <div class="w-lg-500px p-10">
                         <!--begin::Form-->
-                        <form class="form w-100" action="{{route('adminlogin')}}" method="POST">
+                        <form class="form w-100" action="{{route('adminlogin')}}" method="post">
                             @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                             @endif
@@ -87,6 +87,16 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Title-->
                                 <h1 class="text-dark fw-bolder mb-3" style="font-size:40px">EDGE</h1>
                                 <h2 style="font-size:20px">Admin Login</h2>
+                                <div id="clock"></div>
+                            <script>
+                            let clock = document.getElementById("clock");
+
+                            //Set Time 
+                            setInterval(function() {
+                                let date = new Date();
+                                clock.innerHTML = date.toLocaleString(); //Method
+                            }, 1000);
+                            </script>
                                 <!--end::Title-->
                                 <!--begin::Subtitle-->
 
@@ -141,16 +151,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <p>Agent Login..?</p>
                             </a> -->
                             <!--Timer Start-->
-                            <div id="clock"></div>
-                            <script>
-                            let clock = document.getElementById("clock");
-
-                            //Set Time 
-                            setInterval(function() {
-                                let date = new Date();
-                                clock.innerHTML = date.toLocaleString(); //Method
-                            }, 1000);
-                            </script>
+                          
 
 
                             <!--Timer End-->

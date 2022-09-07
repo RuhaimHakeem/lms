@@ -87,6 +87,16 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Title-->
                                 <h1 class="text-dark fw-bolder mb-3" style="font-size:40px">EDGE</h1>
                                 <h2 style="font-size:20px">Agent Registration </h2>
+                                <div id="clock"></div>
+                        <script>
+                        let clock = document.getElementById("clock");
+
+                        //Set Time 
+                        setInterval(function() {
+                            let date = new Date();
+                            clock.innerHTML = date.toLocaleString(); //Method
+                        }, 1000);
+                        </script>
                                 <!--end::Title-->
                                 <!--begin::Subtitle-->
 
