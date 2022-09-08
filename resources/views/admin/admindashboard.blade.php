@@ -535,7 +535,7 @@ License: For each use you must have a valid license purchased only from above li
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
                                             <!--begin::Header-->
                                             <a href="/admindashboard/viewleads">
-                                                <div class="card-header pt-5 justify-content-center">
+                                                <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
                                                         <!--begin::Amount-->

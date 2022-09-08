@@ -357,7 +357,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard">
+                                            <a class="menu-link" href="admindashboard">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -534,20 +534,20 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
                                             <!--begin::Header-->
-                                            <a href="/admindashboard/viewagents">
-                                                <div class=" pt-5 justify-content-center">
+                                            <a href="/admindashboard/viewleads">
+                                                <div class="card-header pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
                                                         <!--begin::Amount-->
 
                                                         <span
-                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Agents</span>
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Leads</span>
 
                                                         <img src="../media/logos/users.png"
                                                             class="mb-7 border-bottom border-3">
-                                                        @if(count($agents) > 0)
+                                                        @if(count($leads) > 0)
                                                         <span
-                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($agents)}}</span>
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
                                                         @else
                                                         <span
                                                             class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
