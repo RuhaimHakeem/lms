@@ -18,11 +18,11 @@ use App\Http\Controllers\AdminController;
 // Route::get('/agentlogin', function (){
 //     return view("agentlogin");
 // });
-Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware('alreadyLoggedIn','verifyUser');
+Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware('alreadyLoggedIn');
 
-Route::get('/email',[CustomAuthController::class,'email'])->name('email')->middleware('alreadyLoggedIn');
+Route::get('/email',[CustomAuthController::class,'email'])->name('email');
 
-Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn','verifyUser');
+Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
 
 Route::get('/agentregister',[CustomAuthController::class,'agentregister'])->name('agentregister')->middleware('isLoggedIn');
 

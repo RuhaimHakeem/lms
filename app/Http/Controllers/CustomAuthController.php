@@ -79,11 +79,6 @@ class CustomAuthController extends Controller
                 $user->save();
 
                $res = Mail::to($user->email)->send(new OtpMail($pin));
-               if(!$res){     
-                    return back()->with('fail','Failed. Please try again');
-               }
-
-                return redirect('email');
 
             }
 
@@ -91,7 +86,6 @@ class CustomAuthController extends Controller
                     return back()->with('fail','Password not matches.');
                 }
             }
-
         
         else{
             return back()->with('fail','This username is not valid');
@@ -111,7 +105,7 @@ class CustomAuthController extends Controller
         $user = User::where('id','=', $userId)->first();
 
         if($user){
-            if($user->verification_code == $request->number && $user->verified == false){
+            if($user->verification_code == $request->number){
 
                 $user->verification_code = null;
                 $user->verified = true;

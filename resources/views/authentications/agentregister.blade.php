@@ -525,85 +525,86 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Content-->
                         <div id="kt_app_content" class="app-content flex-column-fluid col-3">
                             <!--begin::Content container-->
-                        
+
 
                             <form class="form w-100 px-5 " action="{{route('register-user')}}" method="post">
-@if(Session::has('success'))
-<div class="alert alert-success">{{Session::get('success')}}</div>
-@endif
-@if(Session::has('fail'))
-<div class="alert alert-danger">{{Session::get('fail')}}</div>
-@endif
-@csrf
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('fail'))
+                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                @endif
+                                @csrf
 
-<div class="mb-10">
-   
-    <h2 style="font-size:20px">Agent Registration </h2>
-  
+                                <div class="mb-10">
 
-    <!--end::Title-->
-    <!--begin::Subtitle-->
+                                    <h2 style="font-size:20px">Agent Registration </h2>
 
-    <!--end::Subtitle=-->
-</div>
-<!--begin::Heading-->
-<!--begin::Login options-->
 
-<!--end::Login options-->
-<!--begin::Separator-->
+                                    <!--end::Title-->
+                                    <!--begin::Subtitle-->
 
-<!--end::Separator-->
-<!--begin::Input group=-->
-<div class="fv-row mb-8">
-    <!--begin::User-->
-    <input type="text" placeholder="User Name" name="name" autocomplete="off"
-        class="form-control bg-transparent" value={{old('name')}}>
-    <span class="text-danger">@error('name') {{$message}} @enderror</span>
-    <!--end::User-->
-</div>
+                                    <!--end::Subtitle=-->
+                                </div>
+                                <!--begin::Heading-->
+                                <!--begin::Login options-->
 
-<div class="fv-row mb-8">
-    <!--begin::Email-->
-    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
-        class="form-control bg-transparent" value={{old('email')}}>
-    <span class="text-danger">@error('email') {{$message}} @enderror</span>
-    <!--end::Email-->
-</div>
+                                <!--end::Login options-->
+                                <!--begin::Separator-->
 
-<!--end::Input group=-->
-<div class="fv-row mb-3">
-    <!--begin::Password-->
-    <input type="password" placeholder="Password" name="password" autocomplete="off"
-        class="form-control bg-transparent">
-    <span class="text-danger">@error('password') {{$message}} @enderror</span>
-    <!--end::Password-->
-</div>
-<!--end::Input group=-->
-<!--begin::Wrapper-->
-<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-    <div></div>
-    <!--begin::Link-->
+                                <!--end::Separator-->
+                                <!--begin::Input group=-->
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="User Name" name="name" autocomplete="off"
+                                        class="form-control bg-transparent" value={{old('name')}}>
+                                    <span class="text-danger">@error('name') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
 
-    <!--end::Link-->
-</div>
-<!--end::Wrapper-->
-<!--begin::Submit button-->
-<div class="d-flex mb-10">
-    <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-        <!--begin::Indicator label-->
-        <span class="indicator-label">Register Agent</span>
-        <!--end::Indicator label-->
-        <!--begin::Indicator progress-->
-        <span class="indicator-progress">Please wait...
-            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-        <!--end::Indicator progress-->
-    </button>
-   
-</div>
-<!--end::Submit button-->
-<!--begin::Sign up-->
+                                <div class="fv-row mb-8">
+                                    <!--begin::Email-->
+                                    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
+                                        class="form-control bg-transparent" value={{old('email')}}>
+                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <!--end::Email-->
+                                </div>
 
-</form>
+                                <!--end::Input group=-->
+                                <div class="fv-row mb-3">
+                                    <!--begin::Password-->
+                                    <input type="password" placeholder="Password" name="password" autocomplete="off"
+                                        class="form-control bg-transparent">
+                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                    <!--end::Password-->
+                                </div>
+                                <!--end::Input group=-->
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                                    <div></div>
+                                    <!--begin::Link-->
+
+                                    <!--end::Link-->
+                                </div>
+                                <!--end::Wrapper-->
+                                <!--begin::Submit button-->
+                                <div class="d-flex mb-10">
+                                    <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+                                        <!--begin::Indicator label-->
+                                        <span class="indicator-label">Register Agent</span>
+                                        <!--end::Indicator label-->
+                                        <!--begin::Indicator progress-->
+                                        <span class="indicator-progress">Please wait...
+                                            <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                        <!--end::Indicator progress-->
+                                    </button>
+
+                                </div>
+                                <!--end::Submit button-->
+                                <!--begin::Sign up-->
+
+                            </form>
                         </div>
                         <!--end::Content-->
                     </div>

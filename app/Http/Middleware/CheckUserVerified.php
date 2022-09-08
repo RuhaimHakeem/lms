@@ -18,19 +18,14 @@ class CheckUserVerified
      */
     public function handle(Request $request, Closure $next)
     {
-        $userId = Session::get('loginId');;
-        $user = User::where('id','=', $userId)->first();
-        if($user){
-            if(Session::has('loginId') && $user->verified == 0 && (url('/') == $request->url())){
-                Session::forget('loginId');
-                return redirect('/')->with('fail','You have to log in first.');
-            }
-        
-            if(Session::has('loginId') && $user->verified == 0 && (url('/adminlogin') == $request->url())){
-               Session::forget('loginId');
-               return redirect('/')->with('fail','You have to log in first.');
-            }
-        }
+        // $userId = Session::get('loginId');;
+        // $user = User::where('id','=', $userId)->first();
+        // if($user){
+        //     if(Session::has('loginId') && $user->verified == 0){
+        //         Session::forget('loginId');
+        //         return redirect('/')->with('fail','You have to log in first.');
+        //     }
+        // }
         
 
         return $next($request);

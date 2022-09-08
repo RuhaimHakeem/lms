@@ -513,8 +513,9 @@ License: For each use you must have a valid license purchased only from above li
 
 
                                     <select name="details" id="" class="form-control input-sm">
+                                        
                                         @foreach ($leads as $lead )
-                                        <option value="{{$lead->name}}">{{$lead->name}}</option>
+                                        <option value="{{$lead->name}}" id="{{$lead->id}}"></option>
 
                                         @endforeach
                                     </select>
@@ -559,9 +560,31 @@ License: For each use you must have a valid license purchased only from above li
 
 
                         <!-- <script>
-                             console.log('hello');
+                            
                             var jobs = @json($leads);
-                             console.log(jobs)
+                            let uniqueId = []
+
+
+
+                            jobs.map((job) => {
+                                
+                                if(uniqueId.includes(job.batchid)) {
+
+                                }
+                                else {
+                                    uniqueId.push(job.batchid)
+                                }
+
+                                //  var element = document.getElementById(job.id)
+                                // element.value = job.batchid;
+                                // element.innerHTML = job.batchid;
+                            })
+
+                            uniqueId.map((batchid) => {
+                                var element = document.getElementById(job.id)
+                                element.value = batchid;
+                                element.innerHTML = batchid;
+                            })
                         </script> -->
 
 

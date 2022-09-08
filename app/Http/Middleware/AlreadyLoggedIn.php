@@ -22,9 +22,12 @@ class AlreadyLoggedIn
         $userId = Session::get('loginId');;
         $user = User::where('id','=', $userId)->first();
 
-        if($user){
-            if(Session::has('loginId') && $user->verified==true ){
+        if($userId){
+            if($user->verified==true ){
                 return back();
+            }
+            else {
+                Session::forget('loginId');
             }
         }
         

@@ -22,12 +22,16 @@ class AuthCheck
         $userId = $request->session()->get('loginId');
 
         $user = User::where('id','=', $userId)->first();
-            if(Session::has('loginId') && $user->verified == 0){
+
+        if($userId){
+            if($user->verified == 0){
                 Session::forget('loginId');
                 return redirect('/')->with('fail','You have to log in first.');
             }
+        }
+           
 
-            else if(!Session::has('loginId')) {
+        else {
                 return redirect('/')->with('fail','You have to log in first.');
             }
 
