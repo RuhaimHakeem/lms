@@ -494,7 +494,14 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-
+                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                    style="color:gray;font-size:10px">
+                    <div class="d-flex px-2">
+                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                    </div>
+                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->

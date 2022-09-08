@@ -233,7 +233,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <form action="logout" method="POST">
+                                        <form action="../logout" method="POST">
                                             @csrf
                                             <button type="submit" href="logout"
                                                 class="menu-link px-5 mx-4 btn btn-light">Sign
