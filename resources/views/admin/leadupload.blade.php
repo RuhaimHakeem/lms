@@ -531,7 +531,7 @@ License: For each use you must have a valid license purchased only from above li
                             @endforeach
                             @endif
                             @csrf
-                            <div class='d-flex flex-column fs-5 px-2'>
+                            <div class='d-flex flex-column fs-5 px-5'>
                                 <p class="text-left fs-2 fw-bold">Lead Bulk Upload</p>
                                 <div class='d-flex flex-row'>
                                     <p class="text-left me-2 mt-1">Upload File</p>
@@ -540,7 +540,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="">
 
-                                    <button type='submit' class="btn btn-secondary btn-sm">Upload</button>
+                                    <button type='submit' class="btn btn-primary">Upload</button>
                                 </div>
                             </div>
                         </form>
