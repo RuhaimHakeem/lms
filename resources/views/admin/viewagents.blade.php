@@ -524,9 +524,9 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <a href="../agentregister">
+                     
 <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10" style="margin-left:2rem">
-<img width="20px" src="../media/logos/icons8-add-user-24.png"/>
+   <a href="../agentregister"><img width="20px" src="../media/logos/icons8-add-user-24.png"/></a>
 
                         </div>
                         <table class="table ms-5 mt-3">

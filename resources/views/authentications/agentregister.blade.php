@@ -585,9 +585,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <span class="text-danger">@error('lastname') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
-                                <div class="fv-row mb-8">
-
-                                    <input class="form-control bg-transparent" type="date" id="dob" name="dob">
+                                
+                                <div class="d-flex fv-row mb-8">
+                                <label class="me-6 form-control bg-transparent " for="">DOB</label>
+                                    <input class="form-control bg-transparent " type="date" id="dob" name="dob" >
                                 </div>
 
                                 <script>
