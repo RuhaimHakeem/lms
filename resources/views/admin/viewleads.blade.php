@@ -532,7 +532,11 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
 
+                        <a href="leadupload">
+<div class="d-flex justify-content-end " style="padding-right:12rem">
+<img width="20px" src="../media/logos/icons8-add-user-24.png"/>
 
+                        </div></a>
 
                         <table class="table ms-5 mt-3">
                             <thead>

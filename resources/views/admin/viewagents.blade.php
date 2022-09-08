@@ -524,15 +524,20 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
+<a href="../agentregister">
+<div class="d-flex justify-content-end " style="padding-right:12rem">
+<img width="20px" src="../media/logos/icons8-add-user-24.png"/>
 
-
-
+                        </div></a>
                         <table class="table ms-5 mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">DOB</th>
                                     <th scope="col">Email</th>
 
                                 </tr>
@@ -544,6 +549,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->id}}</td>
                                     <td>{{$agent->first_name}}</td>
                                     <td>{{$agent->last_name}}</td>
+                                    <td>{{$agent->phonenumber}}</td>
+                                    <td>{{$agent->gender}}</td>
+                                    <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
 
                                 </tr>
