@@ -626,10 +626,9 @@ License: For each use you must have a valid license purchased only from above li
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "../"; <
-    /> <!--begin::Global Javascript Bundle(used by all pages) -- > <
-    script src = "../plugins/global/plugins.bundle.js" >
+    var hostUrl = "../";
     </script>
+   <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->

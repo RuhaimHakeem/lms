@@ -524,11 +524,11 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-<a href="../agentregister">
+                        <a href="../agentregister">
 <div class="d-flex justify-content-end " style="padding-right:12rem">
 <img width="20px" src="../media/logos/icons8-add-user-24.png"/>
 
-                        </div></a>
+                        </div>
                         <table class="table ms-5 mt-3">
                             <thead>
                                 <tr>
@@ -594,11 +594,10 @@ License: For each use you must have a valid license purchased only from above li
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "../"; <
-    /> <!--begin::Global Javascript Bundle(used by all pages) -- > <
-    script src = "../plugins/global/plugins.bundle.js" >
+    var hostUrl = "../";
     </script>
-    <script src="../js/scripts.bundle.js"></script>
+   <script src="../plugins/global/plugins.bundle.js"></script>
+   <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->
     <script src="../plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
