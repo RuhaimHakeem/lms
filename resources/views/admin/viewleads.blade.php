@@ -227,7 +227,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5 my-1">
-                                        <a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account
+                                        <a href="#" class="menu-link px-5">Account
                                             Settings</a>
                                     </div>
                                     <!--end::Menu item-->
@@ -442,7 +442,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/agentsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -454,7 +454,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -512,13 +512,13 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 
 
-                                    <select name="details" id="" class="form-control input-sm">
-                                        
+                                    <!-- <select name="details" id="" class="form-control input-sm">
+
                                         @foreach ($leads as $lead )
                                         <option value="{{$lead->name}}" id="{{$lead->id}}"></option>
 
                                         @endforeach
-                                    </select>
+                                    </select> -->
 
 
                                 </div>
@@ -532,7 +532,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
 
-                        @if(count($leads) > 0)
+
 
                         <table class="table ms-5 mt-3">
                             <thead>
@@ -544,7 +544,10 @@ License: For each use you must have a valid license purchased only from above li
 
                                 </tr>
                             </thead>
+
                             <tbody>
+                                @if(count($leads) > 0)
+
                                 @foreach($leads as $lead)
                                 <tr>
                                     <td>{{$lead->batchid}}</td>
@@ -596,7 +599,7 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer font-small pt-5"
+                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
                     style="color:gray;font-size:10px">
                     <div class="d-flex px-2">
                         <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
@@ -619,10 +622,10 @@ License: For each use you must have a valid license purchased only from above li
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "../";
-    </>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="../plugins/global/plugins.bundle.js"></script>
+    var hostUrl = "../"; <
+    /> <!--begin::Global Javascript Bundle(used by all pages) -- > <
+    script src = "../plugins/global/plugins.bundle.js" >
+    </script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->
@@ -650,7 +653,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="../js/custom/utilities/modals/users-search.js"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
-    </body>
+</body>
 <!--end::Body-->
 
 </html>

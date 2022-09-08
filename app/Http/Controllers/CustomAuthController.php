@@ -43,10 +43,21 @@ class CustomAuthController extends Controller
         $request->validate([
             'name'=>'required|unique:users',
             'password'=>'required',
-            'email' => 'required|unique:users'
+            'email' => 'required|unique:users',
+            'firstname' => 'required',
+            'lastname'=>'required',
+            'dob'=>'required',
+            'gender' => 'required',
+            'phone' => 'required',
+
         ]);
         $user = new User();
         $user->name = $request->name;
+        $user->first_name = $request->firstname;
+        $user->last_name = $request->lastname;
+        $user->dob = $request->dob;
+        $user->gender = $request->gender;
+        $user->phonenumber = $request->phone;
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
 

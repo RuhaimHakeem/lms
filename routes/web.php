@@ -30,6 +30,10 @@ Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('a
 
 Route::get('/admindashboard/viewleads',[AdminController::class,'viewleads'])->name('viewleads')->middleware('isLoggedIn');
 
+Route::get('/admindashboard/viewagents',[AdminController::class,'viewagents'])->name('viewagents')->middleware('isLoggedIn');
+
+Route::get('/admindashboard/agentsummary',[AdminController::class,'agentsummary'])->name('agentsummary')->middleware('isLoggedIn');
+
 Route::post('search', [AdminController::class,'search'])->name('search');
 
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');

@@ -16,6 +16,9 @@ License: For each use you must have a valid license purchased only from above li
 <head>
     <base href="">
     <title>EDGE</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -507,12 +510,10 @@ License: For each use you must have a valid license purchased only from above li
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                    <!--begin::Title-->
 
-                                    <!--end::Title-->
-                                    <!--begin::Breadcrumb-->
 
-                                    <!--end::Breadcrumb-->
+
+
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
@@ -524,48 +525,26 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
 
-                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
-                            @if($errors->any())
-                            @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger w-50 mx-4 ">{{$error}}</div>
-                            @endforeach
-                            @endif
-                            @csrf
-                            <div class='d-flex flex-column fs-5 px-5'>
-                                <p class="text-left fs-2 fw-bold">Lead Bulk Upload</p>
-                                <div class='d-flex flex-row'>
-                                    <p class="text-left me-2 mt-1">Upload File</p>
-                                    <input type="file" name="file" accept=".xlsx,.xls,.csv" required>
-                                </div>
 
-                                <div class="">
-
-                                    <button type='submit' class="btn btn-primary">Upload</button>
-                                </div>
-                            </div>
-                        </form>
-
-
-                        @if(count($leads) > 0)
-                        <h3 class="ms-5 mt-7">{{count($leads)}} Leads Uploaded</h3>
 
                         <table class="table ms-5 mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">Batchid</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Phonenumber</th>
+                                    <th scope="col">id</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
                                     <th scope="col">Email</th>
 
                                 </tr>
                             </thead>
+                            @if(count($agents) > 0)
                             <tbody>
-                                @foreach($leads as $lead)
+                                @foreach($agents as $agent)
                                 <tr>
-                                    <td>{{$lead->batchid}}</td>
-                                    <td>{{$lead->name}}</td>
-                                    <td>{{$lead->phonenumber}}</td>
-                                    <td>{{$lead->email}}</td>
+                                    <td>{{$agent->id}}</td>
+                                    <td>{{$agent->first_name}}</td>
+                                    <td>{{$agent->last_name}}</td>
+                                    <td>{{$agent->email}}</td>
 
                                 </tr>
                                 @endforeach
@@ -574,12 +553,17 @@ License: For each use you must have a valid license purchased only from above li
                         @endif
 
 
+
+
+
+
+
                     </div>
                     <!--end::Content-->
                 </div>
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer font-small pt-5"
+                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
                     style="color:gray;font-size:10px">
                     <div class="d-flex px-2">
                         <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
@@ -602,10 +586,10 @@ License: For each use you must have a valid license purchased only from above li
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "../";
+    var hostUrl = "../"; <
+    /> <!--begin::Global Javascript Bundle(used by all pages) -- > <
+    script src = "../plugins/global/plugins.bundle.js" >
     </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->

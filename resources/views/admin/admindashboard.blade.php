@@ -224,7 +224,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5 my-1">
-                                        <a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account
+                                        <a href="#" class="menu-link px-5">Account
                                             Settings</a>
                                     </div>
                                     <!--end::Menu item-->
@@ -439,7 +439,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/agentsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -451,7 +451,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -525,16 +525,16 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Content-->
                         <div id="kt_app_content" class="app-content flex-column-fluid">
                             <!--begin::Content container-->
-                            <a href="/admindashboard/viewleads">
-                                <div id="kt_app_content_container" class="app-container container-fluid"
-                                    <!--begin::Row-->
-                                    <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-                                        <!--begin::Col-->
-                                        <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
-                                            <!--begin::Card widget 20-->
-                                            <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
-                                                <!--begin::Header-->
+
+                            <div id="kt_app_content_container" class="app-container container-fluid" <!--begin::Row-->
+                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                                    <!--begin::Col-->
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                        <!--begin::Card widget 20-->
+                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <!--begin::Header-->
+                                            <a href="/admindashboard/viewleads">
                                                 <div class="card-header pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
@@ -560,13 +560,13 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Card body-->
 
                                                 <!--end::Card body-->
-                                            </div>
-                                            <!--end::Card widget 20-->
-                                            <!--begin::Card widget 7-->
-
                                         </div>
+                                        <!--end::Card widget 20-->
+                                        <!--begin::Card widget 7-->
+
                                     </div>
                                 </div>
+                            </div>
                             </a>
                         </div>
                         <!--end::Content-->

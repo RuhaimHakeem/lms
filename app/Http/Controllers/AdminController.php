@@ -33,6 +33,34 @@ class AdminController extends Controller
        
     }
 
+    public function viewagents() {   
+
+        $agents = DB::table('users')->where('admin', 0)->get();
+        if($agents){  
+ 
+         return view('admin.viewagents', [
+             'agents' => $agents,
+         ]);
+ 
+        }
+            
+        
+     }
+
+     public function agentsummary() {   
+
+        $agents = DB::table('users')->where('admin', 0)->get();
+        if($agents){  
+ 
+         return view('admin.agentsummary', [
+             'agents' => $agents,
+         ]);
+ 
+        }
+            
+        
+     }
+
     // public function search(Request $request)
     // {
     //     $value = $request->get('details');

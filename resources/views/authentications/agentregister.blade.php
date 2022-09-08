@@ -224,7 +224,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5 my-1">
-                                        <a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account
+                                        <a href="#" class="menu-link px-5">Account
                                             Settings</a>
                                     </div>
                                     <!--end::Menu item-->
@@ -439,7 +439,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/agentsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -451,7 +451,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -523,7 +523,8 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <div id="kt_app_content" class="app-content flex-column-fluid col-3">
+                        <div id="kt_app_content"
+                            class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <!--begin::Content container-->
 
 
@@ -562,6 +563,59 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::User-->
                                 </div>
 
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="First Name" name="firstname" autocomplete="off"
+                                        class="form-control bg-transparent" value={{old('firstname')}}>
+                                    <span class="text-danger">@error('firstname') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Last Name" name="lastname" autocomplete="off"
+                                        class="form-control bg-transparent" value={{old('lastname')}}>
+                                    <span class="text-danger">@error('lastname') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+                                <div class="fv-row mb-8">
+
+                                    <input class="form-control bg-transparent" type="date" id="dob" name="dob">
+                                </div>
+
+                                <script>
+                                function onlyOne(checkbox) {
+                                    var checkboxes = document.getElementsByName('gender')
+                                    checkboxes.forEach((item) => {
+                                        if (item !== checkbox) item.checked = false
+                                    })
+                                }
+                                </script>
+
+
+                                <div class="fv-row mb-8 d-flex align-items-center justify-content-between">
+                                    <label class="me-6 form-control bg-transparent" for="">Gender</label>
+                                    <div class="form-check pe-4">
+                                        <input type="checkbox" class="form-check-input" id="male" name="gender"
+                                            value="male" onclick="onlyOne(this)" checked>
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="female" name="gender"
+                                            value="female" onclick="onlyOne(this)">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Phone-->
+                                    <input type="text" placeholder="Phone Number" name="phone" autocomplete="off"
+                                        class="form-control bg-transparent" value={{old('phone')}}>
+                                    <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+                                    <!--end::Phone-->
+                                </div>
                                 <div class="fv-row mb-8">
                                     <!--begin::Email-->
                                     <input type="email" placeholder="Email Address" name="email" autocomplete="off"

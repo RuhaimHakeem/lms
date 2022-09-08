@@ -40,7 +40,6 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -100,6 +99,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
+
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -264,7 +264,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="/admindashboard">
+                        <a href="admindashboard">
                             <img alt="Logo" src="../media/logos/edgelogo.png" class="h-35px app-sidebar-logo-default" />
                             <img alt="Logo" src="../media/logos/edge.png" class="h-30px app-sidebar-logo-minimize" />
                         </a>
@@ -381,7 +381,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="leadupload">
+                                            <a class="menu-link" href="/admindashboard/leadupload">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -461,7 +461,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="../agentregister">
+                                            <a class="menu-link" href="agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -523,77 +523,64 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid">
+                            <!--begin::Content container-->
 
-                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
-                            @if($errors->any())
-                            @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger w-50 mx-4 ">{{$error}}</div>
-                            @endforeach
-                            @endif
-                            @csrf
-                            <div class='d-flex flex-column fs-5 px-5'>
-                                <p class="text-left fs-2 fw-bold">Lead Bulk Upload</p>
-                                <div class='d-flex flex-row'>
-                                    <p class="text-left me-2 mt-1">Upload File</p>
-                                    <input type="file" name="file" accept=".xlsx,.xls,.csv" required>
-                                </div>
+                            <div id="kt_app_content_container" class="app-container container-fluid" <!--begin::Row-->
+                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                                    <!--begin::Col-->
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                        <!--begin::Card widget 20-->
+                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <!--begin::Header-->
+                                            <a href="/admindashboard/viewagents">
+                                                <div class="card-header pt-5 justify-content-center">
+                                                    <!--begin::Title-->
+                                                    <div class="card-title d-flex flex-column align-items-center">
+                                                        <!--begin::Amount-->
 
-                                <div class="">
+                                                        <span
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">AGENTS</span>
 
-                                    <button type='submit' class="btn btn-primary">Upload</button>
+                                                        <img src="../media/logos/users.png"
+                                                            class="mb-7 border-bottom border-3">
+                                                        @if(count($agents) > 0)
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($agents)}}</span>
+                                                        @else
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
+                                                        @endif
+                                                        <!--end::Subtitle-->
+                                                    </div>
+                                                    <!--end::Title-->
+                                                </div>
+                                                <!--end::Header-->
+                                                <!--begin::Card body-->
+
+                                                <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card widget 20-->
+                                        <!--begin::Card widget 7-->
+
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-
-
-                        @if(count($leads) > 0)
-                        <h3 class="ms-5 mt-7">{{count($leads)}} Leads Uploaded</h3>
-
-                        <table class="table ms-5 mt-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Batchid</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Phonenumber</th>
-                                    <th scope="col">Email</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($leads as $lead)
-                                <tr>
-                                    <td>{{$lead->batchid}}</td>
-                                    <td>{{$lead->name}}</td>
-                                    <td>{{$lead->phonenumber}}</td>
-                                    <td>{{$lead->email}}</td>
-
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        @endif
-
-
+                            </a>
+                        </div>
+                        <!--end::Content-->
                     </div>
-                    <!--end::Content-->
+                    <!--end::Content wrapper-->
+                    <!--begin::Footer-->
+
+                    <!--end::Footer-->
                 </div>
-                <!--end::Content wrapper-->
-                <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
-                <!--end::Footer-->
+                <!--end:::Main-->
             </div>
-            <!--end:::Main-->
+            <!--end::Wrapper-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Page-->
+        <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
