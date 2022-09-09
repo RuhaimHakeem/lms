@@ -543,7 +543,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <tr>
                                     <th scope="col">Batchid</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Phonenumber</th>
+                                    <th scope="col">Phone number</th>
                                     <th scope="col">Email</th>
 
                                 </tr>
