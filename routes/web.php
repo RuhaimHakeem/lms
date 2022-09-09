@@ -20,7 +20,19 @@ use App\Http\Controllers\AdminController;
 // });
 Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware('alreadyLoggedIn');
 
-Route::get('/email',[CustomAuthController::class,'email'])->name('email');
+Route::get('/email',[CustomAuthController::class,'email'])->name('email')->middleware('alreadyLoggedIn');
+
+Route::get('/updatelead/{id}',[AdminController::class,'editlead'])->name('editlead');
+
+Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('editagent');
+
+Route::post('/updateagent/{id}',[AdminController::class,'updateagent'])->name('updateagent');
+
+Route::get('/deletelead/{id}',[AdminController::class,'deletelead'])->name('deletelead');
+
+Route::get('/deleteagent/{id}',[AdminController::class,'deleteagent'])->name('deleteagent');
+
+Route::post('/updatelead/{id}',[AdminController::class,'updatelead'])->name('updatelead');
 
 Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
 

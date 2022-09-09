@@ -16,9 +16,6 @@ License: For each use you must have a valid license purchased only from above li
 <head>
     <base href="">
     <title>EDGE</title>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -43,7 +40,6 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -103,6 +99,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
+
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -233,7 +230,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <form action="../logout" method="POST">
+                                        <form action="logout" method="POST">
                                             @csrf
                                             <button type="submit" href="logout"
                                                 class="menu-link px-5 mx-4 btn btn-light">Sign
@@ -267,7 +264,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="/admindashboard">
+                        <a href="admindashboard">
                             <img alt="Logo" src="../media/logos/edgelogo.png" class="h-35px app-sidebar-logo-default" />
                             <img alt="Logo" src="../media/logos/edge.png" class="h-30px app-sidebar-logo-minimize" />
                         </a>
@@ -360,7 +357,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard">
+                                            <a class="menu-link" href="admindashboard">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -384,7 +381,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="leadupload">
+                                            <a class="menu-link" href="/admindashboard/leadupload">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -464,7 +461,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="../agentregister">
+                                            <a class="menu-link" href="agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -497,7 +494,14 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-
+                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                        style="color:gray;font-size:10px">
+                        <div class="d-flex px-2">
+                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                    </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -510,10 +514,12 @@ License: For each use you must have a valid license purchased only from above li
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                                    <!--begin::Title-->
 
+                                    <!--end::Title-->
+                                    <!--begin::Breadcrumb-->
 
-
-
+                                    <!--end::Breadcrumb-->
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
@@ -524,79 +530,103 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
+                        <div id="kt_app_content"
+                            class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!--begin::Content container-->
 
-                        <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10"
-                            style="margin-left:2rem">
-                            <a href="../agentregister"><img width="20px"
-                                    src="../media/logos/icons8-add-user-24.png" /></a>
 
+                            <form class="form w-100 px-5 " action="/updatelead/{{$lead->id}}" method="post">
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('fail'))
+                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                @endif
+                                @csrf
+
+                                <div class="mb-10">
+
+                                    <h2 style="font-size:20px">Lead Update </h2>
+
+
+                                    <!--end::Title-->
+                                    <!--begin::Subtitle-->
+
+                                    <!--end::Subtitle=-->
+                                </div>
+                                <!--begin::Heading-->
+                                <!--begin::Login options-->
+
+                                <!--end::Login options-->
+                                <!--begin::Separator-->
+
+                                <!--end::Separator-->
+                                <!--begin::Input group=-->
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Batch Id" name="batchid" autocomplete="off"
+                                        class="form-control bg-transparent" value={{$lead->batchid}}>
+                                    <span class="text-danger">@error('batchid') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Name" name="name" autocomplete="off"
+                                        class="form-control bg-transparent" value={{$lead->name}}>
+                                    <span class="text-danger">@error('name') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Phone-->
+                                    <input type="text" placeholder="Phone Number" name="phonenumber" autocomplete="off"
+                                        class="form-control bg-transparent" value={{$lead->phonenumber}}>
+                                    <span class="text-danger">@error('phonenumber') {{$message}} @enderror</span>
+                                    <!--end::Phone-->
+                                </div>
+                                <div class="fv-row mb-8">
+                                    <!--begin::Email-->
+                                    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
+                                        class="form-control bg-transparent" value={{$lead->email}}>
+                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <!--end::Email-->
+                                </div>
+                                <!--begin::Link-->
+
+                                <!--end::Link-->
+                                <!--end::Wrapper-->
+                                <!--begin::Submit button-->
+                                <div class="d-flex mb-10">
+                                    <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+                                        <!--begin::Indicator label-->
+                                        <span class="indicator-label">Update Lead</span>
+                                        <!--end::Indicator label-->
+                                        <!--begin::Indicator progress-->
+                                        <span class="indicator-progress">Please wait...
+                                            <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                        <!--end::Indicator progress-->
+                                    </button>
+
+                                </div>
+                                <!--end::Submit button-->
+                                <!--begin::Sign up-->
+
+                            </form>
                         </div>
-
-                        @if(\Session::has('success'))
-                        <div class="alert alert-success w-25 mx-2">{{\Session::get('success')}}</div>
-                        @endif
-                        @if(\Session::has('fail'))
-                        <div class="alert alert-danger w-25 mx-2">{{\Session::get('fail')}}</div>
-                        @endif
-                        <table class="table ms-5 mt-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="width:30px">id</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Phone number</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">DOB</th>
-                                    <th scope="col" style="width:20%">Email</th>
-
-                                </tr>
-                            </thead>
-                            @if(count($agents) > 0)
-                            <tbody>
-                                @foreach($agents as $agent)
-                                <tr>
-                                    <td>{{$agent->id}}</td>
-                                    <td>{{$agent->first_name}}</td>
-                                    <td>{{$agent->last_name}}</td>
-                                    <td>{{$agent->phonenumber}}</td>
-                                    <td>{{$agent->gender}}</td>
-                                    <td>{{$agent->dob}}</td>
-                                    <td>{{$agent->email}}</td>
-                                    <td> <a href="/updateagent/{{$agent->id}}">UPDATE</a></td>
-                                    <td> <a href="/deleteagent/{{$agent->id}}">DELETE</a></td>
-
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        @endif
-
-
-
-
-
-
-
+                        <!--end::Content-->
                     </div>
-                    <!--end::Content-->
+                    <!--end::Content wrapper-->
+                    <!--begin::Footer-->
+
+                    <!--end::Footer-->
                 </div>
-                <!--end::Content wrapper-->
-                <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
-                <!--end::Footer-->
+                <!--end:::Main-->
             </div>
-            <!--end:::Main-->
+            <!--end::Wrapper-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Page-->
+        <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
@@ -607,6 +637,7 @@ License: For each use you must have a valid license purchased only from above li
     <script>
     var hostUrl = "../";
     </script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->

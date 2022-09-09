@@ -531,10 +531,16 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
+                        @if(\Session::has('success'))
+                        <div class="alert alert-success w-25 mx-2">{{\Session::get('success')}}</div>
+                        @endif
+                        @if(\Session::has('fail'))
+                        <div class="alert alert-danger w-25 mx-2">{{\Session::get('fail')}}</div>
+                        @endif
 
-                      
-<div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10" style="margin-left:2rem">
-  <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png"/></a>
+                        <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10"
+                            style="margin-left:2rem">
+                            <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png" /></a>
 
                         </div>
 
@@ -545,6 +551,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone number</th>
                                     <th scope="col">Email</th>
+                                    <th class='fw-bold' scope="col">UPDATE</th>
+                                    <th class='fw-bold' scope="col">DELETE</th>
 
                                 </tr>
                             </thead>
@@ -558,6 +566,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                     <td>{{$lead->email}}</td>
+                                    <td> <a href="/updatelead/{{$lead->id}}">UPDATE</a></td>
+                                    <td> <a href="/deletelead/{{$lead->id}}">DELETE</a></td>
+
 
                                 </tr>
                                 @endforeach
@@ -628,7 +639,7 @@ License: For each use you must have a valid license purchased only from above li
     <script>
     var hostUrl = "../";
     </script>
-   <script src="../plugins/global/plugins.bundle.js"></script>
+    <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->

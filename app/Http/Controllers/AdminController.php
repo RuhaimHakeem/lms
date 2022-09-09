@@ -61,6 +61,84 @@ class AdminController extends Controller
         
      }
 
+     public function editlead($id){
+
+       
+        $lead = Lead::where('id','=', $id)->first();
+
+        return view('admin.updatelead', [
+            'lead' => $lead,
+        ]);
+     }
+
+     public function updatelead(Request $request,$id){
+
+       
+        $res = DB::table('leads')
+        ->where('id', $id)
+        ->update(['batchid' => $request->batchid, 'name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
+
+        if($res) {
+            return redirect('/admindashboard/viewleads')->with('success','Lead updated successfully');
+        }
+        else {
+            return redirect('/admindashboard/viewleads')->with('fail','Something went wrong. Please try again');
+        }
+     }
+
+     public function deletelead($id){
+
+        $lead = Lead::findOrFail($id);
+        $res = $lead->delete();
+  
+        if($res) {
+            return redirect('/admindashboard/viewleads')->with('success','Lead deleted successfully');
+        }
+        else {
+            return redirect('/admindashboard/viewleads')->with('fail','Something went wrong. Please try again');
+        }
+     }
+
+     public function editagent($id){
+
+       
+        $agent = User::where('id','=', $id)->first();
+
+        return view('admin.updateagent', [
+            'agent' => $agent,
+        ]);
+     }
+
+     public function updateagent(Request $request,$id){
+
+       //TODO: Forget the session of the agent if email is changed
+
+        $res = DB::table('users')
+        ->where('id', $id)
+        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email, 'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
+
+        if($res) {
+            return redirect('/admindashboard/viewagents')->with('success','Agent updated successfully');
+        }
+        else {
+            return redirect('/admindashboard/viewagents')->with('fail','Something went wrong. Please try again');
+        }
+     }
+
+     public function deleteagent($id){
+
+        $agent = User::findOrFail($id);
+        $res = $agent->delete();
+  
+        if($res) {
+            return redirect('/admindashboard/viewagents')->with('success','Agent deleted successfully');
+        }
+        else {
+            return redirect('/admindashboard/viewagents')->with('fail','Something went wrong. Please try again');
+        }
+     }
+
+
     // public function search(Request $request)
     // {
     //     $value = $request->get('details');
