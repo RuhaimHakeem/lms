@@ -20,7 +20,7 @@ use App\Http\Controllers\AdminController;
 // });
 Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware('alreadyLoggedIn');
 
-Route::get('/email',[CustomAuthController::class,'email'])->name('email')->middleware('alreadyLoggedIn');
+Route::get('/email',[CustomAuthController::class,'email'])->name('email');
 
 Route::get('/updatelead/{id}',[AdminController::class,'editlead'])->name('editlead');
 

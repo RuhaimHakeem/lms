@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
@@ -562,8 +565,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->gender}}</td>
                                     <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
-                                    <td> <a href="/updateagent/{{$agent->id}}">UPDATE</a></td>
-                                    <td> <a href="/deleteagent/{{$agent->id}}">DELETE</a></td>
+        
+                                    <td> <a href="/updateagent/{{$agent->id}}"><img style="margin-right:10px" src="../media/logos/icons8-edit-14.png"/></a>
+                                     <a href="/deleteagent/{{$agent->id}}"><img style="margin-left:10px" src="../media/logos/icons8-delete-14.png"/></a></a></td>
 
                                 </tr>
                                 @endforeach

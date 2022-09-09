@@ -551,8 +551,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone number</th>
                                     <th scope="col">Email</th>
-                                    <th class='fw-bold' scope="col">UPDATE</th>
-                                    <th class='fw-bold' scope="col">DELETE</th>
+                                  
+                                    <th class='fw-bold' scope="col"></th>
 
                                 </tr>
                             </thead>
@@ -566,8 +566,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                     <td>{{$lead->email}}</td>
-                                    <td> <a href="/updatelead/{{$lead->id}}">UPDATE</a></td>
-                                    <td> <a href="/deletelead/{{$lead->id}}">DELETE</a></td>
+                                    <td> <a href="/updatelead/{{$lead->id}}"><img style="margin-right:10px" src="../media/logos/icons8-edit-14.png"/></a>
+                                     <a href="/deletelead/{{$lead->id}}"><img style="margin-left:10px" src="../media/logos/icons8-delete-14.png"/></a></a></td>
 
 
                                 </tr>
@@ -671,3 +671,5 @@ License: For each use you must have a valid license purchased only from above li
 <!--end::Body-->
 
 </html>
+
+
