@@ -106,14 +106,13 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center " style="color:white;font-size:12px">
+                        <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
                         <div id="ct"></div>
                             <script type="text/javascript"> 
 function display_c(){
 var refresh=1000; // Refresh rate in milli seconds
 mytime=setTimeout('display_ct()',refresh)
 }
-
 function display_ct() {
 var x = new Date()
 document.getElementById('ct').innerHTML = x;

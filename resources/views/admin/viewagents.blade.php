@@ -110,7 +110,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center " style="color:white;font-size:12px">
+                        <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
                             <div id="ct"></div>
                             <script type="text/javascript">
                             function display_c() {
@@ -538,8 +538,8 @@ License: For each use you must have a valid license purchased only from above li
 
                             <!--end::Subtitle=-->
                         </div>
-                        <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10"
-                            style="margin-left:2rem">
+                        <div class="d-flex justify-content-end col-11 col-sm-11  col-md-11 col-lg-11 col-xl-11 col-xxl-11"
+                           style="padding-right:1rem">
 
                             <a href="../agentregister"><img width="20px"
                                     src="../media/logos/icons8-add-user-24.png" /></a>
