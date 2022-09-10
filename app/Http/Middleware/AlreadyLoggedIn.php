@@ -22,7 +22,7 @@ class AlreadyLoggedIn
         $userId = Session::get('loginId');;
         $user = User::where('id','=', $userId)->first();
 
-        if($userId){
+        if($user){
             if($user->verified==true ){
                 return back();
             }

@@ -21,6 +21,9 @@ class CreateLeadsTable extends Migration
             $table->string('name');
             $table->string('phonenumber');
             $table->string('email');
+            $table->unsignedBigInteger('agentid')->nullable();
+            $table->string('agentname')->nullable();
+            $table->foreign('agentid')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

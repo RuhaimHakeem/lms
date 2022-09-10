@@ -20,8 +20,10 @@ class AdminController extends Controller
     public function viewleads() {
   
        
-      
+    
        $leads = DB::table('leads')->get();
+  
+
        if($leads){  
 
         return view('admin.viewleads', [
@@ -137,6 +139,54 @@ class AdminController extends Controller
             return redirect('/admindashboard/viewagents')->with('fail','Something went wrong. Please try again');
         }
      }
+
+     public function assignleads() {
+  
+       
+        $agents = DB::table('users')->where('admin', 0)->get();
+        $leads = DB::table('leads')->get();
+        if($leads && $agents){  
+ 
+         return view('admin.assignleads', [
+             'leads' => $leads,
+             'agents' => $agents,
+         ]);
+ 
+        }
+            
+        
+     }
+
+     public function leadassign(Request $request) {
+
+        $agentid = $request->agent;
+        $agent = User::where('id','=',$agentid)->first();
+  
+        $leads = $request->lead;
+        if($leads){
+            foreach($leads as $lead) {
+                $res = DB::table('leads')
+                ->where('id', $lead)
+                ->update(['agentid' => $agentid, 'agentname' => $agent->name]);       
+            }
+        }
+
+        else {
+            return back()->with('fail',"Please select leads to assign");
+        }
+        
+
+        if($res) {
+            return back()->with('success',"Agent Assigned");
+        }
+
+        else {
+            return back()->with('fail',"Something went wrong");
+        }
+
+        
+ 
+        }
 
 
     // public function search(Request $request)

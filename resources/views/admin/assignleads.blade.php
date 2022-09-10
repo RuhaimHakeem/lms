@@ -16,9 +16,6 @@ License: For each use you must have a valid license purchased only from above li
 <head>
     <base href="">
     <title>EDGE</title>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -103,6 +100,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
+
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -233,7 +231,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <form action="../logout" method="POST">
+                                        <form action="logout" method="POST">
                                             @csrf
                                             <button type="submit" href="logout"
                                                 class="menu-link px-5 mx-4 btn btn-light">Sign
@@ -267,7 +265,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="/admindashboard">
+                        <a href="admindashboard">
                             <img alt="Logo" src="../media/logos/edgelogo.png" class="h-35px app-sidebar-logo-default" />
                             <img alt="Logo" src="../media/logos/edge.png" class="h-30px app-sidebar-logo-minimize" />
                         </a>
@@ -360,7 +358,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard">
+                                            <a class="menu-link" href="admindashboard">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -384,7 +382,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="leadupload">
+                                            <a class="menu-link" href="/admindashboard/leadupload">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -464,7 +462,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="../agentregister">
+                                            <a class="menu-link" href="agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -497,7 +495,14 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-
+                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                        style="color:gray;font-size:10px">
+                        <div class="d-flex px-2">
+                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                    </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -510,17 +515,12 @@ License: For each use you must have a valid license purchased only from above li
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                                    <!--begin::Title-->
 
+                                    <!--end::Title-->
+                                    <!--begin::Breadcrumb-->
 
-                                    <!-- <select name="details" id="" class="form-control input-sm">
-
-                                        @foreach ($leads as $lead )
-                                        <option value="{{$lead->name}}" id="{{$lead->id}}"></option>
-
-                                        @endforeach
-                                    </select> -->
-
-
+                                    <!--end::Breadcrumb-->
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
@@ -531,115 +531,85 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        @if(\Session::has('success'))
-                        <div class="alert alert-success w-25 mx-2">{{\Session::get('success')}}</div>
-                        @endif
-                        @if(\Session::has('fail'))
-                        <div class="alert alert-danger w-25 mx-2">{{\Session::get('fail')}}</div>
-                        @endif
+                        <div id="kt_app_content"
+                            class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                            <!--begin::Content container-->
+                            <form class="w-100 px-5" action="/assignleads" method="post">
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('fail'))
+                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                @endif
+                                @csrf
+                                <label class="mx-5 w-25 form-control bg-transparent">Select Leads:</label>
 
-                        <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10"
-                            style="margin-left:2rem">
-                            <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png" /></a>
+
+                                <table class="table ms-5 mt-3 w-100">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width:40px"></th>
+                                            <th scope="col">Batchid</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Status</th>
+
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        @foreach ($leads as $lead )
+                                        <tr>
+
+                                            <td>
+                                                <div class="form-check pe-4">
+                                                    <input type="checkbox" class="form-check-input" name="lead[]"
+                                                        value={{$lead->id}}>
+                                                </div>
+                                            </td>
+                                            <td>{{$lead->batchid}}</td>
+                                            <td>{{$lead->name}}</td>
+                                            @if ($lead->agentid)
+                                            <td>Assigned</td>
+                                            @else
+                                            <td>Not Assigned</td>
+                                            @endif
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                <div class="mt-5 ms-5" style="width:200px;">
+
+                                    <select name="agent" class='mt-5'>
+                                        @foreach ($agents as $agent )
+
+                                        <option value="{{$agent->id}}">{{$agent->name}}</option>
+
+                                        @endforeach
+                                    </select>
+
+                                    <button class='btn btn-primary mx-3' type="submit">assign</button>
+                                </div>
+                            </form>
 
                         </div>
 
-                        <table class="table ms-5 mt-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Batchid</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Phone number</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Agent Assigned</th>
 
-                                    <th class='fw-bold' scope="col"></th>
-
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @if(count($leads) > 0)
-
-                                @foreach($leads as $lead)
-                                <tr>
-
-                                    <td>{{$lead->batchid}}</td>
-                                    <td>{{$lead->name}}</td>
-                                    <td>{{$lead->phonenumber}}</td>
-                                    <td>{{$lead->email}}</td>
-                                    @if ($lead->agentid)
-                                    <td>{{$lead->agentname}}</td>
-                                    @else
-                                    <td>Not Assigned</td>
-                                    @endif
-
-                                    <td> <a href="/updatelead/{{$lead->id}}"><img style="margin-right:10px"
-                                                src="../media/logos/icons8-edit-14.png" /></a>
-                                        <a href="/deletelead/{{$lead->id}}"><img style="margin-left:10px"
-                                                src="../media/logos/icons8-delete-14.png" /></a></a>
-                                    </td>
-
-                                </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                        @endif
-
-
-                        <!-- <script>
-                            
-                            var jobs = @json($leads);
-                            let uniqueId = []
-
-
-
-                            jobs.map((job) => {
-                                
-                                if(uniqueId.includes(job.batchid)) {
-
-                                }
-                                else {
-                                    uniqueId.push(job.batchid)
-                                }
-
-                                //  var element = document.getElementById(job.id)
-                                // element.value = job.batchid;
-                                // element.innerHTML = job.batchid;
-                            })
-
-                            uniqueId.map((batchid) => {
-                                var element = document.getElementById(job.id)
-                                element.value = batchid;
-                                element.innerHTML = batchid;
-                            })
-                        </script> -->
-
-
-
-
-
+                        <!--end::Content-->
                     </div>
-                    <!--end::Content-->
+                    <!--end::Content wrapper-->
+                    <!--begin::Footer-->
+
+                    <!--end::Footer-->
                 </div>
-                <!--end::Content wrapper-->
-                <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
-                <!--end::Footer-->
+                <!--end:::Main-->
             </div>
-            <!--end:::Main-->
+            <!--end::Wrapper-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Page-->
+        <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
@@ -650,6 +620,7 @@ License: For each use you must have a valid license purchased only from above li
     <script>
     var hostUrl = "../";
     </script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->

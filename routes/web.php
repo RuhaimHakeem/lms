@@ -22,6 +22,10 @@ Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware
 
 Route::get('/email',[CustomAuthController::class,'email'])->name('email');
 
+Route::get('/assignleads',[AdminController::class,'assignleads'])->name('assignleads');
+
+Route::post('/assignleads',[AdminController::class,'leadassign'])->name('leadassign');
+
 Route::get('/updatelead/{id}',[AdminController::class,'editlead'])->name('editlead');
 
 Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('editagent');
