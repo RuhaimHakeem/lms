@@ -46,6 +46,7 @@ Route::get('/agentregister',[CustomAuthController::class,'agentregister'])->name
 
 Route::get('/admindashboard',[AdminController::class,'admindashboard'])->name('admindashboard')->middleware('isLoggedIn');
 
+
 Route::get('/admindashboard/viewleads',[AdminController::class,'viewleads'])->name('viewleads')->middleware('isLoggedIn');
 
 Route::get('/admindashboard/viewagents',[AdminController::class,'viewagents'])->name('viewagents')->middleware('isLoggedIn');
@@ -80,4 +81,4 @@ Route::post('email/verification',[CustomAuthController::class,'emailUser'])->nam
 
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
 
-Route::get('/dashboard',[CustomAuthController::class,'dashboard']);
+//Route::get('/dashboard',[CustomAuthController::class,'dashboard']);

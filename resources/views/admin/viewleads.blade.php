@@ -55,7 +55,7 @@ License: For each use you must have a valid license purchased only from above li
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
     data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct()>
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -111,16 +111,19 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center " style="color:white">
-                            <div id="clock"></div>
-                            <script>
-                            let clock = document.getElementById("clock");
+                        <div class="d-flex flex-column justify-content-center " style="color:white;font-size:12px">
+                            <div id="ct"></div>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
 
-                            //Set Time 
-                            setInterval(function() {
-                                let date = new Date();
-                                clock.innerHTML = date.toLocaleString(); //Method
-                            }, 1000);
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
                             </script>
                         </div>
                         <!--begin::Menu wrapper-->
@@ -336,11 +339,11 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end:Menu sub-->
                                 </div>
 
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -374,7 +377,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class='menu-link' href="/admindashboard/viewleads">
+                                            <a class='menu-link active' href="/admindashboard/viewleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -398,7 +401,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="../assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -539,7 +542,16 @@ License: For each use you must have a valid license purchased only from above li
                         @if(\Session::has('fail'))
                         <div class="alert alert-danger w-25 mx-2">{{\Session::get('fail')}}</div>
                         @endif
+                        <div style="margin-left:20px" class="mb-5">
 
+                            <h2 style="font-size:20px">Lead Profiles </h2>
+
+
+                            <!--end::Title-->
+                            <!--begin::Subtitle-->
+
+                            <!--end::Subtitle=-->
+                        </div>
                         <div class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10"
                             style="margin-left:2rem">
                             <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png" /></a>
@@ -575,7 +587,6 @@ License: For each use you must have a valid license purchased only from above li
                                     @else
                                     <td>Not Assigned</td>
                                     @endif
-
                                     <td>
 
                                         <form method="GET" action="/updatelead/{{$lead->id}}">
@@ -584,7 +595,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <button type="submit"
                                                 class="btn btn-xs btn-secondary btn-flat">Update</button>
                                         </form>
-                                    </td>
+
 
                                     <td>
                                         <form method="POST" action="/deletelead/{{$lead->id}}">
