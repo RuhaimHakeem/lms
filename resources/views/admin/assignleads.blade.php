@@ -107,7 +107,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center " style="color:white">
+                        <div class="d-flex flex-column justify-content-center " style="color:white;font-size:12px">
                         <div id="ct"></div>
                             <script type="text/javascript"> 
 function display_c(){
@@ -555,14 +555,19 @@ xmlns="http://www.w3.org/2000/svg">
 
 <!--end::Subtitle=-->
 </div>
-                                <label class="mx-5 w-25 form-control bg-transparent">Select Leads:  <select name="agent" class='mt-5'>
+                                <label class="mx-5 w-25 form-control bg-transparent">Select Agents:  <select name="agent" class='mt-5'>
                                         @foreach ($agents as $agent )
 
                                         <option value="{{$agent->id}}">{{$agent->name}}</option>
 
                                         @endforeach
                                     </select></label>
+                                    <div class="mt-5 ms-5" style="width:200px;">
 
+                                  
+
+<button class='btn btn-primary ' type="submit">Assign</button>
+</div>
 
                                 <table class="table ms-5 mt-3 w-100">
                                     <thead>
@@ -571,6 +576,7 @@ xmlns="http://www.w3.org/2000/svg">
                                             <th scope="col">Batchid</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Status</th>
+                                            <th scope="col">Agents</th>
 
 
                                         </tr>
@@ -594,18 +600,13 @@ xmlns="http://www.w3.org/2000/svg">
                                             @else
                                             <td>Not Assigned</td>
                                             @endif
-
+                                            <td>{{$lead->agentname}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
 
-                                <div class="mt-5 ms-5" style="width:200px;">
-
-                                  
-
-                                    <button class='btn btn-primary mx-3' type="submit">Assign</button>
-                                </div>
+                              
                             </form>
 
                         </div>

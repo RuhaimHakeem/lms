@@ -106,7 +106,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header wrapper-->
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
-                        <div class="d-flex flex-column justify-content-center " style="color:white">
+                        <div class="d-flex flex-column justify-content-center " style="color:white;font-size:12px">
                         <div id="ct"></div>
                             <script type="text/javascript"> 
 function display_c(){
@@ -396,7 +396,7 @@ display_c();
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="/assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -534,7 +534,7 @@ display_c();
                         <!--end::Toolbar-->
                         <!--begin::Content-->
                         <div id="kt_app_content"
-                            class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            class="app-content flex-column-fluid col-10 col-sm-10  col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                             <!--begin::Content container-->
 
 

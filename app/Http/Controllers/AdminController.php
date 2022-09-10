@@ -63,6 +63,8 @@ class AdminController extends Controller
         
      }
 
+     
+
      public function editlead($id){
 
        
@@ -172,7 +174,7 @@ class AdminController extends Controller
         }
 
         else {
-            return back()->with('fail',"Please select leads to assign");
+            return back()->with('fail',"Please select agent to assign");
         }
         
 
