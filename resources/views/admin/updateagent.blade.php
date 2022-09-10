@@ -605,14 +605,16 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8 d-flex align-items-center justify-content-between">
                                     <label class="me-6 form-control bg-transparent" for="">Gender</label>
                                     <div class="form-check pe-4">
-                                        <input type="checkbox" class="form-check-input" id="male" name="gender"
-                                            value={{$agent->gender}} onclick="onlyOne(this)" checked>
+                                        <input type="checkbox" class="form-check-input" onclick="onlyOne(this)"
+                                            id="male" name="gender" value="male"
+                                            {{ ($agent->gender=="male") ? "checked" : "" }}>
                                         <label class="form-check-label" for="male">Male</label>
                                     </div>
 
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="female" name="gender"
-                                            value={{$agent->gender}} onclick="onlyOne(this)">
+                                        <input type="checkbox" class="form-check-input" onclick="onlyOne(this)"
+                                            id="female" name="gender" value="female"
+                                            {{ ($agent->gender=="female") ? "checked" : "" }}>
                                         <label class="form-check-label" for="female">Female</label>
                                     </div>
 

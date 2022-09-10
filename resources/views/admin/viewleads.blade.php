@@ -45,6 +45,8 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -574,11 +576,26 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>Not Assigned</td>
                                     @endif
 
-                                    <td> <a href="/updatelead/{{$lead->id}}"><img style="margin-right:10px"
-                                                src="../media/logos/icons8-edit-14.png" /></a>
-                                        <a href="/deletelead/{{$lead->id}}"><img style="margin-left:10px"
-                                                src="../media/logos/icons8-delete-14.png" /></a></a>
+                                    <td>
+
+                                        <form method="GET" action="/updatelead/{{$lead->id}}">
+                                            @csrf
+
+                                            <button type="submit"
+                                                class="btn btn-xs btn-secondary btn-flat">Update</button>
+                                        </form>
                                     </td>
+
+                                    <td>
+                                        <form method="POST" action="/deletelead/{{$lead->id}}">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm"
+                                                data-toggle="tooltip" title='Delete'>Delete</button>
+                                        </form>
+                                    </td>
+
+
 
                                 </tr>
                                 @endforeach
@@ -586,6 +603,32 @@ License: For each use you must have a valid license purchased only from above li
                             </tbody>
                         </table>
                         @endif
+
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        </script>
+                        <script type="text/javascript">
+                        $('.show_confirm').click(function(event) {
+                            event.preventDefault();
+                            var form = $(this).closest("form");
+                            var name = $(this).data("name");
+
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: "You won't be able to revert this!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    form.submit();
+                                }
+                            })
+
+
+                        });
+                        </script>
 
 
                         <!-- <script>

@@ -32,9 +32,11 @@ Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('edit
 
 Route::post('/updateagent/{id}',[AdminController::class,'updateagent'])->name('updateagent');
 
-Route::get('/deletelead/{id}',[AdminController::class,'deletelead'])->name('deletelead');
+Route::delete('/deletelead/{id}', [AdminController::class, 'deletelead'])->name('deletelead');
 
-Route::get('/deleteagent/{id}',[AdminController::class,'deleteagent'])->name('deleteagent');
+Route::delete('/deleteagent/{id}',[AdminController::class,'deleteagent'])->name('deleteagent');
+
+
 
 Route::post('/updatelead/{id}',[AdminController::class,'updatelead'])->name('updatelead');
 

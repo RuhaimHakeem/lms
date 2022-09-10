@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
@@ -47,6 +44,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -541,16 +539,20 @@ License: For each use you must have a valid license purchased only from above li
                         @if(\Session::has('fail'))
                         <div class="alert alert-danger w-25 mx-2">{{\Session::get('fail')}}</div>
                         @endif
-                        <table class="table ms-5 mt-3">
+                        <table class="table ms-5 mt-3" style="text-align: center">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="width:30px">id</th>
+                                    <th scope=" col" style="width:30px">id</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Phone number</th>
                                     <th scope="col">Gender</th>
                                     <th scope="col">DOB</th>
                                     <th scope="col" style="width:20%">Email</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+
+
 
                                 </tr>
                             </thead>
@@ -565,9 +567,26 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->gender}}</td>
                                     <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
-        
-                                    <td> <a href="/updateagent/{{$agent->id}}"><img style="margin-right:10px" src="../media/logos/icons8-edit-14.png"/></a>
-                                     <a href="/deleteagent/{{$agent->id}}"><img style="margin-left:10px" src="../media/logos/icons8-delete-14.png"/></a></a></td>
+
+                                    <td>
+                                        <form method="GET" action="/updateagent/{{$agent->id}}">
+                                            @csrf
+
+                                            <button type="submit"
+                                                class="btn btn-xs btn-secondary btn-flat">Update</button>
+                                        </form>
+                                    </td>
+
+                                    <td>
+                                        <form method="POST" action="/deleteagent/{{$agent->id}}">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm"
+                                                data-toggle="tooltip" title='Delete'>Delete</button>
+                                        </form>
+                                    </td>
+
+                                    </td>
 
                                 </tr>
                                 @endforeach
@@ -575,6 +594,32 @@ License: For each use you must have a valid license purchased only from above li
                         </table>
                         @endif
 
+
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        </script>
+                        <script type="text/javascript">
+                        $('.show_confirm').click(function(event) {
+                            event.preventDefault();
+                            var form = $(this).closest("form");
+                            var name = $(this).data("name");
+
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: "You won't be able to revert this!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    form.submit();
+                                }
+                            })
+
+
+                        });
+                        </script>
 
 
 

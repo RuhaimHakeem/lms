@@ -8,8 +8,7 @@ table {
     border-collapse: collapse !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 85% !important;
-    table-layout: fixed !important;
+    width: 90% !important;
 }
 
 table tr {
