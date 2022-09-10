@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
     data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct()>
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -107,16 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:white">
-                            <div id="clock"></div>
-                            <script>
-                            let clock = document.getElementById("clock");
+                        <div id="ct"></div>
+                            <script type="text/javascript"> 
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
-                            //Set Time 
-                            setInterval(function() {
-                                let date = new Date();
-                                clock.innerHTML = date.toLocaleString(); //Method
-                            }, 1000);
-                            </script>
+function display_ct() {
+var x = new Date()
+document.getElementById('ct').innerHTML = x;
+display_c();
+ }
+</script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -393,7 +396,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="../assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>

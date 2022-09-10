@@ -42,7 +42,7 @@ License: For each use you must have a valid license purchased only from above li
 <!--end::Head-->
 <!--begin::Body-->
 
-<body data-kt-name="metronic" id="kt_body" class="app-blank app-blank">
+<body data-kt-name="metronic" id="kt_body" class="app-blank app-blank" onload=display_ct()>
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -88,17 +88,19 @@ License: For each use you must have a valid license purchased only from above li
                                 <h1 class="text-dark fw-bolder mb-3" style="font-size:40px">EDGE</h1>
                                 <h2 style="font-size:20px">Email Verification</h2>
                                 <p style="font-size:13px">Check you mail for the code</p>
-                                <div id="clock"></div>
-                        <script>
-                        let clock = document.getElementById("clock");
+                                <div id="ct"></div>
+                            <script type="text/javascript"> 
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
-                        //Set Time 
-                        setInterval(function() {
-                            let date = new Date();
-                            clock.innerHTML = date.toLocaleString(); //Method
-                        }, 1000);
-                        </script>
-
+function display_ct() {
+var x = new Date()
+document.getElementById('ct').innerHTML = x;
+display_c();
+ }
+</script>
 
                             </div>
 

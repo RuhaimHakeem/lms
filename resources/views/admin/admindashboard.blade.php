@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
     data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct() >
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -107,16 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:white">
-                            <div id="clock"></div>
-                            <script>
-                            let clock = document.getElementById("clock");
+                            <div id="ct"></div>
+                            <script type="text/javascript"> 
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
-                            //Set Time 
-                            setInterval(function() {
-                                let date = new Date();
-                                clock.innerHTML = date.toLocaleString(); //Method
-                            }, 1000);
-                            </script>
+function display_ct() {
+var x = new Date()
+document.getElementById('ct').innerHTML = x;
+display_c();
+ }
+</script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -330,34 +333,37 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <!--end:Menu sub-->
                                 </div>
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+										<!--begin:Menu link-->
+										<span class="menu-link">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+												<span class="svg-icon svg-icon-2">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+xmlns="http://www.w3.org/2000/svg">
+<path
+    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+    fill="currentColor" />
+<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+    fill="currentColor" />
+</svg>
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">Leads</span>
+											<span class="menu-arrow"></span>
+										</span>
 
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                    <!--begin:Menu link-->
-                                    <span class="menu-link">
-                                        <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-                                            <span class="svg-icon svg-icon-2">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-                                                        fill="currentColor" />
-                                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
-                                                        fill="currentColor" />
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </span>
-                                        <span class="menu-title">Leads</span>
-                                        <span class="menu-arrow"></span>
-                                    </span>
+
+
+                                    
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard">
+                                            <a class="menu-link active" href="admindashboard">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -393,7 +399,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
+                                            <a class="menu-link" href="assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>

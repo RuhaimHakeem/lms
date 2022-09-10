@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
     data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct()>
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -107,16 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:white">
-                            <div id="clock"></div>
-                            <script>
-                            let clock = document.getElementById("clock");
+                        <div id="ct"></div>
+                            <script type="text/javascript"> 
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
-                            //Set Time 
-                            setInterval(function() {
-                                let date = new Date();
-                                clock.innerHTML = date.toLocaleString(); //Method
-                            }, 1000);
-                            </script>
+function display_ct() {
+var x = new Date()
+document.getElementById('ct').innerHTML = x;
+display_c();
+ }
+</script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -412,12 +415,12 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                    <!--begin:Menu link-->
-                                    <span class="menu-link">
-                                        <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-                                            <span class="svg-icon svg-icon-2">
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+										<!--begin:Menu link-->
+										<span class="menu-link">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+												<span class="svg-icon svg-icon-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -427,9 +430,9 @@ License: For each use you must have a valid license purchased only from above li
                                                         d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z"
                                                         fill="currentColor" />
                                                 </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </span>
+												</span>
+												<!--end::Svg Icon-->
+											</span>
                                         <span class="menu-title">Agents</span>
                                         <span class="menu-arrow"></span>
                                     </span>
@@ -461,7 +464,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="agentregister">
+                                            <a class="menu-link active" href="agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
