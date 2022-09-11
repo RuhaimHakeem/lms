@@ -74,29 +74,25 @@ table th {
     }
 }
 
-select {
-    margin-bottom: 1rem;
-    width: 150px;
-    padding: 5px 35px 5px 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    height: 34px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.box {
 }
 
-/* CAUTION: Internet Explorer hackery ahead */
-
-select::-ms-expand {
-    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+.box select {
+    background-color: #f0f0f0be !important;
+    color: rgb(0, 0, 0) !important;
+    padding: 8px !important;
+    margin: 15px;
+    width: 200px !important;
+    border: none !important;
+    font-size: 15px !important;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2) !important;
+    -webkit-appearance: button !important;
+    appearance: button !important;
+    outline: none !important;
+    border-radius: 5px !important;
 }
 
-/* Target Internet Explorer 9 to undo the custom arrow */
-@media screen and (min-width: 0\0) {
-    select {
-        background: none\9;
-        padding: 5px\9;
-    }
+.box select option {
+    border-radius: 5px !important;
+    padding: 30px !important;
 }
-

@@ -80,7 +80,7 @@ class AdminController extends Controller
        
         $res = DB::table('leads')
         ->where('id', $id)
-        ->update(['batchid' => $request->batchid, 'name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
+        ->update(['name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
 
         if($res) {
             return redirect('/admindashboard/viewleads')->with('success','Lead updated successfully');
@@ -239,15 +239,31 @@ class AdminController extends Controller
         if(Session::has('loginId')){
 
          $leads = DB::table('leads')->get();
+         $agents = DB::table('users')->get();
 
          return view('admin.admindashboard', [
                 'leads' => $leads,
+                'agents' => $agents,
             ]);
         }
        
 
        
    }
+
+   public function leadsummary(){
+    $leads = DB::table('leads')->get();
+        if($leads){  
+ 
+         return view('admin.leadsummary', [
+             'leads' => $leads,
+         ]);
+ 
+        }
+   
+
+   
+}
 
    public function logout(){
 

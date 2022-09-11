@@ -107,19 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
-                        <div id="ct"></div>
-                            <script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
+                            <div id="ct"></div>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
 
-function display_ct() {
-var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
- }
-</script>
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
+                            </script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -267,7 +267,7 @@ display_c();
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="admindashboard">
+                        <a href="/admindashboard">
                             <img alt="Logo" src="../media/logos/edgelogo.png" class="h-35px app-sidebar-logo-default" />
                             <img alt="Logo" src="../media/logos/edge.png" class="h-30px app-sidebar-logo-minimize" />
                         </a>
@@ -360,7 +360,7 @@ display_c();
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard">
+                                            <a class="menu-link" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -416,11 +416,11 @@ display_c();
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-										<!--begin:Menu link-->
-										<span class="menu-link">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-												<span class="svg-icon svg-icon-2">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+                                            <span class="svg-icon svg-icon-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -430,9 +430,9 @@ display_c();
                                                         d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z"
                                                         fill="currentColor" />
                                                 </svg>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
                                         <span class="menu-title">Agents</span>
                                         <span class="menu-arrow"></span>
                                     </span>
@@ -498,13 +498,13 @@ display_c();
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
                     <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
+                        style="color:gray;font-size:10px">
+                        <div class="d-flex px-2">
+                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                    </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -588,10 +588,10 @@ display_c();
                                     <span class="text-danger">@error('lastname') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
-                                
+
                                 <div class="d-flex fv-row mb-8">
-                                <label class="me-6 form-control bg-transparent " for="">DOB</label>
-                                    <input class="form-control bg-transparent " type="date" id="dob" name="dob" >
+                                    <label class="me-6 form-control bg-transparent " for="">DOB</label>
+                                    <input class="form-control bg-transparent " type="date" id="dob" name="dob">
                                 </div>
 
                                 <script>

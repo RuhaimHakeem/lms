@@ -41,6 +41,9 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -108,18 +111,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
-                        <div id="ct"></div>
-                            <script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
-function display_ct() {
-var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
- }
-</script>
+                            <div id="ct"></div>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
+
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
+                            </script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -335,22 +339,22 @@ display_c();
                                 </div>
 
                                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-										<!--begin:Menu link-->
-										<span class="menu-link">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-												<span class="svg-icon svg-icon-2">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-    fill="currentColor" />
-<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
-    fill="currentColor" />
-</svg>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+                                            <span class="svg-icon svg-icon-2">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+                                                        fill="currentColor" />
+                                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+                                                        fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
                                         <span class="menu-title">Leads</span>
                                         <span class="menu-arrow"></span>
                                     </span>
@@ -360,7 +364,7 @@ xmlns="http://www.w3.org/2000/svg">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard">
+                                            <a class="menu-link" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -531,6 +535,8 @@ xmlns="http://www.w3.org/2000/svg">
                             </div>
                             <!--end::Toolbar container-->
                         </div>
+
+
                         <!--end::Toolbar-->
                         <!--begin::Content-->
                         <div id="kt_app_content"
@@ -546,27 +552,32 @@ xmlns="http://www.w3.org/2000/svg">
                                 @csrf
                                 <div style="margin-left:20px" class="mb-5">
 
-<h2 style="font-size:20px" >Assign Agent</h2>
+                                    <h2 style="font-size:20px">Assign Agent</h2>
 
 
-<!--end::Title-->
-<!--begin::Subtitle-->
+                                    <!--end::Title-->
+                                    <!--begin::Subtitle-->
 
-<!--end::Subtitle=-->
-</div>
-                                <label class="mx-5 w-25 form-control bg-transparent">Select Agents:  <select name="agent" class='mt-5'>
+                                    <!--end::Subtitle=-->
+                                </div>
+
+                                <label class="mx-5 w-25 form-control bg-transparent">Select Agents:</label>
+
+                                <div class="box">
+                                    <select name="agent">
                                         @foreach ($agents as $agent )
-
                                         <option value="{{$agent->id}}">{{$agent->name}}</option>
-
                                         @endforeach
-                                    </select></label>
-                                    <div class="mt-5 ms-5" style="width:200px;">
+                                    </select>
+                                </div>
 
-                                  
+                                <div class="mt-5 ms-5" style="width:200px;">
 
-<button class='btn btn-primary ' type="submit">Assign</button>
-</div>
+                                    <button class='btn btn-primary ' type="submit">Assign</button>
+                                </div>
+
+
+
 
                                 <table class="table ms-5 mt-3 w-100">
                                     <thead>
@@ -605,7 +616,7 @@ xmlns="http://www.w3.org/2000/svg">
                                     </tbody>
                                 </table>
 
-                              
+
                             </form>
 
                         </div>
@@ -631,10 +642,10 @@ xmlns="http://www.w3.org/2000/svg">
 
     <!--begin::Javascript-->
     <script>
-    var hostUrl = "../";
+    var hostUrl = "../"; <
+    /> <!--begin::Global Javascript Bundle(used by all pages) -- > <
+    script src = "../plugins/global/plugins.bundle.js" >
     </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->

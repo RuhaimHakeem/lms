@@ -107,19 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
-                        <div id="ct"></div>
-                            <script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
+                            <div id="ct"></div>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
 
-function display_ct() {
-var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
- }
-</script>
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
+                            </script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -335,22 +335,22 @@ display_c();
                                 </div>
 
                                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-										<!--begin:Menu link-->
-										<span class="menu-link">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-												<span class="svg-icon svg-icon-2">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-    fill="currentColor" />
-<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
-    fill="currentColor" />
-</svg>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+                                            <span class="svg-icon svg-icon-2">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+                                                        fill="currentColor" />
+                                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+                                                        fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
                                         <span class="menu-title">Leads</span>
                                         <span class="menu-arrow"></span>
                                     </span>
@@ -360,13 +360,14 @@ xmlns="http://www.w3.org/2000/svg">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Summary</span>
-                                            </a>
-                                            <!--end:Menu link-->
+                                            <a class="menu-link" href="admindashboard/leadsummary">
+                                                <a class="menu-link" href=>
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Summary</span>
+                                                </a>
+                                                <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
@@ -535,7 +536,9 @@ xmlns="http://www.w3.org/2000/svg">
                             @endif
                             @csrf
                             <div class='d-flex flex-column fs-5 px-5'>
-                         <div class="mb-5">   <h2 style="font-size:20px" >Lead Bulk Upload</h2></div>
+                                <div class="mb-5">
+                                    <h2 style="font-size:20px">Lead Bulk Upload</h2>
+                                </div>
                                 <div class='d-flex flex-row'>
                                     <p class="text-left me-2 mt-1">Upload File</p>
                                     <input type="file" name="file" accept=".xlsx,.xls,.csv" required>

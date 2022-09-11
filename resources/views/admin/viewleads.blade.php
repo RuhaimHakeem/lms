@@ -365,7 +365,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard">
+                                            <a class="menu-link" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -553,7 +553,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--end::Subtitle=-->
                         </div>
                         <div class="d-flex justify-content-end col-11 col-sm-11  col-md-11 col-lg-11 col-xl-11 col-xxl-11"
-                           style="padding-right:1rem">
+                            style="padding-right:1rem">
                             <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png" /></a>
 
                         </div>

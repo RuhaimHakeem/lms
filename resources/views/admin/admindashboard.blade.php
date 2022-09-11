@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
     data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct() >
+    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" onload=display_ct()>
     <!--begin::Theme mode setup on page load-->
     <script>
     if (document.documentElement) {
@@ -108,17 +108,18 @@ License: For each use you must have a valid license purchased only from above li
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
                             <div id="ct"></div>
-                            <script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
-function display_ct() {
-var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
- }
-</script>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
+
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
+                            </script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -333,36 +334,36 @@ display_c();
                                     <!--end:Menu sub-->
                                 </div>
                                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-										<!--begin:Menu link-->
-										<span class="menu-link">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-												<span class="svg-icon svg-icon-2">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-    fill="currentColor" />
-<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
-    fill="currentColor" />
-</svg>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-title">Leads</span>
-											<span class="menu-arrow"></span>
-										</span>
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+                                            <span class="svg-icon svg-icon-2">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+                                                        fill="currentColor" />
+                                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+                                                        fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                        <span class="menu-title">Leads</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
 
 
 
-                                    
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="admindashboard">
+                                            <a class="menu-link active" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -500,13 +501,13 @@ xmlns="http://www.w3.org/2000/svg">
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
                     <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
+                        style="color:gray;font-size:10px">
+                        <div class="d-flex px-2">
+                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                    </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -535,13 +536,15 @@ xmlns="http://www.w3.org/2000/svg">
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <div id="kt_app_content" class="app-content flex-column-fluid">
+
+                        <div id="kt_app_content" class="app-content">
                             <!--begin::Content container-->
 
-                            <div id="kt_app_content_container" class="app-container container-fluid" <!--begin::Row-->
-                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                            <div id="kt_app_content_container" class="app-container container-fluid">
+                                <!--begin::Row-->
+                                <div class="row g-10 g-xl-10">
                                     <!--begin::Col-->
-                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                    <div class="col-md-6 col-lg-6 col-xxl-2">
                                         <!--begin::Card widget 20-->
                                         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
@@ -581,18 +584,67 @@ xmlns="http://www.w3.org/2000/svg">
                             </div>
                             </a>
                         </div>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Content wrapper-->
-                    <!--begin::Footer-->
 
-                    <!--end::Footer-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid">
+                            <!--begin::Content container-->
+
+                            <div id="kt_app_content_container" class="app-container container-fluid">
+                                <!--begin::Row-->
+                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                                    <!--begin::Col-->
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                        <!--begin::Card widget 20-->
+                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                            <!--begin::Header-->
+                                            <a href="/admindashboard/viewagents">
+                                                <div class=" pt-5 justify-content-center">
+                                                    <!--begin::Title-->
+                                                    <div class="card-title d-flex flex-column align-items-center">
+                                                        <!--begin::Amount-->
+
+                                                        <span
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Agents</span>
+
+                                                        <img src="../media/logos/users.png"
+                                                            class="mb-7 border-bottom border-3">
+                                                        @if(count($agents) > 0)
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($agents)}}</span>
+                                                        @else
+                                                        <span
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
+                                                        @endif
+                                                        <!--end::Subtitle-->
+                                                    </div>
+                                                    <!--end::Title-->
+                                                </div>
+                                                <!--end::Header-->
+                                                <!--begin::Card body-->
+
+                                                <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card widget 20-->
+                                        <!--begin::Card widget 7-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end::Content-->
                 </div>
-                <!--end:::Main-->
+                <!--end::Content wrapper-->
+                <!--begin::Footer-->
+
+                <!--end::Footer-->
             </div>
-            <!--end::Wrapper-->
+            <!--end:::Main-->
         </div>
-        <!--end::Page-->
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->

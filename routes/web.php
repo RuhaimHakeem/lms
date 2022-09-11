@@ -53,6 +53,8 @@ Route::get('/admindashboard/viewagents',[AdminController::class,'viewagents'])->
 
 Route::get('/admindashboard/agentsummary',[AdminController::class,'agentsummary'])->name('agentsummary')->middleware('isLoggedIn');
 
+Route::get('/admindashboard/leadsummary',[AdminController::class,'leadsummary'])->name('leadsummary')->middleware('isLoggedIn');
+
 Route::post('search', [AdminController::class,'search'])->name('search');
 
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');

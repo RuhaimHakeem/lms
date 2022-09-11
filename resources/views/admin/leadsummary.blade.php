@@ -333,12 +333,11 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <!--end:Menu sub-->
                                 </div>
-
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -354,13 +353,17 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">Leads</span>
                                         <span class="menu-arrow"></span>
                                     </span>
+
+
+
+
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard/leadsummary">
+                                            <a class="menu-link active" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -396,7 +399,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="../assignleads">
+                                            <a class="menu-link" href="assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -415,7 +418,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -442,7 +445,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="/admindashboard/agentsummary">
+                                            <a class="menu-link" href="/admindashboard/agentsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -464,7 +467,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/agentregister">
+                                            <a class="menu-link" href="agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -536,8 +539,7 @@ License: For each use you must have a valid license purchased only from above li
                         <div id="kt_app_content" class="app-content flex-column-fluid">
                             <!--begin::Content container-->
 
-                            <div id="kt_app_content_container" class="app-container container-fluid">
-                                <!--begin::Row-->
+                            <div id="kt_app_content_container" class="app-container container-fluid" <!--begin::Row-->
                                 <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
                                     <!--begin::Col-->
                                     <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
@@ -545,27 +547,25 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
                                             <!--begin::Header-->
-                                            <a href="/admindashboard/viewagents">
+                                            <a href="/admindashboard/viewleads">
                                                 <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
                                                         <!--begin::Amount-->
 
                                                         <span
-                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Agents</span>
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Leads</span>
 
                                                         <img src="../media/logos/users.png"
                                                             class="mb-7 border-bottom border-3">
-                                                        @if($agents)
-                                                        @if(count($agents) > 0)
+                                                        @if(count($leads) > 0)
                                                         <span
-                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($agents)}}</span>
+                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
                                                         @else
                                                         <span
                                                             class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
                                                         @endif
                                                         <!--end::Subtitle-->
-                                                        @endif
                                                     </div>
                                                     <!--end::Title-->
                                                 </div>

@@ -107,19 +107,19 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
                         id="kt_app_header_wrapper">
                         <div class="d-flex flex-column justify-content-center " style="color:#bfbfbf;font-size:12px">
-                        <div id="ct"></div>
-                            <script type="text/javascript"> 
-function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
-}
+                            <div id="ct"></div>
+                            <script type="text/javascript">
+                            function display_c() {
+                                var refresh = 1000; // Refresh rate in milli seconds
+                                mytime = setTimeout('display_ct()', refresh)
+                            }
 
-function display_ct() {
-var x = new Date()
-document.getElementById('ct').innerHTML = x;
-display_c();
- }
-</script>
+                            function display_ct() {
+                                var x = new Date()
+                                document.getElementById('ct').innerHTML = x;
+                                display_c();
+                            }
+                            </script>
                         </div>
                         <!--begin::Menu wrapper-->
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
@@ -360,7 +360,7 @@ display_c();
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard">
+                                            <a class="menu-link" href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -565,13 +565,6 @@ display_c();
 
                                 <!--end::Separator-->
                                 <!--begin::Input group=-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::User-->
-                                    <input type="text" placeholder="Batch Id" name="batchid" autocomplete="off"
-                                        class="form-control bg-transparent" value={{$lead->batchid}}>
-                                    <span class="text-danger">@error('batchid') {{$message}} @enderror</span>
-                                    <!--end::User-->
-                                </div>
 
                                 <div class="fv-row mb-8">
                                     <!--begin::User-->
