@@ -310,13 +310,13 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                                 data-kt-menu="true" data-kt-menu-expand="false">
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -332,6 +332,23 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">Dashboards</span>
                                         <span class="menu-arrow"></span>
                                     </span>
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link " href="../admindashboard">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Home</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                 
+                                        <!--end:Menu item-->
+                                    </div>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
 
@@ -550,7 +567,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="alert alert-danger">{{Session::get('fail')}}</div>
                                 @endif
                                 @csrf
-                                <div style="margin-left:20px" class="mb-5">
+                                <div  class="mb-5 mx-5">
 
                                     <h2 style="font-size:20px">Assign Agent</h2>
 
@@ -561,16 +578,19 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Subtitle=-->
                                 </div>
 
-                                <label class="mx-5 w-25 form-control bg-transparent">Select Agents:</label>
-
-                                <div class="box">
+                            <label class="d-flex mx-5 w-25  bg-transparent ">
+                                    <div class="box fw-bold">
+                                    Select Agents:
                                     <select name="agent">
                                         @foreach ($agents as $agent )
                                         <option value="{{$agent->id}}">{{$agent->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                            </label>
 
+                              
+                 
                                 <div class="mt-5 ms-5" style="width:200px;">
 
                                     <button class='btn btn-primary ' type="submit">Assign</button>

@@ -239,7 +239,7 @@ class AdminController extends Controller
         if(Session::has('loginId')){
 
          $leads = DB::table('leads')->get();
-         $agents = DB::table('users')->get();
+         $agents = DB::table('users')->where("admin",0)->get();
 
          return view('admin.admindashboard', [
                 'leads' => $leads,

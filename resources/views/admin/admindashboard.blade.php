@@ -310,9 +310,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
-                                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                            <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -328,18 +328,35 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">Dashboards</span>
                                         <span class="menu-arrow"></span>
                                     </span>
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link active" href="admindashboard">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Home</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                 
+                                        <!--end:Menu item-->
+                                    </div>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
 
                                     <!--end:Menu sub-->
                                 </div>
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
@@ -356,14 +373,13 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="admindashboard/leadsummary">
+                                            <a class="menu-link " href="admindashboard/leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -546,10 +562,11 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Col-->
                                     <div class="col-md-6 col-lg-6 col-xxl-2">
                                         <!--begin::Card widget 20-->
+                                        <a href="/admindashboard/viewleads">
                                         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
                                             <!--begin::Header-->
-                                            <a href="/admindashboard/viewleads">
+                                      
                                                 <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
@@ -569,35 +586,28 @@ License: For each use you must have a valid license purchased only from above li
                                                         @endif
                                                         <!--end::Subtitle-->
                                                     </div>
+                                                    
+                                                    
                                                     <!--end::Title-->
                                                 </div>
+                                               
                                                 <!--end::Header-->
                                                 <!--begin::Card body-->
 
                                                 <!--end::Card body-->
                                         </div>
+                                         </a>
                                         <!--end::Card widget 20-->
                                         <!--begin::Card widget 7-->
 
                                     </div>
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-
-                        <div id="kt_app_content" class="app-content flex-column-fluid">
-                            <!--begin::Content container-->
-
-                            <div id="kt_app_content_container" class="app-container container-fluid">
-                                <!--begin::Row-->
-                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
+                                    <div class="col-md-6 col-lg-6 col-xxl-2">
                                         <!--begin::Card widget 20-->
+                                        <a href="/admindashboard/viewagents">
                                         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
                                             style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
                                             <!--begin::Header-->
-                                            <a href="/admindashboard/viewagents">
+                                            
                                                 <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
@@ -619,19 +629,24 @@ License: For each use you must have a valid license purchased only from above li
                                                     </div>
                                                     <!--end::Title-->
                                                 </div>
+                                          
                                                 <!--end::Header-->
                                                 <!--begin::Card body-->
 
                                                 <!--end::Card body-->
                                         </div>
+                                        </a>
                                         <!--end::Card widget 20-->
                                         <!--begin::Card widget 7-->
 
                                     </div>
                                 </div>
                             </div>
-                            </a>
+                            
                         </div>
+
+                    
+
                     </div>
                     <!--end::Content-->
                 </div>
