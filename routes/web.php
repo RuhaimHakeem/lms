@@ -84,3 +84,6 @@ Route::post('email/verification',[CustomAuthController::class,'emailUser'])->nam
 Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name('register-user');
 
 //Route::get('/dashboard',[CustomAuthController::class,'dashboard']);
+
+Route::post('api/fetch-states', [AdminController::class, 'fetchState']);
+Route::post('api/fetch-cities', [AdminController::class, 'fetchCity']);

@@ -181,7 +181,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                        <h3 style="color:white" class="mt-3">{{$admin->name}}</h3><img
                                             src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -346,7 +346,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                 
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu link-->
@@ -567,7 +567,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="alert alert-danger">{{Session::get('fail')}}</div>
                                 @endif
                                 @csrf
-                                <div  class="mb-5 mx-5">
+                                <div class="mb-5 mx-5">
 
                                     <h2 style="font-size:20px">Assign Agent</h2>
 
@@ -578,19 +578,19 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Subtitle=-->
                                 </div>
 
-                            <label class="d-flex mx-5 w-25  bg-transparent ">
+                                <label class="d-flex mx-5 w-25  bg-transparent ">
                                     <div class="box fw-bold">
-                                    Select Agents:
-                                    <select name="agent">
-                                        @foreach ($agents as $agent )
-                                        <option value="{{$agent->id}}">{{$agent->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </label>
+                                        Select Agents:
+                                        <select name="agent">
+                                            @foreach ($agents as $agent )
+                                            <option value="{{$agent->id}}">{{$agent->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </label>
 
-                              
-                 
+
+
                                 <div class="mt-5 ms-5" style="width:200px;">
 
                                     <button class='btn btn-primary ' type="submit">Assign</button>

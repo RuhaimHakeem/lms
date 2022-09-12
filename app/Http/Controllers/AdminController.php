@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Lead;
 use App\Models\User;
+use App\Models\Countrydetail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\LeadsImport;
-use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Support\Facades\Auth;
+use App\Models\{Country, State, City};
+use DB;
 
 
 
 class AdminController extends Controller
 {
-
     public function viewleads() {
-  
-       
-    
+        
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
        $leads = DB::table('leads')->get();
   
 
@@ -28,6 +29,7 @@ class AdminController extends Controller
 
         return view('admin.viewleads', [
             'leads' => $leads,
+            'admin' => $admin,
         ]);
 
        }
@@ -35,13 +37,17 @@ class AdminController extends Controller
        
     }
 
-    public function viewagents() {   
+    public function viewagents() {  
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
 
         $agents = DB::table('users')->where('admin', 0)->get();
         if($agents){  
  
          return view('admin.viewagents', [
              'agents' => $agents,
+             'admin' => $admin,
          ]);
  
         }
@@ -51,11 +57,15 @@ class AdminController extends Controller
 
      public function agentsummary() {   
 
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+        
         $agents = DB::table('users')->where('admin', 0)->get();
         if($agents){  
  
          return view('admin.agentsummary', [
              'agents' => $agents,
+             'admin' => $admin,
          ]);
  
         }
@@ -67,22 +77,52 @@ class AdminController extends Controller
 
      public function editlead($id){
 
+        $data = Country::get(["name", "id", "phonecode"]);
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+        
        
         $lead = Lead::where('id','=', $id)->first();
 
+        // foreach($data as $val) {
+        //     print($val);
+        // }
+
         return view('admin.updatelead', [
             'lead' => $lead,
+            'admin' => $admin,
+            'countries' => $data,
         ]);
      }
 
      public function updatelead(Request $request,$id){
 
-       
         $res = DB::table('leads')
         ->where('id', $id)
         ->update(['name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
 
-        if($res) {
+        
+        $country = Country::where('id','=', $request->countryid)->first();
+        $state = State::where('id','=', $request->stateid)->first();
+        $city = City::where('id','=', $request->cityid)->first();
+
+        if($country && $state) {
+            $val = Countrydetail::where('leadid', $id)->first();
+
+             if($val) {
+            
+             $result = DB::table('countrydetails')
+            ->where('leadid', $id)
+            ->update(['countryname' => $country->name , 'state' => $state->name, 'city' => optional($city)->name, 'countrycode' => $country->phonecode]);
+        }
+ 
+        else {
+            $result = DB::table('countrydetails')->insert(['countryname' => $country->name , 'state' => $state->name, 'city' => optional($city)->name, 'countrycode' => $country->phonecode, 'leadid' => $id]);
+        }
+        }
+            
+        if($res || isset($result)) {
             return redirect('/admindashboard/viewleads')->with('success','Lead updated successfully');
         }
         else {
@@ -104,13 +144,28 @@ class AdminController extends Controller
      }
 
      public function editagent($id){
-
-       
+            
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+         
         $agent = User::where('id','=', $id)->first();
 
         return view('admin.updateagent', [
             'agent' => $agent,
+            'admin' => $admin,
+      
         ]);
+     }
+
+     public function fetchState(Request $request)
+     {
+         $data['states'] = State::where("country_id",$request->country_id)->get(["name", "id"]);
+         return response()->json($data);
+     }
+     public function fetchCity(Request $request)
+     {
+         $data['cities'] = City::where("state_id",$request->state_id)->get(["name", "id"]);
+         return response()->json($data);
      }
 
      public function updateagent(Request $request,$id){
@@ -144,7 +199,9 @@ class AdminController extends Controller
 
      public function assignleads() {
   
-       
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+
         $agents = DB::table('users')->where('admin', 0)->get();
         $leads = DB::table('leads')->get();
         if($leads && $agents){  
@@ -152,6 +209,7 @@ class AdminController extends Controller
          return view('admin.assignleads', [
              'leads' => $leads,
              'agents' => $agents,
+             'admin' => $admin,
          ]);
  
         }
@@ -209,6 +267,8 @@ class AdminController extends Controller
  
     public function leadupload(){
 
+        $userId = Session::get('loginId');
+         $admin = User::where('id','=', $userId)->first();
         
         $code = Session::get('code');
         
@@ -216,6 +276,7 @@ class AdminController extends Controller
         Session::forget('code');
         return view("admin.leadupload", [
                 'leads' => $leads,
+                'admin' => $admin,
             ]);        
            
     }
@@ -241,9 +302,13 @@ class AdminController extends Controller
          $leads = DB::table('leads')->get();
          $agents = DB::table('users')->where("admin",0)->get();
 
+         $userId = Session::get('loginId');
+         $admin = User::where('id','=', $userId)->first();
+
          return view('admin.admindashboard', [
                 'leads' => $leads,
                 'agents' => $agents,
+                'admin' => $admin,
             ]);
         }
        
@@ -252,11 +317,17 @@ class AdminController extends Controller
    }
 
    public function leadsummary(){
+
+    $userId = Session::get('loginId');
+
+    $admin = User::where('id','=', $userId)->first();
+    
     $leads = DB::table('leads')->get();
         if($leads){  
  
          return view('admin.leadsummary', [
              'leads' => $leads,
+             'admin' => $admin,
          ]);
  
         }

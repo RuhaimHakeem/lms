@@ -177,7 +177,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                        <h3 style="color:white" class="mt-3">{{$admin->name}}</h3><img
                                             src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -342,7 +342,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                 
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu link-->
@@ -605,12 +605,36 @@ License: For each use you must have a valid license purchased only from above li
                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                     <!--end::Email-->
                                 </div>
+
+
+
+                                <div class="form-group mb-8">
+                                    <select name="countryid" id="country-dd" class="form-control">
+                                        <option value="">Select Country</option>
+                                        @foreach ($countries as $data)
+                                        <option value="{{$data->id}}">
+                                            {{$data->name}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group mb-8">
+
+                                    <select name="stateid" id="state-dd" class="form-control">
+                                        <option value="">Select State</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="cityid" id="city-dd" class="form-control">
+                                        <option value="">Select City</option>
+                                    </select>
+                                </div>
                                 <!--begin::Link-->
 
                                 <!--end::Link-->
                                 <!--end::Wrapper-->
                                 <!--begin::Submit button-->
-                                <div class="d-flex mb-10">
+                                <div class="d-flex mb-8 mt-10">
                                     <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                                         <!--begin::Indicator label-->
                                         <span class="indicator-label">Update Lead</span>
@@ -644,6 +668,52 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::App-->
     <!--begin::Drawers-->
     <!--begin::Activities drawer-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#country-dd').on('change', function() {
+            var idCountry = this.value;
+            $("#state-dd").html('');
+            $.ajax({
+                url: "{{url('api/fetch-states')}}",
+                type: "POST",
+                data: {
+                    country_id: idCountry,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#state-dd').html('<option value="">Select State</option>');
+                    $.each(result.states, function(key, value) {
+                        $("#state-dd").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                    $('#city-dd').html('<option value="">Select City</option>');
+                }
+            });
+        });
+        $('#state-dd').on('change', function() {
+            var idState = this.value;
+            $("#city-dd").html('');
+            $.ajax({
+                url: "{{url('api/fetch-cities')}}",
+                type: "POST",
+                data: {
+                    state_id: idState,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(res) {
+                    $('#city-dd').html('<option value="">Select City</option>');
+                    $.each(res.cities, function(key, value) {
+                        $("#city-dd").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    });
+    </script>
 
 
     <!--begin::Javascript-->

@@ -177,7 +177,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                        <h3 style="color:white" class="mt-3">{{$admin->name}}</h3><img
                                             src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
@@ -306,13 +306,13 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                                 data-kt-menu="true" data-kt-menu-expand="false">
                                 <!--begin:Menu item-->
-                              <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -342,7 +342,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                 
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu link-->

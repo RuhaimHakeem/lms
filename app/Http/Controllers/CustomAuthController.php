@@ -24,7 +24,12 @@ class CustomAuthController extends Controller
     }
 
     public function agentregister () {
-        return view('authentications.agentregister');
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+        return view('authentications.agentregister',[
+            'admin' => $admin,
+        ]);
     } 
 
     public function email () {

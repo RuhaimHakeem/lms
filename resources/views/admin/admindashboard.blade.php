@@ -177,7 +177,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
                                     <div class="d-flex align-items-center">
-                                        <h3 style="color:white" class="mt-3">ADMIN PANEL</h3><img
+                                        <h3 style="color:white" class="mt-3">{{$admin->name}}</h3><img
                                             src="../media/logos/profile.png" alt="user" />
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
                                                     <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
@@ -342,7 +342,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                 
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu link-->
@@ -356,7 +356,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-icon">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                             <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
@@ -563,10 +563,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <div class="col-md-6 col-lg-6 col-xxl-2">
                                         <!--begin::Card widget 20-->
                                         <a href="/admindashboard/viewleads">
-                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
-                                            <!--begin::Header-->
-                                      
+                                            <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                                <!--begin::Header-->
+
                                                 <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
@@ -586,17 +586,17 @@ License: For each use you must have a valid license purchased only from above li
                                                         @endif
                                                         <!--end::Subtitle-->
                                                     </div>
-                                                    
-                                                    
+
+
                                                     <!--end::Title-->
                                                 </div>
-                                               
+
                                                 <!--end::Header-->
                                                 <!--begin::Card body-->
 
                                                 <!--end::Card body-->
-                                        </div>
-                                         </a>
+                                            </div>
+                                        </a>
                                         <!--end::Card widget 20-->
                                         <!--begin::Card widget 7-->
 
@@ -604,10 +604,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <div class="col-md-6 col-lg-6 col-xxl-2">
                                         <!--begin::Card widget 20-->
                                         <a href="/admindashboard/viewagents">
-                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
-                                            <!--begin::Header-->
-                                            
+                                            <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
+                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                                <!--begin::Header-->
+
                                                 <div class=" pt-5 justify-content-center">
                                                     <!--begin::Title-->
                                                     <div class="card-title d-flex flex-column align-items-center">
@@ -629,12 +629,12 @@ License: For each use you must have a valid license purchased only from above li
                                                     </div>
                                                     <!--end::Title-->
                                                 </div>
-                                          
+
                                                 <!--end::Header-->
                                                 <!--begin::Card body-->
 
                                                 <!--end::Card body-->
-                                        </div>
+                                            </div>
                                         </a>
                                         <!--end::Card widget 20-->
                                         <!--begin::Card widget 7-->
@@ -642,10 +642,10 @@ License: For each use you must have a valid license purchased only from above li
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
 
-                    
+
 
                     </div>
                     <!--end::Content-->
