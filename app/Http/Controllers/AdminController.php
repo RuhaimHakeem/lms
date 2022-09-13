@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Lead;
 use App\Models\User;
 use App\Models\Countrydetail;
+use App\Models\Leaddetail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\LeadsImport;
 use Session;
@@ -81,27 +82,30 @@ class AdminController extends Controller
 
         $userId = Session::get('loginId');
         $admin = User::where('id','=', $userId)->first();
-        
-       
+        $countrydata = Countrydetail::where('leadid','=', $id)->first();
         $lead = Lead::where('id','=', $id)->first();
+        $leaddata = Leaddetail::where('leadid','=', $id)->first();
 
-        // foreach($data as $val) {
-        //     print($val);
-        // }
 
         return view('admin.updatelead', [
             'lead' => $lead,
             'admin' => $admin,
             'countries' => $data,
+            'countrydata' => $countrydata,
+            'leaddata' => $leaddata,
         ]);
      }
 
      public function updatelead(Request $request,$id){
 
+
+        //update basic details of the lead
+
         $res = DB::table('leads')
         ->where('id', $id)
         ->update(['name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
 
+        // update country details of the lead
         
         $country = Country::where('id','=', $request->countryid)->first();
         $state = State::where('id','=', $request->stateid)->first();
@@ -121,8 +125,29 @@ class AdminController extends Controller
             $result = DB::table('countrydetails')->insert(['countryname' => $country->name , 'state' => $state->name, 'city' => optional($city)->name, 'countrycode' => $country->phonecode, 'leadid' => $id]);
         }
         }
+
+        //update lead position, leadtype and phonenumber2
+
+        $position = $request->position;
+        $phonenumber2 = $request->phonenumber2;
+        $leadtype = $request->leadtype;
+
+       if($position || $phonenumber2 ||  $leadtype ) {
+        $lead = Leaddetail::where('leadid', $id)->first();
+
+        if($lead) {
             
-        if($res || isset($result)) {
+            $success = DB::table('leaddetails')
+           ->where('leadid', $id)
+           ->update(['position' => $request->position , 'phonenumber2' => $request->phonenumber2, 'leadtype' => $request->leadtype]);
+       }
+
+       else {
+           $success = DB::table('leaddetails')->insert(['position' => $request->position , 'phonenumber2' => $request->phonenumber2, 'leadtype' => $request->leadtype,'leadid' => $id]);
+       }
+       }
+            
+        if($res || isset($result) || isset($success) ) {
             return redirect('/admindashboard/viewleads')->with('success','Lead updated successfully');
         }
         else {

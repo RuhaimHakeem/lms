@@ -554,7 +554,6 @@ License: For each use you must have a valid license purchased only from above li
                             class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <!--begin::Content container-->
 
-
                             <form class="form w-100 px-5 " action="/updatelead/{{$lead->id}}" method="post">
                                 @if(Session::has('success'))
                                 <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -610,7 +609,11 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="form-group mb-8">
                                     <select name="countryid" id="country-dd" class="form-control">
+                                        @if($countrydata)
+                                        <option value="">{{$countrydata->countryname}}</option>
+                                        @else
                                         <option value="">Select Country</option>
+                                        @endif
                                         @foreach ($countries as $data)
                                         <option value="{{$data->id}}">
                                             {{$data->name}}
@@ -621,13 +624,62 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="form-group mb-8">
 
                                     <select name="stateid" id="state-dd" class="form-control">
+                                        @if($countrydata)
+                                        <option value="">{{$countrydata->state}}</option>
+                                        @else
                                         <option value="">Select State</option>
+                                        @endif
+
+
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-8">
                                     <select name="cityid" id="city-dd" class="form-control">
+                                        @if($countrydata)
+                                        <option value="">{{$countrydata->city}}</option>
+                                        @else
                                         <option value="">Select City</option>
+                                        @endif
                                     </select>
+                                </div>
+
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Position" name="position" autocomplete="off"
+                                        class="form-control bg-transparent" @if (isset($leaddata))
+                                        value={{$leaddata->position}} @endif>
+                                    <span class=" text-danger">@error('position') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Phone-->
+                                    <input type="text" placeholder="Phone Number 2" name="phonenumber2"
+                                        autocomplete="off" class="form-control bg-transparent" @if (isset($leaddata))
+                                        value={{$leaddata->phonenumber2}} @endif>
+                                    <span class="text-danger">@error('phonenumber2') {{$message}} @enderror</span>
+                                    <!--end::Phone-->
+                                </div>
+                                <div class="form-group mb-8">
+                                    @if($leaddata)
+                                    <select name="leadtype" class="form-control">
+                                        <option hidden value={{$leaddata->leadtype}}>{{$leaddata->leadtype}}
+                                        </option>
+                                        <option value="new">new</option>
+                                        <option value="experienced">experienced</option>
+
+                                    </select>
+                                    @else
+                                    <select name="leadtype" class="form-control">
+
+                                        <option value="">Select Type</option>
+                                        <option value="new">new</option>
+                                        <option value="experienced">experienced</option>
+
+                                    </select>
+                                    @endif
+
                                 </div>
                                 <!--begin::Link-->
 
