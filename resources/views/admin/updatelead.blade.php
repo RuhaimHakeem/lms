@@ -609,11 +609,12 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="form-group mb-8">
                                     <select name="countryid" id="country-dd" class="form-control">
-                                        @if($countrydata)
-                                        <option value="">{{$countrydata->countryname}}</option>
+                                        @if($countrydetail && $country)
+                                        <option value={{$country->id}}>{{$countrydetail->countryname}}</option>
                                         @else
                                         <option value="">Select Country</option>
                                         @endif
+
                                         @foreach ($countries as $data)
                                         <option value="{{$data->id}}">
                                             {{$data->name}}
@@ -624,19 +625,18 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="form-group mb-8">
 
                                     <select name="stateid" id="state-dd" class="form-control">
-                                        @if($countrydata)
-                                        <option value="">{{$countrydata->state}}</option>
+                                        @if($countrydetail && $state)
+                                        <option value={{$state->id}}>{{$countrydetail->state}}</option>
                                         @else
                                         <option value="">Select State</option>
                                         @endif
-
 
                                     </select>
                                 </div>
                                 <div class="form-group mb-8">
                                     <select name="cityid" id="city-dd" class="form-control">
-                                        @if($countrydata)
-                                        <option value="">{{$countrydata->city}}</option>
+                                        @if($countrydetail && $city)
+                                        <option value={{$city->id}}>{{$countrydetail->city}}</option>
                                         @else
                                         <option value="">Select City</option>
                                         @endif
@@ -721,10 +721,50 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Drawers-->
     <!--begin::Activities drawer-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <script>
+    $(document).ready(function() {
+
+        var countryid = document.getElementById("country-dd");
+        if (countryid.value != "") {
+            $("#state-dd").html('');
+
+            function postajax() {
+                return $.ajax({
+                    url: "{{url('api/fetch-states')}}",
+                    type: "POST",
+                    data: {
+                        country_id: countryid.value,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                });
+            }
+            async function test() {
+                try {
+                    const res = await postajax();
+                    $('#state-dd').html('<option value={{$state->id}}>{{$countrydetail->state}}</option>');
+                    $.each(res.states, function(key, value) {
+                        $("#state-dd").append('<option value="' + value.id + '">' + value
+                            .name + '</option>');
+                    });
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+            test();
+        }
+
+    })
+    </script>
+
     <script>
     $(document).ready(function() {
         $('#country-dd').on('change', function() {
             var idCountry = this.value;
+
             $("#state-dd").html('');
             $.ajax({
                 url: "{{url('api/fetch-states')}}",

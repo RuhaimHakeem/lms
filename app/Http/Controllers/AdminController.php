@@ -78,22 +78,24 @@ class AdminController extends Controller
 
      public function editlead($id){
 
-        $data = Country::get(["name", "id", "phonecode"]);
+        $country = null;
+        $state = null;
+        $city = null;
+        $countries = Country::get(["name", "id", "phonecode"]);
 
         $userId = Session::get('loginId');
         $admin = User::where('id','=', $userId)->first();
-        $countrydata = Countrydetail::where('leadid','=', $id)->first();
+        $countrydetail = Countrydetail::where('leadid','=', $id)->first();
         $lead = Lead::where('id','=', $id)->first();
         $leaddata = Leaddetail::where('leadid','=', $id)->first();
-
-
-        return view('admin.updatelead', [
-            'lead' => $lead,
-            'admin' => $admin,
-            'countries' => $data,
-            'countrydata' => $countrydata,
-            'leaddata' => $leaddata,
-        ]);
+        if($countrydetail) {
+            $country = Country::where('name','=', $countrydetail->countryname)->first();
+            $state = State::where('name','=', $countrydetail->state)->first();
+            $city = City::where('name','=', $countrydetail->city)->first();
+        }   
+ 
+            return view('admin.updatelead', ['lead' => $lead,'admin' => $admin, 'countries' => $countries, 'countrydetail' => $countrydetail, 'leaddata' => $leaddata, 'country' => $country, 'state' => $state, 'city' => $city]);
+        
      }
 
      public function updatelead(Request $request,$id){
