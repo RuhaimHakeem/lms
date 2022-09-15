@@ -184,7 +184,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-150px"
                                     data-kt-menu="true">
-                    
+
                                     <div class="menu-item px-5">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -698,7 +698,10 @@ License: For each use you must have a valid license purchased only from above li
             async function test() {
                 try {
                     const res = await postajax();
-                    $('#state-dd').html('<option value={{$state->id}}>{{$countrydetail->state}}</option>');
+                    $('#state-dd').html(@if($countrydetail && $city)
+                        '<option value={{$state->id}}>{{$countrydetail->state}}</option>'
+                        @else '<option value="">Select Type</option>'
+                        @endif);
                     $.each(res.states, function(key, value) {
                         $("#state-dd").append('<option value="' + value.id + '">' + value
                             .name + '</option>');

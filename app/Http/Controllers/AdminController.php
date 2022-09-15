@@ -375,7 +375,7 @@ class AdminController extends Controller
         Session::pull('loginId');
         Session::forget('loginId');
 
-        return redirect('adminlogin');
+        return redirect('/adminlogin');
     }
 }
   

@@ -94,7 +94,9 @@ class CustomAuthController extends Controller
                 $user->verification_code = $pin;
                 $user->save();
 
-               $res = Mail::to($user->email)->send(new OtpMail($pin));
+               Mail::to($user->email)->send(new OtpMail($pin));
+
+               return redirect('email');
 
             }
 
