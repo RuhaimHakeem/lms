@@ -26,12 +26,14 @@ class AdminController extends Controller
         $admin = User::where('id','=', $userId)->first();
        $leads = DB::table('leads')->get();
   
-
+       $statuses = DB::table('statuses')->get();
        if($leads){  
 
         return view('admin.viewleads', [
             'leads' => $leads,
             'admin' => $admin,
+            'statuses' => $statuses,
+
         ]);
 
        }
@@ -50,6 +52,7 @@ class AdminController extends Controller
          return view('admin.viewagents', [
              'agents' => $agents,
              'admin' => $admin,
+         
          ]);
  
         }

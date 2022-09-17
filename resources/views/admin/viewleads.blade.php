@@ -534,8 +534,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone number</th>
                                     <th scope="col">Email</th>
+                            
                                     <th scope="col">Agent Assigned</th>
-
+                                    <th scope="col">Status</th>
                                     <th class='fw-bold' scope="col"></th>
 
                                 </tr>
@@ -551,11 +552,18 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                     <td>{{$lead->email}}</td>
+                               
+                                    
                                     @if ($lead->agentid)
                                     <td>{{$lead->agentname}}</td>
                                     @else
                                     <td>Not Assigned</td>
                                     @endif
+                                    @foreach($statuses as $status)
+                                            @if($status->leadid == $lead->id)
+                                            <td>{{$status->status}}</td>
+                                            @endif
+                                            @endforeach
                                     <td>
 
                                         <form method="GET" action="/updatelead/{{$lead->id}}">
