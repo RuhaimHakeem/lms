@@ -188,7 +188,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-150px"
                                     data-kt-menu="true">
-                    
+
                                     <div class="menu-item px-5">
                                         <form action="logout" method="POST">
                                             @csrf
@@ -578,11 +578,11 @@ License: For each use you must have a valid license purchased only from above li
                                             </td>
                                             <td>{{$lead->batchid}}</td>
                                             <td>{{$lead->name}}</td>
-                                            @if ($lead->agentid)
-                                            <td>Assigned</td>
-                                            @else
-                                            <td>Not Assigned</td>
+                                            @foreach($statuses as $status)
+                                            @if($status->leadid == $lead->id)
+                                            <td>{{$status->status}}</td>
                                             @endif
+                                            @endforeach
                                             <td>{{$lead->agentname}}</td>
                                         </tr>
                                         @endforeach

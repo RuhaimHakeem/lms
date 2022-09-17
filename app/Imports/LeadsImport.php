@@ -8,7 +8,9 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Carbon\Carbon;
 use App\Models\Lead;
+use App\Models\Status;
 use Session;
+use DB;
 
 class LeadsImport implements ToCollection, WithHeadingRow, WithValidation
 {
@@ -33,6 +35,16 @@ class LeadsImport implements ToCollection, WithHeadingRow, WithValidation
            }          
       
         if($res){
+            $leads = DB::table('leads')->where('batchid', $unique_code)->get();
+
+            foreach($leads as $lead) {
+                
+                $status = new Status; 
+                $status->status = "Unassigned";
+                $status->leadid = $lead->id;
+        
+                $status->save();
+            } 
              Session::put('code', $unique_code);
         }
     }

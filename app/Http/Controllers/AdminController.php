@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Lead;
 use App\Models\User;
+use App\Models\Status;
 use App\Models\Countrydetail;
 use App\Models\Leaddetail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -180,8 +181,7 @@ class AdminController extends Controller
         return view('admin.updateagent', [
             'agent' => $agent,
             'admin' => $admin,
-      
-        ]);
+      ]);
      }
 
      public function fetchState(Request $request)
@@ -230,13 +230,18 @@ class AdminController extends Controller
         $admin = User::where('id','=', $userId)->first();
 
         $agents = DB::table('users')->where('admin', 0)->get();
+        // $status = DB::table('statuses')->where('admin', 0)->get();
         $leads = DB::table('leads')->get();
+
+        $statuses = DB::table('statuses')->get();
+
         if($leads && $agents){  
  
          return view('admin.assignleads', [
              'leads' => $leads,
              'agents' => $agents,
              'admin' => $admin,
+             'statuses' => $statuses,
          ]);
  
         }
@@ -252,9 +257,12 @@ class AdminController extends Controller
         $leads = $request->lead;
         if($leads){
             foreach($leads as $lead) {
-                $res = DB::table('leads')
-                ->where('id', $lead)
-                ->update(['agentid' => $agentid, 'agentname' => $agent->name]);       
+
+                $res = Lead::where('id', $lead)
+                ->update(['agentid' => $agentid, 'agentname' => $agent->name]);
+                
+                Status::where('leadid', $lead)
+                ->update(['status' => 'Assigned']);
             }
         }
 
