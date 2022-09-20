@@ -530,14 +530,14 @@ License: For each use you must have a valid license purchased only from above li
                         <table class="table ms-5 mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">Batchid</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Phone number</th>
-                                    <th scope="col">Email</th>
+                                    <th id="th" scope="col">Batchid</th>
+                                    <th id="th" scope="col">Name</th>
+                                    <th id="th" scope="col">Phone number</th>
+                                    <th id="th" scope="col">Email</th>
                             
-                                    <th scope="col">Agent Assigned</th>
-                                    <th scope="col">Status</th>
-                                    <th class='fw-bold' scope="col"></th>
+                                    <th id="th" scope="col">Agent Assigned</th>
+                                    <th id="th" scope="col">Status</th>
+                                    <th id="th" class='fw-bold' scope="col"></th>
 
                                 </tr>
                             </thead>
@@ -561,10 +561,10 @@ License: For each use you must have a valid license purchased only from above li
                                     @endif
                                     @foreach($statuses as $status)
                                             @if($status->leadid == $lead->id)
-                                            <td>{{$status->status}}</td>
+                                            <td >{{$status->status}}</td>
                                             @endif
                                             @endforeach
-                                    <td>
+                                    <td style="text-align:center ;">
 
                                         <form method="GET" action="/updatelead/{{$lead->id}}">
                                             @csrf
@@ -574,7 +574,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </form>
 
 
-                                    <td>
+                                    <td style="text-align:center ;">
                                         <form method="POST" action="/deletelead/{{$lead->id}}">
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">

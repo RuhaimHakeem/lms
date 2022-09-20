@@ -555,11 +555,11 @@ License: For each use you must have a valid license purchased only from above li
                                 <table class="table ms-5 mt-3 w-100">
                                     <thead>
                                         <tr>
-                                            <th scope="col" style="width:40px"></th>
-                                            <th scope="col">Batchid</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Agents</th>
+                                            <th id="th" scope="col" style="width:40px"></th>
+                                            <th id="th" scope="col">Batchid</th>
+                                            <th id="th" scope="col">Name</th>
+                                            <th id="th" scope="col">Status</th>
+                                            <th id="th" scope="col">Agents</th>
 
 
                                         </tr>

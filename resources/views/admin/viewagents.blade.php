@@ -529,15 +529,15 @@ License: For each use you must have a valid license purchased only from above li
 
                             <thead>
                                 <tr>
-                                    <th scope=" col" style="width:30px">id</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Phone number</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">DOB</th>
-                                    <th scope="col" style="width:20%">Email</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th id="th" scope=" col" style="width:30px">id</th>
+                                    <th id="th" scope="col">First Name</th>
+                                    <th id="th" scope="col">Last Name</th>
+                                    <th id="th" scope="col">Phone number</th>
+                                    <th id="th" scope="col">Gender</th>
+                                    <th id="th" scope="col">DOB</th>
+                                    <th id="th" scope="col" style="width:20%">Email</th>
+                                    <th id="th" scope="col"></th>
+                                    <th id="th" scope="col"></th>
 
 
 
@@ -554,7 +554,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->gender}}</td>
                                     <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
-                                    <td>
+                                    <td style="text-align:center ;">
                                         <form method="GET" action="/updateagent/{{$agent->id}}">
                                             @csrf
 
@@ -563,7 +563,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </form>
                                     </td>
 
-                                    <td>
+                                    <td style="text-align:center ;">
                                         <form method="POST" action="/deleteagent/{{$agent->id}}">
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
