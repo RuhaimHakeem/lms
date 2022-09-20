@@ -22,13 +22,13 @@ Route::get('/',[CustomAuthController::class,'index'])->name('index')->middleware
 
 Route::get('/email',[CustomAuthController::class,'email'])->name('email');
 
-Route::get('/assignleads',[AdminController::class,'assignleads'])->name('assignleads');
+Route::get('/assignleads',[AdminController::class,'assignleads'])->name('assignleads')->middleware('isLoggedIn');;
 
 Route::post('/assignleads',[AdminController::class,'leadassign'])->name('leadassign');
 
-Route::get('/updatelead/{id}',[AdminController::class,'editlead'])->name('editlead');
+Route::get('/updatelead/{id}',[AdminController::class,'editlead'])->name('editlead')->middleware('isLoggedIn');;
 
-Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('editagent');
+Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('editagent')->middleware('isLoggedIn');;
 
 Route::post('/updateagent/{id}',[AdminController::class,'updateagent'])->name('updateagent');
 
