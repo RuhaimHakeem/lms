@@ -13,13 +13,14 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->id();
-            $table->string('status')->nullable();
-            $table->unsignedBigInteger('leadid')->nullable();
-            $table->foreign('leadid')->references('id')->on('leads')->onDelete('cascade');
-            $table->timestamps();
-        });
+            Schema::create('statuses', function (Blueprint $table) {
+                $table->id();
+                $table->string('status')->nullable();
+                $table->unsignedBigInteger('leadid')->nullable();
+                $table->foreign('leadid')->references('id')->on('leads')->onDelete('cascade');
+                $table->timestamps();
+            });
+      
     }
 
     /**

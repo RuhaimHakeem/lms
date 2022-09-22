@@ -189,7 +189,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-150px"
                                     data-kt-menu="true">
-                    
+
                                     <div class="menu-item px-5">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -534,10 +534,19 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Name</th>
                                     <th id="th" scope="col">Phone number</th>
                                     <th id="th" scope="col">Email</th>
-                            
+
                                     <th id="th" scope="col">Agent Assigned</th>
                                     <th id="th" scope="col">Status</th>
                                     <th id="th" class='fw-bold' scope="col"></th>
+
+                                    <th scope="col">Batchid</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col">Email</th>
+
+                                    <th scope="col">Agent Assigned</th>
+                                    <th scope="col">Status</th>
+                                    <th class='fw-bold' scope="col"></th>
 
                                 </tr>
                             </thead>
@@ -552,14 +561,15 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td>{{$lead->phonenumber}}</td>
                                     <td>{{$lead->email}}</td>
-                               
-                                    
+
+
                                     @if ($lead->agentid)
                                     <td>{{$lead->agentname}}</td>
                                     @else
                                     <td>Not Assigned</td>
                                     @endif
                                     @foreach($statuses as $status)
+<<<<<<< HEAD
                                             @if($status->leadid == $lead->id)
                                             <td >{{$status->status}}</td>
                                             @endif
@@ -568,12 +578,28 @@ License: For each use you must have a valid license purchased only from above li
 
                                         <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
                                             @csrf
+=======
+                                    <<<<<<< Updated upstream=======>>>>>>> Stashed changes
+                                        @if($status->leadid == $lead->id)
+                                        <td>{{$status->status}}</td>
+                                        @endif
+                                        @endforeach
+                                        <<<<<<< Updated upstream <td style="text-align:center ;">
 
-                                            <button type="submit"
-                                                class="btn btn-xs btn-secondary btn-flat">Update</button>
-                                        </form>
+                                            =======
+                                            <td>
+                                                >>>>>>> Stashed changes
+>>>>>>> 7637acc41f66ffaa5aa4332667ad7db91eda5ae6
+
+                                                <form method="GET" action="/updatelead/{{$lead->id}}">
+                                                    @csrf
+
+                                                    <button type="submit"
+                                                        class="btn btn-xs btn-secondary btn-flat">Update</button>
+                                                </form>
 
 
+<<<<<<< HEAD
                             
                                         <form method="POST" action="/deletelead/{{$lead->id}}">
                                             @csrf
@@ -582,6 +608,17 @@ License: For each use you must have a valid license purchased only from above li
                                                 data-toggle="tooltip" title='Delete'>Delete</button>
                                         </form>
                                     </td>
+=======
+                                            <td style="text-align:center ;">
+                                                <form method="POST" action="/deletelead/{{$lead->id}}">
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button type="submit"
+                                                        class="btn btn-xs btn-danger btn-flat show_confirm"
+                                                        data-toggle="tooltip" title='Delete'>Delete</button>
+                                                </form>
+                                            </td>
+>>>>>>> 7637acc41f66ffaa5aa4332667ad7db91eda5ae6
 
 
 
