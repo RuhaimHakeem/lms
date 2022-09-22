@@ -513,7 +513,7 @@ License: For each use you must have a valid license purchased only from above li
                         @endif
                         <div style="margin-left:20px" class="mb-5">
 
-                            <h2 style="font-size:20px">LEAD PROFILES </h2>
+                            <h2 style="font-size:20px">Lead Profiles </h2>
 
 
                             <!--end::Title-->
@@ -539,15 +539,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Status</th>
                                     <th id="th" class='fw-bold' scope="col"></th>
 
-                                    <th scope="col">Batchid</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Phone number</th>
-                                    <th scope="col">Email</th>
-
-                                    <th scope="col">Agent Assigned</th>
-                                    <th scope="col">Status</th>
-                                    <th class='fw-bold' scope="col"></th>
-
+                              
                                 </tr>
                             </thead>
 
@@ -569,27 +561,12 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>Not Assigned</td>
                                     @endif
                                     @foreach($statuses as $status)
-<<<<<<< HEAD
-                                            @if($status->leadid == $lead->id)
-                                            <td >{{$status->status}}</td>
-                                            @endif
-                                            @endforeach
-                                    <td  class="d-flex justify-content-center">
-
-                                        <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
-                                            @csrf
-=======
-                                    <<<<<<< Updated upstream=======>>>>>>> Stashed changes
+                                
                                         @if($status->leadid == $lead->id)
                                         <td>{{$status->status}}</td>
                                         @endif
                                         @endforeach
-                                        <<<<<<< Updated upstream <td style="text-align:center ;">
-
-                                            =======
-                                            <td>
-                                                >>>>>>> Stashed changes
->>>>>>> 7637acc41f66ffaa5aa4332667ad7db91eda5ae6
+                                     <td style="text-align:center ;">
 
                                                 <form method="GET" action="/updatelead/{{$lead->id}}">
                                                     @csrf
@@ -599,16 +576,6 @@ License: For each use you must have a valid license purchased only from above li
                                                 </form>
 
 
-<<<<<<< HEAD
-                            
-                                        <form method="POST" action="/deletelead/{{$lead->id}}">
-                                            @csrf
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm"
-                                                data-toggle="tooltip" title='Delete'>Delete</button>
-                                        </form>
-                                    </td>
-=======
                                             <td style="text-align:center ;">
                                                 <form method="POST" action="/deletelead/{{$lead->id}}">
                                                     @csrf
@@ -618,7 +585,6 @@ License: For each use you must have a valid license purchased only from above li
                                                         data-toggle="tooltip" title='Delete'>Delete</button>
                                                 </form>
                                             </td>
->>>>>>> 7637acc41f66ffaa5aa4332667ad7db91eda5ae6
 
 
 
