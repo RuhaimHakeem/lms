@@ -518,7 +518,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="mb-10">
 
-                                    <h2 style="font-size:20px">Lead Update </h2>
+                                    <h2 style="font-size:20px">LEAD UPDATE </h2>
 
 
                                     <!--end::Title-->

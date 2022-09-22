@@ -524,7 +524,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <!--begin::Amount-->
 
                                                         <span
-                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">Leads</span>
+                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">LEADS</span>
 
                                                         <img src="../media/logos/users.png"
                                                             class="mb-7 border-bottom border-3">

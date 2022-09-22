@@ -522,7 +522,7 @@ License: For each use you must have a valid license purchased only from above li
                                 @csrf
                                 <div class="mb-5 mx-5">
 
-                                    <h2 style="font-size:20px">Assign Agent</h2>
+                                    <h2 style="font-size:20px">ASSIGN AGENT</h2>
 
 
                                     <!--end::Title-->
@@ -531,8 +531,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Subtitle=-->
                                 </div>
 
-                                <label class="d-flex mx-5 w-25  bg-transparent ">
-                                    <div class="box fw-bold">
+                                <label class="d-flexw-25  bg-transparent ">
+                                    <div class="box fw-bold  mx-5 ">
                                         Select Agents:
                                         <select name="agent">
                                             @foreach ($agents as $agent )

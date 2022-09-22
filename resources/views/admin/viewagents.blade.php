@@ -500,7 +500,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Content-->
                         <div style="margin-left:20px" class="mb-5">
 
-                            <h2 style="font-size:20px">Agent Profiles </h2>
+                            <h2 style="font-size:20px">AGENT PROFILES</h2>
 
 
                             <!--end::Title-->
@@ -537,7 +537,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">DOB</th>
                                     <th id="th" scope="col" style="width:20%">Email</th>
                                     <th id="th" scope="col"></th>
-                                    <th id="th" scope="col"></th>
+                           
 
 
 
@@ -554,23 +554,23 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->gender}}</td>
                                     <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
-                                    <td style="text-align:center ;">
-                                        <form method="GET" action="/updateagent/{{$agent->id}}">
+                                    <td class="d-flex justify-content-center">
+                                        <form method="GET" action="/updateagent/{{$agent->id}}" style="margin-right:3rem">
                                             @csrf
 
                                             <button type="submit"
                                                 class="btn btn-xs btn-secondary btn-flat">Update</button>
                                         </form>
-                                    </td>
+                        
 
-                                    <td style="text-align:center ;">
+                           
                                         <form method="POST" action="/deleteagent/{{$agent->id}}">
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm"
                                                 data-toggle="tooltip" title='Delete'>Delete</button>
                                         </form>
-                                    </td>
+                                  
 
                                     </td>
 

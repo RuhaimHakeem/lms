@@ -506,7 +506,7 @@ License: For each use you must have a valid license purchased only from above li
                             @csrf
                             <div class='d-flex flex-column fs-5 px-5'>
                                 <div class="mb-5">
-                                    <h2 style="font-size:20px">Lead Bulk Upload</h2>
+                                    <h2 style="font-size:20px">LEAD BULK UPLOAD</h2>
                                 </div>
                                 <div class='d-flex flex-row'>
                                     <p class="text-left me-2 mt-1">Upload File</p>
