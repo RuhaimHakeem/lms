@@ -513,7 +513,7 @@ License: For each use you must have a valid license purchased only from above li
                         @endif
                         <div style="margin-left:20px" class="mb-5">
 
-                            <h2 style="font-size:20px">Lead Profiles </h2>
+                            <h2 style="font-size:20px">LEAD PROFILES</h2>
 
 
                             <!--end::Title-->
@@ -566,9 +566,9 @@ License: For each use you must have a valid license purchased only from above li
                                         <td>{{$status->status}}</td>
                                         @endif
                                         @endforeach
-                                     <td style="text-align:center ;">
+                                     <td class="d-flex justify-content-center">
 
-                                                <form method="GET" action="/updatelead/{{$lead->id}}">
+                                                <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
                                                     @csrf
 
                                                     <button type="submit"
@@ -576,7 +576,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 </form>
 
 
-                                            <td style="text-align:center ;">
+                                       
                                                 <form method="POST" action="/deletelead/{{$lead->id}}">
                                                     @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
