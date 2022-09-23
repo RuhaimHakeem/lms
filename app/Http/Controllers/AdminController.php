@@ -208,17 +208,17 @@ class AdminController extends Controller
 
        $password = Hash::make($request->password);
 
-       if(isset($request->password)) {
+       if($request->password) {
         $logout = DB::table('users')
         ->where('id', $id)
-        ->update(['verified' => 0]);
+        ->update(['verified' => 0, 'password' => $password  ]);
        }
 
         $res = DB::table('users')
         ->where('id', $id)
-        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email,'password' => $password,  'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
+        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email,  'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
 
-        if($res) {
+        if($res || isset($logout) ) {
             return redirect('/admindashboard/viewagents')->with('success','Agent updated successfully');
         }
         else {
