@@ -15,6 +15,7 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use App\Models\{Country, State, City};
 use DB;
+use Hash;
 
 
 
@@ -202,9 +203,20 @@ class AdminController extends Controller
 
        //TODO: Forget the session of the agent if email is changed
 
+       $userId = Session::get('loginId');
+       $user = User::where('id','=', $userId)->first();
+
+       $password = Hash::make($request->password);
+
+       if(isset($request->password)) {
+        $logout = DB::table('users')
+        ->where('id', $id)
+        ->update(['verified' => 0]);
+       }
+
         $res = DB::table('users')
         ->where('id', $id)
-        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email, 'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
+        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email,'password' => $password,  'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
 
         if($res) {
             return redirect('/admindashboard/viewagents')->with('success','Agent updated successfully');

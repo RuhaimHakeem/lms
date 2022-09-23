@@ -540,7 +540,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Status</th>
                                     <th id="th" class='fw-bold' scope="col"></th>
 
-                              
+
                                 </tr>
                             </thead>
 
@@ -562,29 +562,32 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>Not Assigned</td>
                                     @endif
                                     @foreach($statuses as $status)
-                                
-                                        @if($status->leadid == $lead->id)
-                                        <td>{{$status->status}}</td>
-                                        @endif
-                                        @endforeach
-                                     <td class="d-flex justify-content-center">
 
-                                                <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
-                                                    @csrf
+                                    @if($status->leadid == $lead->id)
+                                    <td>{{$status->status}}</td>
+                                    @endif
+                                    @endforeach
+                                    <td class="d-flex justify-content-center">
 
-                                                    <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import" style="color:white"></i> Update</button>
-                                                </form>
+                                        <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
+                                            @csrf
+
+                                            <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"
+                                                    style="color:white"></i> Update</button>
+                                        </form>
 
 
-                                       
-                                                <form method="POST" action="/deletelead/{{$lead->id}}">
-                                                    @csrf
-                                                    <input name="_method" type="hidden" value="DELETE">
-                                             
 
-                                                        <button class="btndelete show_confirm" title='Delete' data-toggle="tooltip"><i class="fa-solid fa-trash" style="color:white"></i> Delete</button>
-                                                </form>
-                                            </td>
+                                        <form method="POST" action="/deletelead/{{$lead->id}}">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+
+
+                                            <button class="btndelete show_confirm" title='Delete'
+                                                data-toggle="tooltip"><i class="fa-solid fa-trash"
+                                                    style="color:white"></i> Delete</button>
+                                        </form>
+                                    </td>
 
 
 
@@ -649,7 +652,6 @@ License: For each use you must have a valid license purchased only from above li
                                 element.innerHTML = batchid;
                             })
                         </script> -->
-
 
 
 

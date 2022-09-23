@@ -184,7 +184,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-150px"
                                     data-kt-menu="true">
-                    
+
                                     <div class="menu-item px-5">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -556,6 +556,14 @@ License: For each use you must have a valid license purchased only from above li
                                     <input type="email" placeholder="Email Address" name="email" autocomplete="off"
                                         class="form-control bg-transparent" value={{$agent->email}}>
                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <!--end::Email-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Email-->
+                                    <input type="password" placeholder="Password" name="password" autocomplete="off"
+                                        class="form-control bg-transparent">
+                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                     <!--end::Email-->
                                 </div>
 
