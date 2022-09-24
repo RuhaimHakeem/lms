@@ -184,7 +184,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-150px"
                                     data-kt-menu="true">
-                    
+
                                     <div class="menu-item px-5">
                                         <form action="/logout" method="POST">
                                             @csrf
@@ -278,7 +278,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </span>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Dashboard</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
@@ -442,16 +442,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Status</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu sub-->

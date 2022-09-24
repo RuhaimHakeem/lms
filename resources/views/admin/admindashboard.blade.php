@@ -278,7 +278,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </span>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Dashboard</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
@@ -444,16 +444,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Status</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu sub-->

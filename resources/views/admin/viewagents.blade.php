@@ -283,7 +283,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </span>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Dashboard</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
@@ -447,16 +447,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Status</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu sub-->
@@ -537,7 +528,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Gender</th>
                                     <th id="th" scope="col">DOB</th>
                                     <th id="th" scope="col" style="width:20%">Email</th>
-                                    <th id="th" scope="col"></th>
+                                    <th id="th" scope="col" style="text-align: center">Actions</th>
 
 
 
@@ -551,10 +542,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->id}}</td>
                                     <td>{{$agent->first_name}}</td>
                                     <td>{{$agent->last_name}}</td>
-                                    <td>{{$agent->phonenumber}}</td>
+                                    <td> <a href="tel: {{$agent->phonenumber}}">{{$agent->phonenumber}} </a></td>
                                     <td>{{$agent->gender}}</td>
                                     <td>{{$agent->dob}}</td>
-                                    <td>{{$agent->email}}</td>
+                                    <td> <a href="mailto:{{$agent->email}}">{{$agent->email}} </a></td>
                                     <td class="d-flex justify-content-center">
                                         <form method="GET" action="/updateagent/{{$agent->id}}"
                                             style="margin-right:3rem">

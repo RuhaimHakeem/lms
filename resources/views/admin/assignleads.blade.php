@@ -283,7 +283,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </span>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Dashboard</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
@@ -447,16 +447,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Status</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
+
                                         <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu sub-->
@@ -547,9 +538,10 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="mt-5 ms-5" style="width:200px;">
 
-                                <button type="submit" class="btnfile"><i class="fa-solid fa-link" style="color:white"></i> Assign</button>
+                                    <button type="submit" class="btnfile"><i class="fa-solid fa-link"
+                                            style="color:white"></i> Assign</button>
 
-                                
+
                                 </div>
 
 
@@ -583,7 +575,17 @@ License: For each use you must have a valid license purchased only from above li
                                             <td>{{$lead->name}}</td>
                                             @foreach($statuses as $status)
                                             @if($status->leadid == $lead->id)
+                                            @if($status->status == 'Assigned')
+                                            <td><img src="../media/logos/button-right.png"
+                                                    style="width: 15px; margin-right: 2px" alt="" />{{$status->status}}
+                                            </td>
+                                            @elseif ($status->status == 'Unassigned')
+                                            <td> <img src="../media/logos/button-wrong.png"
+                                                    style="width: 15px; margin-right: 2px" alt="" />{{$status->status}}
+                                            </td>
+                                            @else
                                             <td>{{$status->status}}</td>
+                                            @endif
                                             @endif
                                             @endforeach
                                             <td>{{$lead->agentname}}</td>

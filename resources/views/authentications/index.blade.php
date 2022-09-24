@@ -37,6 +37,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -113,6 +114,7 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-grid mb-10">
                                 <button type="submit" class="btn btn-primary">
                                     <!--begin::Indicator label-->
+                                    <i class="fa-solid fa-arrow-right"></i>
                                     <span>NEXT</span>
 
                                 </button>

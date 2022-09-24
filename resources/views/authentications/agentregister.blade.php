@@ -28,7 +28,7 @@ License: For each use you must have a valid license purchased only from above li
         content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular, Asp.Net Core, Blazor, Django, Flask &amp; Laravel Admin Dashboard Theme" />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="../favicon.ico" />
     <!--begin::Fonts-->
@@ -327,7 +327,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </span>
                                             <!--end::Svg Icon-->
                                         </span>
-                                        <span class="menu-title">Dashboards</span>
+                                        <span class="menu-title">Dashboard</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
@@ -487,16 +487,6 @@ License: For each use you must have a valid license purchased only from above li
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Agent Registration</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                        </div>
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="#">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Status</span>
                                             </a>
                                             <!--end:Menu link-->
                                         </div>
@@ -671,9 +661,10 @@ License: For each use you must have a valid license purchased only from above li
                                 </div>
                                 <!--end::Wrapper-->
                                 <!--begin::Submit button-->
-                             
+
                                 <div class="d-flex mb-10">
-                                <button type="submit" id="kt_sign_in_submit" class="btnfile"><i class="fa-solid fa-address-card" style="color:white"></i>
+                                    <button type="submit" id="kt_sign_in_submit" class="btnfile"><i
+                                            class="fa-solid fa-address-card" style="color:white"></i>
                                         <!--begin::Indicator label-->
                                         <span class="indicator-label">Register Agent</span>
                                         <!--end::Indicator label-->
