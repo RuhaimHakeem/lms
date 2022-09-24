@@ -512,8 +512,8 @@ License: For each use you must have a valid license purchased only from above li
                         <div class="d-flex justify-content-end col-11 col-sm-11  col-md-11 col-lg-11 col-xl-11 col-xxl-11"
                             style="padding-right:1rem">
 
-                            <a href="../agentregister"><img width="20px"
-                                    src="../media/logos/icons8-add-user-24.png" /></a>
+                            <a href="../agentregister"><button class="btnfile"> <i class="fa-solid fa-plus"
+                                        style="color:white"></i> Add </button></a>
 
                         </div>
 
@@ -538,7 +538,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">DOB</th>
                                     <th id="th" scope="col" style="width:20%">Email</th>
                                     <th id="th" scope="col"></th>
-                           
+
 
 
 
@@ -556,20 +556,24 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->dob}}</td>
                                     <td>{{$agent->email}}</td>
                                     <td class="d-flex justify-content-center">
-                                        <form method="GET" action="/updateagent/{{$agent->id}}" style="margin-right:3rem">
+                                        <form method="GET" action="/updateagent/{{$agent->id}}"
+                                            style="margin-right:3rem">
                                             @csrf
 
-                                            <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import" style="color:white"></i> Update</button>
+                                            <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"
+                                                    style="color:white"></i> Update</button>
                                         </form>
-                        
 
-                           
+
+
                                         <form method="POST" action="/deleteagent/{{$agent->id}}">
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btndelete show_confirm" title='Delete' data-toggle="tooltip"><i class="fa-solid fa-trash" style="color:white"></i> Delete</button>
+                                            <button class="btndelete show_confirm" title='Delete'
+                                                data-toggle="tooltip"><i class="fa-solid fa-trash"
+                                                    style="color:white"></i> Delete</button>
                                         </form>
-                                  
+
 
                                     </td>
 

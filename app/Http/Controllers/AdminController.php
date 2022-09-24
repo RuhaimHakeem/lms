@@ -259,8 +259,7 @@ class AdminController extends Controller
              'statuses' => $statuses,
          ]);
  
-        }
-            
+        }           
         
      }
 

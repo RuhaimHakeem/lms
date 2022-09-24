@@ -524,7 +524,8 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <div class="d-flex justify-content-end col-11 col-sm-11  col-md-11 col-lg-11 col-xl-11 col-xxl-11"
                             style="padding-right:1rem">
-                            <a href="leadupload"><img width="20px" src="../media/logos/icons8-add-user-24.png" /></a>
+                            <a href="leadupload"><button class="btnfile"> <i class="fa-solid fa-plus"
+                                        style="color:white"></i> Add </button></a>
 
                         </div>
 
@@ -559,12 +560,20 @@ License: For each use you must have a valid license purchased only from above li
                                     @if ($lead->agentid)
                                     <td>{{$lead->agentname}}</td>
                                     @else
-                                    <td>Not Assigned</td>
+                                    <td> Not Assigned</td>
                                     @endif
                                     @foreach($statuses as $status)
 
                                     @if($status->leadid == $lead->id)
+                                    @if($status->status == 'Assigned')
+                                    <td><img src="../media/logos/button-right.png"
+                                            style="width: 15px; margin-right: 2px" alt="" />{{$status->status}}</td>
+                                    @elseif ($status->status == 'Unassigned')
+                                    <td> <img src="../media/logos/button-wrong.png"
+                                            style="width: 15px; margin-right: 2px" alt="" />{{$status->status}}</td>
+                                    @else
                                     <td>{{$status->status}}</td>
+                                    @endif
                                     @endif
                                     @endforeach
                                     <td class="d-flex justify-content-center">
