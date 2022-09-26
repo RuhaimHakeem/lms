@@ -527,7 +527,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Name</th>
                                     <th id="th" scope="col">Phone number</th>
                                     <th id="th" scope="col">Email</th>
-
+                                    <th id="th" scope="col">Account Number</th>
                                     <th id="th" scope="col">Agent Assigned</th>
                                     <th id="th" scope="col" style="width:10rem;">Status</th>
                                     <th id="th" scope="col" style="width:25rem; text-align: center">Actions</th>
@@ -546,6 +546,11 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$lead->name}}</td>
                                     <td> <a href="tel: {{$lead->phonenumber}}">{{$lead->phonenumber}} </a></td>
                                     <td> <a href="mailto:{{$lead->email}}">{{$lead->email}} </a></td>
+                                    @if ($lead->accountnumber)
+                                    <td>{{$lead->accountnumber}}</td>
+                                    @else
+                                    <td>NULL</td>
+                                    @endif
 
 
                                     @if ($lead->agentid)
@@ -575,11 +580,12 @@ License: For each use you must have a valid license purchased only from above li
                                         <form method="GET" action="/viewlead/{{$lead->id}}">
                                             @csrf
 
-                                            <button class="btnfile"><i class="fa-solid fa-file-circle-check" 
-                                            style="color:white;"></i> View</button>
+                                            <button class="btnfile"><i class="fa-solid fa-file-circle-check"
+                                                    style="color:white;"></i> View</button>
                                         </form>
 
-                                        <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:1rem;margin-left:1rem">
+                                        <form method="GET" action="/updatelead/{{$lead->id}}"
+                                            style="margin-right:1rem;margin-left:1rem">
                                             @csrf
 
                                             <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"
