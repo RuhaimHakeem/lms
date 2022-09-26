@@ -529,8 +529,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Email</th>
 
                                     <th id="th" scope="col">Agent Assigned</th>
-                                    <th id="th" scope="col">Status</th>
-                                    <th id="th" scope="col" style="text-align: center">Actions</th>
+                                    <th id="th" scope="col" style="width:10rem;">Status</th>
+                                    <th id="th" scope="col" style="width:25rem; text-align: center">Actions</th>
 
 
                                 </tr>
@@ -551,7 +551,7 @@ License: For each use you must have a valid license purchased only from above li
                                     @if ($lead->agentid)
                                     <td>{{$lead->agentname}}</td>
                                     @else
-                                    <td> Not Assigned</td>
+                                    <td> NULL </td>
                                     @endif
                                     @foreach($statuses as $status)
 
@@ -567,7 +567,18 @@ License: For each use you must have a valid license purchased only from above li
                                     @endif
                                     @endif
                                     @endforeach
+
+
+
                                     <td class="d-flex justify-content-center">
+
+                                        <form method="GET" action="/viewlead/{{$lead->id}}">
+                                            @csrf
+
+                                            <button class="btnfile" style="margin-right:3rem; margin-left:3rem"><i
+                                                    class="fa-solid fa-file-circle-check" style="color:white;"></i>
+                                                View</button>
+                                        </form>
 
                                         <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
                                             @csrf

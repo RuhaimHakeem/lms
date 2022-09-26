@@ -65,6 +65,8 @@ Route::post('uploadlead',[AdminController::class,'upload'])->name('uploadlead');
 
 Route::post('recaptcha',[CustomAuthController::class,'recaptcha'])->name('recaptcha');
 
+Route::get('/viewlead/{id}',[AdminController::class,'viewlead'])->name('viewlead')->middleware('isLoggedIn');
+
 
 
 Route::post('adminlogin',[CustomAuthController::class,'adminLogin'])->name('adminlogin');

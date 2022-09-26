@@ -21,6 +21,23 @@ use Hash;
 
 class AdminController extends Controller
 {
+
+    public function viewlead($id) {
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+
+        $lead = Lead::where('id','=', $id)->first();
+        $leaddetails = Leaddetail::where('leadid','=', $id)->first();
+        $countrydetails = Countrydetail::where('leadid','=', $id)->first();
+
+        return view('admin.viewlead', [
+            
+            'admin' => $admin,
+            'lead' => $lead,
+            'leaddetails' => $leaddetails,
+            'countrydetails' => $countrydetails,
+        ]);
+    }
     public function viewleads() {
         
         $userId = Session::get('loginId');
@@ -110,7 +127,7 @@ class AdminController extends Controller
 
         $res = DB::table('leads')
         ->where('id', $id)
-        ->update(['name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email]);
+        ->update(['name' => $request->name, 'phonenumber' => $request->phonenumber, 'email' => $request->email, 'accountnumber' => $request->accountnumber]);
 
         // update country details of the lead
         
