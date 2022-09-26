@@ -187,7 +187,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-menu="true">
 
                                     <div class="menu-item px-5">
-                                        <form action="logout" method="POST">
+                                        <form action="/logout" method="POST">
                                             @csrf
                                             <button type="submit" href="logout"
                                                 class="menu-link px-5 mx-4 btn btn-light">Sign
@@ -221,7 +221,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="admindashboard">
+                        <a href="/admindashboard">
                             <img alt="Logo" src="../media/logos/edgelogo.png" class="h-35px app-sidebar-logo-default" />
                             <img alt="Logo" src="../media/logos/edge.png" class="h-30px app-sidebar-logo-minimize" />
                         </a>
@@ -286,7 +286,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="admindashboard">
+                                            <a class="menu-link" href="/admindashboard">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -369,7 +369,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="assignleads">
+                                            <a class="menu-link" href="/assignleads">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -437,7 +437,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="agentregister">
+                                            <a class="menu-link" href="/agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
