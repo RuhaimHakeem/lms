@@ -475,7 +475,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
                         <!--begin::Toolbar-->
-                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                        <div id="kt_app_toolbar">
                             <!--begin::Toolbar container-->
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
@@ -496,12 +496,11 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <button onclick="history.back()" class="btnback mx-5 mt-5 mb-5" style="width: 4rem"><i
-                                class="fa-solid fa-angles-left" style="color:white;margin-top:0.2rem"></i></button>
-                        <div id="kt_app_content"
-                            class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                       
+                        <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <!--begin::Content container-->
-
+                            <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button>
                             <form class="form w-100 px-5 ms-5" action="/updatelead/{{$lead->id}}" method="post">
                                 @if(Session::has('success'))
                                 <div class="alert alert-success">{{Session::get('success')}}</div>

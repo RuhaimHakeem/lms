@@ -575,12 +575,11 @@ License: For each use you must have a valid license purchased only from above li
                                         <form method="GET" action="/viewlead/{{$lead->id}}">
                                             @csrf
 
-                                            <button class="btnfile" style="margin-right:3rem; margin-left:3rem"><i
-                                                    class="fa-solid fa-file-circle-check" style="color:white;"></i>
-                                                View</button>
+                                            <button class="btnfile"><i class="fa-solid fa-file-circle-check" 
+                                            style="color:white;"></i> View</button>
                                         </form>
 
-                                        <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:3rem">
+                                        <form method="GET" action="/updatelead/{{$lead->id}}" style="margin-right:1rem;margin-left:1rem">
                                             @csrf
 
                                             <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"
