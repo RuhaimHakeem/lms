@@ -478,7 +478,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
                         <!--begin::Toolbar-->
-                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                        <div id="kt_app_toolbar" class="app-toolbar ">
                             <!--begin::Toolbar container-->
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
@@ -501,8 +501,10 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <div id="kt_app_content"
-                            class="d-flex justify-content-end col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                        <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!--begin::Content container-->
+                            <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button>
                             <!--begin::Content container-->
                             <form class="w-100 px-5" action="/assignleads" method="post">
                                 @if(Session::has('success'))
@@ -512,9 +514,9 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="alert alert-danger">{{Session::get('fail')}}</div>
                                 @endif
                                 @csrf
-                                <div class="mb-5 mx-5">
+                                <div class="mb-5 mx-5 mt-10">
 
-                                    <h2 style="font-size:20px">ASSIGN AGENT</h2>
+                                    <h2 style="font-size:20px" >ASSIGN AGENT</h2>
 
 
                                     <!--end::Title-->

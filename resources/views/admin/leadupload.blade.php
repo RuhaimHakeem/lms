@@ -463,16 +463,21 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
-                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                
+                <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!--begin::Content container-->
+                            <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button>
                     <!--begin::Content wrapper-->
-                    <div class="d-flex flex-column flex-column-fluid">
+                    <div class="d-flex flex-column flex-column-fluid mx-5" >
                         <!--begin::Toolbar-->
                         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
                             <!--begin::Toolbar container-->
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                    <!--begin::Title-->
+                                   
+                                <!--begin::Title-->
 
                                     <!--end::Title-->
                                     <!--begin::Breadcrumb-->
@@ -489,7 +494,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
 
-                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('uploadlead')}}" method="POST" enctype="multipart/form-data" > 
                             @if($errors->any())
                             @foreach ($errors->all() as $error)
                             <div class="alert alert-danger w-50 mx-4 ">{{$error}}</div>
