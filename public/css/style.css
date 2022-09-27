@@ -129,3 +129,8 @@ table th {
     cursor: pointer !important;
     border-radius: 0.5rem;
 }
+
+.tablecenter{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

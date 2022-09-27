@@ -39,6 +39,9 @@ class CustomAuthController extends Controller
     public function index () {
         return view('authentications.index');
     }
+    public function error () {
+        return view('error');
+    }
 
 
  

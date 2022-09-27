@@ -548,7 +548,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <td> <a href="mailto:{{$agent->email}}">{{$agent->email}} </a></td>
                                     <td class="d-flex justify-content-center">
                                         <form method="GET" action="/updateagent/{{$agent->id}}"
-                                            style="margin-right:1rem">
+                                            style="margin-right:1rem"  target="_blank">
                                             @csrf
 
                                             <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"

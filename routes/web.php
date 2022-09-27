@@ -80,6 +80,7 @@ Route::post('email/verification',[CustomAuthController::class,'emailUser'])->nam
 
 
 
+Route::get('error',[CustomAuthController::class,'error'])->name('error');
 
 
 

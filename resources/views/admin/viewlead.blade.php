@@ -500,15 +500,15 @@ License: For each use you must have a valid license purchased only from above li
 
                         <div id="kt_app_content" class="app-content">
                             <!--begin::Content container-->
-                            <button onclick="history.back()" class="btnback mx-5 mt-5"><i
-                                    class="fa-solid fa-angles-left" style="color:white;margin-top:0.2rem"></i></button>
+                    <!--        <button onclick="history.back()" class="btnback mx-5 mt-5"><i
+                                    class="fa-solid fa-angles-left" style="color:white;margin-top:0.2rem"></i></button> -->
 
                             <div id="kt_app_content_container" class="app-container container-fluid">
                                 <!--begin::Row-->
 
                                 <!--begin::Col-->
 
-                                <div class="mt-10 m-5 ">
+                                <div class="mt-10  ">
 
                                     <div class="d-grid">
 

@@ -585,15 +585,15 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <td class="d-flex justify-content-center">
 
-                                        <form method="GET" action="/viewlead/{{$lead->id}}">
+                                        <form method="GET" action="/viewlead/{{$lead->id}}" target="_blank">
                                             @csrf
 
                                             <button class="btnfile"><i class="fa-solid fa-file-circle-check"
                                                     style="color:white;"></i> View</button>
                                         </form>
 
-                                        <form method="GET" action="/updatelead/{{$lead->id}}"
-                                            style="margin-right:1rem;margin-left:1rem">
+                                        <form method="GET" action="/updatelead/{{$lead->id}}" 
+                                            style="margin-right:1rem;margin-left:1rem"  target="_blank">
                                             @csrf
 
                                             <button class="btnfile"><i class="fa-sharp fa-solid fa-file-import"

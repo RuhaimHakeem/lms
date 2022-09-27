@@ -497,10 +497,10 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Toolbar-->
                         <!--begin::Content-->
                        
-                        <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        <div id="kt_app_content" class="mt-10 app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <!--begin::Content container-->
-                            <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
-            style="color:white;margin-top:0.2rem"></i></button>
+                        <!--    <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button> -->
                             <form class="form w-100 px-5 ms-5" action="/updatelead/{{$lead->id}}" method="post">
                                 @if(Session::has('success'))
                                 <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -512,7 +512,7 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-                                <div class="m-5 ms-5">
+                                <div class="mb-10">
 
                                     <h2 style="font-size:20px">LEAD UPDATE </h2>
 
