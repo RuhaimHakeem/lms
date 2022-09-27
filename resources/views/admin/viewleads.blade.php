@@ -530,6 +530,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <th id="th" scope="col">Account Number</th>
                                     <th id="th" scope="col">Agent Assigned</th>
                                     <th id="th" scope="col" style="width:10rem;">Status</th>
+                                    <th id="th" scope="col" style="width:10rem;">Retention Status</th>
                                     <th id="th" scope="col" style="width:25rem; text-align: center">Actions</th>
 
 
@@ -570,6 +571,13 @@ License: For each use you must have a valid license purchased only from above li
                                     @else
                                     <td>{{$status->status}}</td>
                                     @endif
+                                    @endif
+                                    @endforeach
+
+                                    @foreach ($statuses as $status )
+
+                                    @if ($status->leadid == $lead->id)
+                                    <td>{{$status->retentionstatus}}</td>
                                     @endif
                                     @endforeach
 
