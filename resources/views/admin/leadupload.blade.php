@@ -464,7 +464,7 @@ License: For each use you must have a valid license purchased only from above li
                 <!--end::sidebar-->
                 <!--begin::Main-->
                 
-                <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <!--begin::Content container-->
                             <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
             style="color:white;margin-top:0.2rem"></i></button>
