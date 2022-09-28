@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 class CreateLeadsTable extends Migration
 {
     /**
@@ -14,13 +13,12 @@ class CreateLeadsTable extends Migration
      */
     public function up()
     {
-        
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string('batchid');
             $table->string('name');
             $table->string('phonenumber');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->unsignedBigInteger('agentid')->nullable();
             $table->string('agentname')->nullable();
             $table->foreign('agentid')->references('id')->on('users')->onDelete('cascade');

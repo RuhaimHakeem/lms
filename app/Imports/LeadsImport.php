@@ -55,7 +55,7 @@ class LeadsImport implements ToCollection, WithHeadingRow, WithValidation
         return[
             'name'=>'required',
             'phonenumber'=>'required',
-            'email'=>'required',
+            'email' => 'nullable',
         ];
     }
 }
