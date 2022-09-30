@@ -286,19 +286,33 @@ class AdminController extends Controller
         $agent = User::where('id','=',$agentid)->first();
   
         $leads = $request->lead;
-        if($leads){
-            foreach($leads as $lead) {
-
-                $res = Lead::where('id', $lead)
-                ->update(['agentid' => $agentid, 'agentname' => $agent->name]);
-                
-                Status::where('leadid', $lead)
-                ->update(['status' => 'Assigned']);
+        if (isset($_POST['assign'])) {
+            if($leads){
+                foreach($leads as $lead) {   
+                    $res = Lead::where('id', $lead)
+                    ->update(['agentid' => $agentid, 'agentname' => $agent->name]);
+                        
+                    Status::where('leadid', $lead)
+                    ->update(['status' => 'Assigned']);
+                }
             }
         }
 
+        elseif(isset($_POST['unassign'])) {
+            if($leads){
+                foreach($leads as $lead) {   
+                    $res = Lead::where('id', $lead)
+                    ->update(['agentid' => null, 'agentname' => null]);
+                        
+                    Status::where('leadid', $lead)
+                    ->update(['status' => 'Unassigned']);
+                }
+            }
+        }
+        
+
         else {
-            return back()->with('fail',"Please select agent to assign");
+            return back()->with('fail',"Please select lead to assign");
         }
         
 

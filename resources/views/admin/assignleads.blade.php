@@ -504,25 +504,21 @@ License: For each use you must have a valid license purchased only from above li
                         <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <!--begin::Content container-->
                             <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
-            style="color:white;margin-top:0.2rem"></i></button>
+
+                            style="color:white;margin-top:0.2rem"></i></button>
                             <!--begin::Content container-->
                             <form class="w-100 px-5" action="/assignleads" method="post">
                                 @if(Session::has('success'))
-                                <div class="alert alert-success">{{Session::get('success')}}</div>
+                                <div class="alert alert-success mt-2">{{Session::get('success')}}</div>
                                 @endif
                                 @if(Session::has('fail'))
-                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                <div class="alert alert-danger mt-2">{{Session::get('fail')}}</div>
                                 @endif
                                 @csrf
                                 <div class="mb-5 mx-5 mt-10">
 
                                     <h2 style="font-size:20px" >ASSIGN AGENT</h2>
 
-
-                                    <!--end::Title-->
-                                    <!--begin::Subtitle-->
-
-                                    <!--end::Subtitle=-->
                                 </div>
 
                                 <label class="d-flexw-25  bg-transparent ">
@@ -538,10 +534,15 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-                                <div class="mt-5 ms-5" style="width:200px;">
+                                <div class="mt-5 ms-5" style="width:300px;">
 
-                                    <button type="submit" class="btnfile"><i class="fa-solid fa-link"
-                                            style="color:white"></i> Assign</button>
+                                    <button type="submit" name="assign" class="btnfile me-2"><i class="fa-solid fa-link"
+                                            style="color:white"></i>Assign
+                                    </button>
+
+                                    <button type="submit" name="unassign"  class="btnfile"><i class="fa-solid fa-link"
+                                             style="color:white"></i>Unassign
+                                    </button>
 
 
                                 </div>
@@ -597,7 +598,6 @@ License: For each use you must have a valid license purchased only from above li
                                 </table>
 
 
-                            </form>
 
                         </div>
 
