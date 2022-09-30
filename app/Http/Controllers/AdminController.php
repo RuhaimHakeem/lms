@@ -297,6 +297,15 @@ class AdminController extends Controller
                     Status::where('leadid', $lead)
                     ->update(['status' => 'Assigned']);
                 }
+                if($res) {
+                    return back()->with('success',"Agent Assigned");
+                }
+                else {
+                    return back()->with('fail',"Something went wrong");
+                }
+            }
+            else {
+                return back()->with('fail',"Please select lead to assign");
             }
         }
 
@@ -309,22 +318,23 @@ class AdminController extends Controller
                     Status::where('leadid', $lead)
                     ->update(['status' => 'Unassigned']);
                 }
+
+                if($res) {
+                    return back()->with('success',"Agent Unassigned");
+                }
+                else {
+                    return back()->with('fail',"Something went wrong");
+                }
+            }
+            else {
+                return back()->with('fail',"Please select lead to assign");
             }
         }
         
 
-        else {
-            return back()->with('fail',"Please select lead to assign");
-        }
-        
+       
 
-        if($res) {
-            return back()->with('success',"Agent Assigned");
-        }
-
-        else {
-            return back()->with('fail',"Something went wrong");
-        }
+       
 
         
  
