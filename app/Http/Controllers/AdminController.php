@@ -282,6 +282,8 @@ class AdminController extends Controller
 
      public function leadassign(Request $request) {
 
+        $res = null;
+
         $agentid = $request->agent;
         $agent = User::where('id','=',$agentid)->first();
   
