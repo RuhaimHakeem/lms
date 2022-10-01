@@ -33,7 +33,7 @@
 
 <div class="mx-10 text-center ">
     <img src="../media/logos/prag.png" class="mb-5" style="width:6rem"/>
-<h1 class="text-uppercase" style="font-weight:bold">PragICTS Application Error Handling Module</h1>
+<h1 class="text-uppercase" style="font-weight:bold">PragICTS<br> Application Error Handling Module</h1>
 
 </div>
 <div>
@@ -69,15 +69,15 @@
 
 <div>
 <div class="mt-20 text-center">
-<h2 class="mb-5" >Please contact PragICTS Support as Follows</h2>
-<h5 >Email:<a href="mailto:support@pragicts.com">support@pragicts.com</a><br>Phone:<a href="tel:+94 074 270 3262">+94 074 270 3262</a></h5>
+<p class="mb-5" style="font-size:18px">Contact PragICTS Support</p>
+<h5 ><a href="mailto:support@pragicts.com">support@pragicts.com</a> | <a href="tel:+94 074 270 3262">+94 074 270 3262</a></h5><br>
 
-<h2 class="mb-5">Or escalate it to</h2>
-
-
-<h5 >Email:<a href="mailto:escalations@pragicts.com">escalations@pragicts.com</a><br>Phone:<a href="tel:+94 074 059 8983">+94 074 059 8983</a></h5>
+<p class="mb-5 mt-5" style="font-size:18px">Escalation</p>
 
 
+<h5 ><a href="mailto:escalations@pragicts.com">escalations@pragicts.com</a> | <a href="tel:+94 074 059 8983">+94 074 059 8983</a></h5>
+<br><br><br>
+<p><a href="https://pragicts.com/" target="_blank">https://pragicts.com/</a></p>
 </div>
 
 
