@@ -565,7 +565,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <input class="form-control bg-transparent" type="date" id="dob" name="dob"
                                         value={{$agent->dob}}>
                                 </div>
-
+                                
+                                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
                                 <script>
                                 function onlyOne(checkbox) {
                                     var checkboxes = document.getElementsByName('gender')
@@ -573,6 +574,11 @@ License: For each use you must have a valid license purchased only from above li
                                         if (item !== checkbox) item.checked = false
                                     })
                                 }
+
+                                const config = {
+                                    dateFormat: "d-m-Y",
+                                }
+                                    flatpickr("input[type=date]", config);
                                 </script>
 
 
