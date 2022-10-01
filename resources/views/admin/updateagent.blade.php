@@ -562,9 +562,10 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="d-flex fv-row mb-8">
                                     <label class="me-6 form-control bg-transparent " for="">DOB</label>
-                                    <input class="form-control bg-transparent" type="date" id="dob" name="dob"
-                                        value={{$agent->dob}}>
+                                    <input class="form-control bg-transparent" type="date" name="dob" id="date" value={{$agent->properdate}} >
                                 </div>
+
+                                
                                 
                                 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
                                 <script>
@@ -575,8 +576,14 @@ License: For each use you must have a valid license purchased only from above li
                                     })
                                 }
 
-                                const config = {
+                               let agent = @json($agent);
+
+                                const config = {      
                                     dateFormat: "d-m-Y",
+                                    disableMobile: "true",
+                                    defaultDate: [agent.properdate]
+                                   
+                                    
                                 }
                                     flatpickr("input[type=date]", config);
                                 </script>

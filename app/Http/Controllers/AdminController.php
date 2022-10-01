@@ -199,6 +199,10 @@ class AdminController extends Controller
          
         $agent = User::where('id','=', $id)->first();
 
+        if($agent->dob) {
+            $agent->properdate = date('d-m-Y', strtotime($agent->dob)) ;
+        }
+        
         return view('admin.updateagent', [
             'agent' => $agent,
             'admin' => $admin,
@@ -223,6 +227,8 @@ class AdminController extends Controller
        $userId = Session::get('loginId');
        $user = User::where('id','=', $userId)->first();
 
+       $dob = date('Y-m-d', strtotime($request->dob));
+
        $password = Hash::make($request->password);
 
        if($request->password) {
@@ -233,7 +239,7 @@ class AdminController extends Controller
 
         $res = DB::table('users')
         ->where('id', $id)
-        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email,  'dob' => $request->dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
+        ->update(['first_name' => $request->firstname, 'last_name' => $request->lastname,'email' => $request->email,  'dob' => $dob, 'gender' => $request->gender, 'phonenumber' => $request->phone]);
 
         if($res || isset($logout) ) {
             return redirect('/admindashboard/viewagents')->with('success','Agent updated successfully');
