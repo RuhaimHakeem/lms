@@ -544,7 +544,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <td>{{$agent->last_name}}</td>
                                     <td> <a href="tel: {{$agent->phonenumber}}">{{$agent->phonenumber}} </a></td>
                                     <td>{{$agent->gender}}</td>
-                                    <td>{{$agent->dob}}</td>
+                                    <td>{{date('d-m-Y', strtotime($agent->dob))}}</td>
                                     <td> <a href="mailto:{{$agent->email}}">{{$agent->email}} </a></td>
                                     <td class="d-flex justify-content-center">
                                         <form method="GET" action="/updateagent/{{$agent->id}}"

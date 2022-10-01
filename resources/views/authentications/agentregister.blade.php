@@ -30,6 +30,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="shortcut icon" href="../favicon.ico" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -601,8 +602,10 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <div class="d-flex fv-row mb-8">
                                     <label class="me-6 form-control bg-transparent " for="">DOB</label>
-                                    <input class="form-control bg-transparent " type="date" id="dob" name="dob">
+                                    <input class="form-control bg-transparent" placeholder="DD/MM/YYYY" type="date" id="dob" name="dob">
                                 </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
                                 <script>
                                 function onlyOne(checkbox) {
@@ -611,6 +614,12 @@ License: For each use you must have a valid license purchased only from above li
                                         if (item !== checkbox) item.checked = false
                                     })
                                 }
+
+                                const config = {
+                                    dateFormat: "d-m-Y",
+                                }
+                                    flatpickr("input[type=date]", config);
+                                
                                 </script>
 
 
