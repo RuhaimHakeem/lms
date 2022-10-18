@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\{Country, State, City};
 use DB;
 use Hash;
+use DataTables;
 
 
 
@@ -42,39 +43,57 @@ class AdminController extends Controller
         
         $userId = Session::get('loginId');
         $admin = User::where('id','=', $userId)->first();
-       $leads = DB::table('leads')->get();
-  
-       $statuses = DB::table('statuses')->get();
-       if($leads){  
+      
 
-        return view('admin.viewleads', [
-            'leads' => $leads,
+        return view('admin.viewleads', [        
             'admin' => $admin,
-            'statuses' => $statuses,
-
         ]);
-
-       }
            
+       
+    }
+
+    public function details() {
+        if(request()->ajax())
+        {
+
+            $data = DB::table('leads')
+            ->join('statuses', 'leads.id', '=', 'statuses.leadid')
+            ->get();
+            
+            return datatables()->of($data)->make(true);
+        }
        
     }
 
     public function viewagents() {  
 
         $userId = Session::get('loginId');
-        $admin = User::where('id','=', $userId)->first();
-
-        $agents = DB::table('users')->where('admin', 0)->get();
-        if($agents){  
+        $admin = User::where('id','=', $userId)->first();   
  
          return view('admin.viewagents', [
-             'agents' => $agents,
              'admin' => $admin,
          
          ]);
- 
-        }
             
+        
+     }
+
+     public function agentdetails() {
+
+        if(request()->ajax())
+        {
+
+            $data = DB::table('users')
+            ->where('admin', 0)
+            ->get();
+
+            foreach($data as $agent) {
+                $agent->dob =  date('d-m-Y', strtotime($agent->dob)) ; 
+            }
+            
+            return datatables()->of($data)->make(true);
+        }
+       
         
      }
 

@@ -90,3 +90,6 @@ Route::post('/register-user',[CustomAuthController::class,'registerUser'])->name
 
 Route::post('api/fetch-states', [AdminController::class, 'fetchState']);
 Route::post('api/fetch-cities', [AdminController::class, 'fetchCity']);
+
+Route::get('leaddetails', [AdminController::class, 'details'])->name('lead.details');
+Route::get('agentdetails', [AdminController::class, 'agentdetails'])->name('agent.details');
