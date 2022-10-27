@@ -59,11 +59,14 @@ class CustomAuthController extends Controller
             'phone' => 'required',
 
         ]);
+
+        $dob = date('Y-m-d', strtotime($request->dob));
+        
         $user = new User();
         $user->name = $request->name;
         $user->first_name = $request->firstname;
         $user->last_name = $request->lastname;
-        $user->dob = $request->dob;
+        $user->dob = $dob;
         $user->gender = $request->gender;
         $user->phonenumber = $request->phone;
         $user->password = Hash::make($request->password);
