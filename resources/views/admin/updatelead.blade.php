@@ -534,7 +534,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::User-->
                                     <input type="text" placeholder="Name" name="name" autocomplete="off"
-                                        class="form-control bg-transparent" value={{$lead->name}}>
+                                        class="form-control bg-transparent" value="{{$lead->name}}">
                                     <span class="text-danger">@error('name') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
@@ -549,7 +549,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::Email-->
                                     <input type="email" placeholder="Email Address" name="email" autocomplete="off"
-                                        class="form-control bg-transparent" value={{$lead->email}}>
+                                        class="form-control bg-transparent" value="{{$lead->email}}">
                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                     <!--end::Email-->
                                 </div>
@@ -606,7 +606,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::User-->
                                     <input type="text" placeholder="Position" name="position" autocomplete="off"
                                         class="form-control bg-transparent" @if (isset($leaddata))
-                                        value={{$leaddata->position}} @endif>
+                                        value="{{$leaddata->position}}" @endif>
                                     <span class=" text-danger">@error('position') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
