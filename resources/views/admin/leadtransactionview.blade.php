@@ -624,6 +624,7 @@ License: For each use you must have a valid license purchased only from above li
                             
                                 $('#lead').on('change', function() {
                                     $("table tbody").html("");
+                                    $(".call").empty();
                                     $('.batchid td').empty();
                                         $('.leadname td').empty();
                                         $('.email td').empty();
