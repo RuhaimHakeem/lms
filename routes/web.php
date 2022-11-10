@@ -55,6 +55,10 @@ Route::get('/admindashboard/agentsummary',[AdminController::class,'agentsummary'
 
 Route::get('/admindashboard/leadsummary',[AdminController::class,'leadsummary'])->name('leadsummary')->middleware('isLoggedIn');
 
+Route::get('/leadtransaction',[AdminController::class,'leadtransaction'])->name('leadtransaction')->middleware('isLoggedIn');
+
+Route::get('/leadtransactionview/{id}',[AdminController::class,'leadtransactionview'])->name('leadtransactionview')->middleware('isLoggedIn');
+
 Route::post('search', [AdminController::class,'search'])->name('search');
 
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');
@@ -93,3 +97,5 @@ Route::post('api/fetch-cities', [AdminController::class, 'fetchCity']);
 
 Route::get('leaddetails', [AdminController::class, 'details'])->name('lead.details');
 Route::get('agentdetails', [AdminController::class, 'agentdetails'])->name('agent.details');
+
+Route::post('api/fetch-leads', [AdminController::class, 'fetchleads']);

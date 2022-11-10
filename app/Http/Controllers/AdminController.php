@@ -71,11 +71,36 @@ class AdminController extends Controller
         $admin = User::where('id','=', $userId)->first();   
  
          return view('admin.viewagents', [
-             'admin' => $admin,
-         
+             'admin' => $admin,    
          ]);
             
         
+     }
+
+     public function leadtransaction() {  
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();   
+ 
+         return view('admin.leadtransaction', [
+             'admin' => $admin,    
+         ]);
+            
+        
+     }
+
+     public function leadtransactionview($id) {  
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first(); 
+        
+        $leads = Lead::where('agentid','=', $id)->get(); 
+ 
+         return view('admin.leadtransactionview', [
+             'admin' => $admin,  
+             'leads' => $leads,  
+         ]);
+
      }
 
      public function agentdetails() {
@@ -227,6 +252,30 @@ class AdminController extends Controller
             'admin' => $admin,
       ]);
      }
+
+     public function fetchleads(Request $request)
+    {    
+        
+        if($request->lead) {
+
+            $data['leads'] = DB::table('leads')
+            ->join('statuses', 'leads.id', '=', 'statuses.leadid')
+            ->leftjoin('countrydetails', 'leads.id', '=', 'countrydetails.leadid')
+            ->leftjoin('leaddetails', 'leads.id', '=', 'leaddetails.leadid')
+            ->where('leads.id', '=', $request->lead)
+            ->get();
+
+            $transaction = DB::table('transactiondetails')
+            ->where('leadid', '=', $request->lead)
+            ->get();
+        }
+
+       
+        $returnArr = [$data, $transaction];    
+        return response()->json($returnArr);
+        
+
+    }
 
      public function fetchState(Request $request)
      {

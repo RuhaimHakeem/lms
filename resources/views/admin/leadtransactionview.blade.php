@@ -15,7 +15,10 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
     <base href="">
-    <title>EDGE [Admin] Update Agent</title>
+    <title>EDGE [Admin] Agent Profiles</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -42,6 +45,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
+   
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -101,7 +105,6 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
-
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -332,7 +335,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard/leadsummary">
+                                            <a class="menu-link" href="leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -356,7 +359,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard/leadupload">
+                                            <a class="menu-link" href="leadupload">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -397,7 +400,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -436,7 +439,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard/viewagents">
+                                            <a class="menu-link active" href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -470,14 +473,7 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                        style="color:gray;font-size:10px">
-                        <div class="d-flex px-2">
-                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                        </div>
-                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                    </footer>
+
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -490,12 +486,10 @@ License: For each use you must have a valid license purchased only from above li
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                    <!--begin::Title-->
 
-                                    <!--end::Title-->
-                                    <!--begin::Breadcrumb-->
 
-                                    <!--end::Breadcrumb-->
+
+
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
@@ -506,162 +500,253 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <div id="kt_app_content"
-                            class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                            <!--begin::Content container-->
+                        <div style="margin-left:20px" class="mb-5">
 
+                            <h2 style="font-size:20px">SELECT LEAD</h2>
 
-                            <form class="form w-100 px-5 " action="/updateagent/{{$agent->id}}" method="post">
-                                @if(Session::has('success'))
-                                <div class="alert alert-success">{{Session::get('success')}}</div>
-                                @endif
-                                @if(Session::has('fail'))
-                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
-                                @endif
-                                @csrf
-
-                                <div class="mb-10">
-
-                                    <h2 style="font-size:20px">AGENT UPDATE </h2>
-
-
-                                    <!--end::Title-->
-                                    <!--begin::Subtitle-->
-
-                                    <!--end::Subtitle=-->
+                            <label class="d-flex bg-transparent ">
+                                <div class="box fw-bold ">
+                        
+                                    <select name="lead" id="lead" class="form-control m-5 box fw-bold" style="width:13rem">
+                                        <option value=''>Select Lead</option>
+                                        @foreach($leads as $lead)
+                                        <option value='{{$lead->id}}'>{{$lead->name}}</option>
+                                        @endforeach
+                        
+                                    </select>
                                 </div>
-                                <!--begin::Heading-->
-                                <!--begin::Login options-->
-
-                                <!--end::Login options-->
-                                <!--begin::Separator-->
-
-                                <!--end::Separator-->
-                                <!--begin::Input group=-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::User-->
-                                    <input type="text" placeholder="First Name" name="firstname" autocomplete="off"
-                                        class="form-control bg-transparent" value="{{$agent->first_name}}">
-                                    <span class="text-danger">@error('firstname') {{$message}} @enderror</span>
-                                    <!--end::User-->
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::User-->
-                                    <input type="text" placeholder="Last Name" name="lastname" autocomplete="off"
-                                        class="form-control bg-transparent" value="{{$agent->last_name}}">
-                                    <span class="text-danger">@error('lastname') {{$message}} @enderror</span>
-                                    <!--end::User-->
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::Email-->
-                                    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
-                                        class="form-control bg-transparent" value="{{$agent->email}}">
-                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
-                                    <!--end::Email-->
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::Email-->
-                                    <input type="password" placeholder="Change Password" name="password"
-                                        autocomplete="off" class="form-control bg-transparent">
-                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
-                                    <!--end::Email-->
-                                </div>
-
-                                <div class="d-flex fv-row mb-8">
-                                    <label class="me-6 form-control bg-transparent " for="">DOB</label>
-                                    <input class="form-control bg-transparent" type="date" name="dob" id="date" value={{$agent->properdate}} >
-                                </div>
-
-                                
-                                
-                                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-                                <script>
-                                function onlyOne(checkbox) {
-                                    var checkboxes = document.getElementsByName('gender')
-                                    checkboxes.forEach((item) => {
-                                        if (item !== checkbox) item.checked = false
-                                    })
-                                }
-
-                               let agent = @json($agent);
-
-                                const config = {      
-                                    dateFormat: "d-m-Y",
-                                    disableMobile: "true",
-                                    defaultDate: [agent.properdate]
-                                   
-                                    
-                                }
-                                    flatpickr("input[type=date]", config);
-                                </script>
+                            </label>
 
 
-                                <div class="fv-row mb-8 d-flex align-items-center justify-content-between">
-                                    <label class="me-6 form-control bg-transparent" for="">Gender</label>
-                                    <div class="form-check pe-4">
-                                        <input type="checkbox" class="form-check-input" onclick="onlyOne(this)"
-                                            id="male" name="gender" value="male"
-                                            {{ ($agent->gender=="male") ? "checked" : "" }}>
-                                        <label class="form-check-label" for="male">Male</label>
-                                    </div>
+                            <!--end::Title-->
+                            <!--begin::Subtitle-->
 
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" onclick="onlyOne(this)"
-                                            id="female" name="gender" value="female"
-                                            {{ ($agent->gender=="female") ? "checked" : "" }}>
-                                        <label class="form-check-label" for="female">Female</label>
-                                    </div>
-
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::Phone-->
-                                    <input type="text" placeholder="Phone Number" name="phone" autocomplete="off"
-                                        class="form-control bg-transparent" value={{$agent->phonenumber}}>
-                                    <span class="text-danger">@error('phone') {{$message}} @enderror</span>
-                                    <!--end::Phone-->
-                                </div>
-
-                                <!--begin::Link-->
-
-                                <!--end::Link-->
-                                <!--end::Wrapper-->
-                                <!--begin::Submit button-->
-                                <div class="d-flex mb-10">
-                                    <button type="submit" id="kt_sign_in_submit" class="btnfile"><i
-                                            class="fa-sharp fa-solid fa-file-import" style="color:white"></i>
-
-                                        <!--begin::Indicator label-->
-                                        <span class="indicator-label">Update Agent</span>
-                                        <!--end::Indicator label-->
-                                        <!--begin::Indicator progress-->
-                                        <span class="indicator-progress">Please wait...
-                                            <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                        <!--end::Indicator progress-->
-                                    </button>
-
-                                </div>
-                                <!--end::Submit button-->
-                                <!--begin::Sign up-->
-
-                            </form>
+                            <!--end::Subtitle=-->
                         </div>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Content wrapper-->
-                    <!--begin::Footer-->
 
-                    <!--end::Footer-->
+                        <div class="mt-10 m-5 ">
+
+                            <div class="d-grid">
+                    
+                                <h2 style="font-size:20px">LEAD PROFILE</h2>
+                    
+                    
+                            </div>
+                    
+                    
+                            <table class="table mt-10 w-25 caption-top ">
+                                <thead>
+                                    <tr class="batchid">
+                                        <th id="th">Batch ID</th>
+                                        <td></td>
+                            
+                                    </tr>
+                                    <tr class="leadname">
+                                        <th id="th">Lead Name</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="email">
+                                        <th id="th">Email</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="accountnumber">
+                                        <th id="th">Account Number</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="retentionstatus">
+                                        <th id="th">Retention Status</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                    
+                                    <tr class="progressstatus">
+                                        <th id="th">Progress Status</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="status">
+                                        <th id="th">Status</th>
+                                        <td></td>
+                                       
+                                    </tr>
+                                    <tr class="phone">
+                                        <th id="th">Phone</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="phone2">
+                                        <th id="th">Phone 2</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="country">
+                                        <th id="th">Country</th>
+                                        <td></td>
+                                      
+                                    </tr>
+                                    <tr class="state">
+                                        <th id="th">State</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="city">
+                                        <th id="th">City</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="position">
+                                        <th id="th">Position</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    <tr class="leadtype">
+                                        <th id="th">Lead Type</th>
+                                        <td></td>
+                                        
+                                    </tr>
+                    
+                    
+                                </thead>
+                    
+                            </table>
+                    
+                            </form>
+                    
+                        </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>  
+
+                        <script>
+
+                            $(document).ready(function(e) {
+                            
+                                $('#lead').on('change', function() {
+                                    $("table tbody").html("");
+                                    $('.batchid td').empty();
+                                        $('.leadname td').empty();
+                                        $('.email td').empty();
+                                        $('.accountnumber td').empty();
+                                        $('.retentionstatus td').empty();
+                                        $('.progressstatus td').empty();
+                                        $('.status td').empty();
+                                        $('.phone td').empty();
+                                        $('.phone2 td').empty();
+                                        $('.country td').empty();
+                                        $('.state td').empty();
+                                        $('.city td').empty();
+                                        $('.position td').empty();
+                                        $('.leadtype td').empty();
+
+                                    var lead = $('#lead').val();
+                                    if(lead !== "") {
+                                   
+                                       
+                                        $.ajax({
+                                        url: "{{url('api/fetch-leads')}}",
+                                        type: "POST",
+                                        data: {
+                                            lead: lead,
+                                            _token: '{{csrf_token()}}'
+                                        },
+                                        dataType: 'json',
+                                        success: function(result) {
+                            
+                                            $.each(result[0].leads, function(key, value) {
+
+                                                let call = '<a href="callto:'+ value.phonenumber +'"><button class="btnfile"> Call </button></a>'
+                                                $(".call").append(call);
+                                            
+                                                $(".batchid td").append(value.batchid);
+                                                $(".leadname td").append(value.name);
+                                                $(".email td").append(value.email);
+                                                $(".accountnumber td").append((value.accountnumber) ? value.accountnumber : "NULL" );
+                                                $(".retentionstatus td").append(value.retentionstatus ? value.retentionstatus : "NULL");
+                                                $(".progressstatus td").append(value.progressstatus ? value.progressstatus : "NULL");
+                                                $(".status td").append(value.status);
+                                                $(".phone td").append(value.phonenumber);
+                                                $(".phone2 td").append(value.phonenumber2 ? value.phonenumber2 : "NULL");
+                                                $(".country td").append(value.country ? value.country : "NULL");
+                                                $(".state td").append(value.state ? value.state : "NULL");
+                                                $(".city td").append(value.city ? value.city : "NULL");
+                                                $(".position td").append(value.position ? value.position : "NULL");
+                                                $(".leadtype td").append(value.leadtype ? value.leadtype : "NULL");
+                                               
+                                            });
+
+                                            $.each(result[1], function(key, value) {
+                                               
+                                                var tr = '<tr> <td>' + value
+                                                .transaction + ' </td> <td> ' +
+                                                value.amount +
+                                                ' </td> <td> ' + value
+                                                .reminder +
+                                                ' </td> <td> ' + value
+                                                .time +
+                                                ' </td> <td>' + value.created_at + ' </td> </tr>';
+                                                $("table tbody").append(tr);
+                                            })
+                            
+                                        }
+                                        
+                                    });
+                                }
+                                    
+                                    
+                                });
+                            });
+                            </script>
+
+
+<div class=" call d-flex justify-content-end col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 col-xxl-11"
+                            style="padding-right:1rem">
+
+                        </div>
+<table class="table mt-10 w-75 m-5 caption-top">
+    <caption style="color:black;font-weight:bold">Transaction Details</caption>
+    <thead>
+        <tr>
+            <th id="th" scope="col">Transaction Details</th>
+            <th id="th" scope="col">Amount</th>
+            <th id="th" scope="col">Reminder date</th>
+            <th id="th" scope="col">Reminder time</th>
+            <th id="th" scope="col">Created at</th>
+
+
+        </tr>
+
+
+    </thead>
+    
+    <tbody>
+       
+    </tbody>
+
+</table>
+
+
+
+                    </div>
+                    <!--end::Content-->
                 </div>
-                <!--end:::Main-->
+                <!--end::Content wrapper-->
+                <!--begin::Footer-->
+                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                    style="color:gray;font-size:10px">
+                    <div class="d-flex px-2">
+                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                    </div>
+                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                </footer>
+                <!--end::Footer-->
             </div>
-            <!--end::Wrapper-->
+            <!--end:::Main-->
         </div>
-        <!--end::Page-->
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
@@ -672,7 +757,6 @@ License: For each use you must have a valid license purchased only from above li
     <script>
     var hostUrl = "../";
     </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
