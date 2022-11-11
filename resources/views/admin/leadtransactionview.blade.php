@@ -15,7 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
     <base href="">
-    <title>EDGE [Admin] Agent Profiles</title>
+    <title>EDGE [Admin] Lead Profile</title>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -309,7 +309,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end:Menu sub-->
                                 </div>
 
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -381,7 +381,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="leadtransaction">
+                                            <a class="menu-link" href="/leadtransaction">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -400,7 +400,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -439,7 +439,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="/admindashboard/viewagents">
+                                            <a class="menu-link " href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -523,7 +523,7 @@ License: For each use you must have a valid license purchased only from above li
 
                             <!--end::Subtitle=-->
                         </div>
-
+<div class="container">
                         <div class="mt-10 m-5 ">
 
                             <div class="d-grid">
@@ -532,8 +532,11 @@ License: For each use you must have a valid license purchased only from above li
                     
                     
                             </div>
-                    
-                    
+                            <div class=" call d-flex justify-content-end col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 col-xxl-11"
+                            style="padding-right:1rem">
+
+                        </div>
+                  
                             <table class="table mt-10 w-25 caption-top ">
                                 <thead>
                                     <tr class="batchid">
@@ -700,10 +703,7 @@ License: For each use you must have a valid license purchased only from above li
                             </script>
 
 
-<div class=" call d-flex justify-content-end col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 col-xxl-11"
-                            style="padding-right:1rem">
 
-                        </div>
 <table class="table mt-10 w-75 m-5 caption-top">
     <caption style="color:black;font-weight:bold">Transaction Details</caption>
     <thead>
@@ -725,7 +725,7 @@ License: For each use you must have a valid license purchased only from above li
     </tbody>
 
 </table>
-
+                        </div>
 
 
                     </div>
