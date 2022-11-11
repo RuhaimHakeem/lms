@@ -582,7 +582,7 @@ License: For each use you must have a valid license purchased only from above li
                                         {data: 'retentionstatus', name: 'retentionstatus'},
                                         {
                                             data: function(row) {
-                                                return  '<div style="display:flex; flex-wrap: no-wrap; align-items:center"> <a href="/viewlead/' + row.leadid + '" class="edit btn btn-success btn-sm">View</a> <a href="/updatelead/' + row.leadid + '" class="edit btn btn-secondary btn-sm mx-4">Update</a> ' + form(row.leadid) + ' </div>'
+                                                return  '<div style="display:flex; flex-wrap: no-wrap; align-items:center"><a href="callto:'+ row.phonenumber +'" class="edit btn btn-secondary mx-4 btn-sm">Call</a> <a href="/viewlead/' + row.leadid + '" class="edit btn btn-success btn-sm">View</a> <a href="/updatelead/' + row.leadid + '" class="edit btn btn-secondary btn-sm mx-4">Update</a> ' + form(row.leadid) + ' </div>'
                                             }
                                         }
                                         
