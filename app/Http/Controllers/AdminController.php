@@ -52,6 +52,20 @@ class AdminController extends Controller
        
     }
 
+    public function leadnote() {
+        
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+      
+
+        return view('admin.leadnote', [        
+            'admin' => $admin,
+        ]);
+           
+       
+    }
+
+
     public function details() {
         if(request()->ajax())
         {

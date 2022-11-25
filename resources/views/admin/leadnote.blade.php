@@ -15,7 +15,8 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
     <base href="">
-    <title>EDGE [Admin] Lead Summary</title>
+    <title>EDGE [Admin] Lead Profiles</title>
+
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -28,6 +29,7 @@ License: For each use you must have a valid license purchased only from above li
         content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular, Asp.Net Core, Blazor, Django, Flask &amp; Laravel Admin Dashboard Theme" />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="../favicon.ico" />
     <!--begin::Fonts-->
@@ -40,6 +42,14 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+    
+
+   
+   
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -99,7 +109,6 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
-
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -323,17 +332,13 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">Leads</span>
                                         <span class="menu-arrow"></span>
                                     </span>
-
-
-
-
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="leadsummary">
+                                            <a class="menu-link" href="leadsummary">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -357,7 +362,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard/leadupload">
+                                            <a class="menu-link" href="leadupload">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -389,7 +394,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="/admindashboard/leadnote">
+                                            <a class="menu-link active" href="/admindashboard/leadnote">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -481,100 +486,163 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                        style="color:gray;font-size:10px">
-                        <div class="d-flex px-2">
-                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                        </div>
-                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                    </footer>
+
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
-                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-                    <!--begin::Content wrapper-->
-                    <div class="d-flex flex-column flex-column-fluid">
-                        <!--begin::Toolbar-->
-                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-                            <!--begin::Toolbar container-->
-                            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
-                                <!--begin::Page title-->
-                                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                    <!--begin::Title-->
+                <div id="kt_app_content" class="app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+ <!--   <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button> -->
+    <div class="mt-10 mb-5 px-5">
 
-                                    <!--end::Title-->
-                                    <!--begin::Breadcrumb-->
+        <h2 style="font-size:20px">LEAD UPDATE</h2>
 
-                                    <!--end::Breadcrumb-->
-                                </div>
-                                <!--end::Page title-->
-                                <!--begin::Actions-->
 
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Toolbar container-->
+        <!--end::Title-->
+        <!--begin::Subtitle-->
+
+        <!--end::Subtitle=-->
+    </div>
+
+
+
+    <!--begin::Content container-->
+
+    <form class="form w-100 px-5 " action="/updatedetails/{{$lead->id}}" method="post">
+        @if(Session::has('success'))
+        <div class="alert alert-success">{{Session::get('success')}}</div>
+        @endif
+        @if(Session::has('fail'))
+        <div class="alert alert-danger">{{Session::get('fail')}}</div>
+        @endif
+        @csrf
+
+
+        <!--begin::Heading-->
+        <!--begin::Login options-->
+
+        <!--end::Login options-->
+        <!--begin::Separator-->
+
+        <!--end::Separator-->
+        <!--begin::Input group=-->
+        <div class="d-flex flex-column mb-8 mt-5">
+            <label class=" m-1">Update Status To :</label>
+            <div class="d-flex">
+                <div class="form-group">
+                    <label class="bg-transparent ">
+                        <div class="box fw-bold ">
+                            <select name="status" class="form-control">
+                                @foreach($statuses as $status)
+                                <option value='{{$status->status}}'>{{$status->status}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <!--end::Toolbar-->
-                        <!--begin::Content-->
-                        <div id="kt_app_content" class="app-content flex-column-fluid">
-                            <!--begin::Content container-->
-
-                            <div id="kt_app_content_container" class="app-container container-fluid" <!--begin::Row-->
-                                <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2 mb-md-5 mb-xl-10">
-                                        <!--begin::Card widget 20-->
-                                        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                            style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
-                                            <!--begin::Header-->
-                                            <a href="/admindashboard/viewleads">
-                                                <div class=" pt-5 justify-content-center">
-                                                    <!--begin::Title-->
-                                                    <div class="card-title d-flex flex-column align-items-center">
-                                                        <!--begin::Amount-->
-
-                                                        <span
-                                                            class="text-white opacity-75 pt-1 fw-semibold fs-1 mb-5 ">LEADS</span>
-
-                                                        <img src="../media/logos/users.png"
-                                                            class="mb-7 border-bottom border-3">
-                                                        @if(count($leads) > 0)
-                                                        <span
-                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">{{count($leads)}}</span>
-                                                        @else
-                                                        <span
-                                                            class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2 ">0</span>
-                                                        @endif
-                                                        <!--end::Subtitle-->
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Card body-->
-
-                                                <!--end::Card body-->
-                                        </div>
-                                        <!--end::Card widget 20-->
-                                        <!--begin::Card widget 7-->
-
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Content wrapper-->
-                    <!--begin::Footer-->
-
-                    <!--end::Footer-->
+                    </label>
                 </div>
-                <!--end:::Main-->
             </div>
-            <!--end::Wrapper-->
+
+            <label class=" m-1">Update Retention Status To :</label>
+
+
+            <div class="d-flex">
+                <div class="form-group">
+                    <label class="bg-transparent ">
+                        <div class="box fw-bold ">
+                            <select name="retentionstatus" class="form-control">
+
+                                <option value='Active'>Active</option>
+                                <option value='Non Active'>Non Active</option>
+
+                            </select>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
         </div>
-        <!--end::Page-->
+
+
+
+
+
+
+        <div class="fv-row mb-8 fs-6">
+            <label for="">Name: <b>{{$lead->name}}</b></label>
+        </div>
+
+        <div class="fv-row mb-8 d-flex align-items-center">
+           
+            <input type="text" style="width: 10rem" placeholder="Amount" name="amount" autocomplete="off" class="form-control bg-transparent"
+                value={{old('amount')}}>
+            <span class="text-danger">@error('amount') {{$message}} @enderror</span>
+
+            <div class="form-group">
+                <label class="bg-transparent">
+                    <div class="fw-bold" style="width: 6rem">
+                        <select name="currency" class="form-control ms-2" style="-webkit-appearance: button;">            
+                            <option value='LKR' selected>LKR</option>
+                            <option value='USD'>USD</option>
+                            <option value='INR'>INR</option>
+                            <option value='EUR'>EUR</option>
+                            <option value='GBP'>GBP</option>
+                            <option value='JPY'>JPY</option>
+                            <option value='CAD'>CAD</option>
+                            <option value='AUD'>AUD</option>
+                        </select>
+                    </div>
+                </label>
+            </div>     
+        </div>
+
+
+
+
+
+
+        <div class="fv-row mb-8">
+            <!--begin::User-->
+            <input type="text" placeholder="Transaction Details" name="transaction" autocomplete="off"
+                class="form-control bg-transparent" value={{old('transaction')}}>
+            <span class="text-danger">@error('transaction') {{$message}} @enderror</span>
+            <!--end::User-->
+        </div>
+
+        <div class="d-flex fv-row mb-8">
+            <label class="me-6 form-control bg-transparent" for="">Reminder Date</label>
+            <input class="form-control bg-transparent" placeholder="DD/MM/YYYY" type="date" id="datepicker" name="date">
+        </div>
+
+        <div class="d-flex fv-row mb-8">
+            <label class="me-6 form-control bg-transparent" for="">Reminder Time</label>
+            <input class="form-control bg-transparent" type="time" name="time">
+        </div>
+        <!--begin::Submit button-->
+        <button type="submit" class="btnfile"><i class="fa-sharp fa-solid fa-file-import" style="color:white"></i>
+            Update</button>
+        <!--end::Submit button-->
+    </form>
+
+
+
+</div>
+                <!--end::Content wrapper-->
+                <!--begin::Footer-->
+                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                    style="color:gray;font-size:10px">
+                    <div class="d-flex px-2">
+                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                    </div>
+                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                </footer>
+                <!--end::Footer-->
+            </div>
+            <!--end:::Main-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
@@ -585,7 +653,6 @@ License: For each use you must have a valid license purchased only from above li
     <script>
     var hostUrl = "../";
     </script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
@@ -612,6 +679,16 @@ License: For each use you must have a valid license purchased only from above li
     <script src="../js/custom/utilities/modals/create-app.js"></script>
     <script src="../js/custom/utilities/modals/new-target.js"></script>
     <script src="../js/custom/utilities/modals/users-search.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+
+    const config = {
+    dateFormat: "d-m-Y",
+}
+    flatpickr("input[type=date]", config);
+</script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>
