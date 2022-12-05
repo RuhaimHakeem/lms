@@ -508,7 +508,7 @@ License: For each use you must have a valid license purchased only from above li
 
     <!--begin::Content container-->
 
-    <form class="form w-100 px-5 " action="/updatedetails/{{$lead->id}}" method="post">
+    <form class="form w-100 px-5 " action="/updatedetails/{{$admin->id}}" method="post">
         @if(Session::has('success'))
         <div class="alert alert-success">{{Session::get('success')}}</div>
         @endif

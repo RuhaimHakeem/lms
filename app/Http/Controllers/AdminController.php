@@ -65,6 +65,25 @@ class AdminController extends Controller
        
     }
 
+    public function updatedetails(Request $request, $id) {
+        
+        $lead =  Lead::where('id','=', $id)->first();
+        $lead->lead = $request->lead;
+      
+
+  
+    $res = $lead->update();
+
+        
+
+    if($res) {
+        return back()->with('success',"Cheque details updated");
+    }
+
+    else {
+        return back()->with('fail',"Something went wrong");
+    }
+}
 
     public function details() {
         if(request()->ajax())

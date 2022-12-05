@@ -63,6 +63,8 @@ Route::post('search', [AdminController::class,'search'])->name('search');
 
 Route::get('/admindashboard/leadupload',[AdminController::class,'leadupload'])->name('leadupload')->middleware('isLoggedIn');
 
+Route::get('/admindashboard/leadnote',[AdminController::class,'leadnote'])->name('leadnote')->middleware('isLoggedIn');
+
 Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
 Route::post('uploadlead',[AdminController::class,'upload'])->name('uploadlead');
