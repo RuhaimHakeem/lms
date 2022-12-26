@@ -33,12 +33,14 @@ Route::get('/updateagent/{id}',[AdminController::class,'editagent'])->name('edit
 Route::post('/updateagent/{id}',[AdminController::class,'updateagent'])->name('updateagent');
 
 Route::delete('/deletelead/{id}', [AdminController::class, 'deletelead'])->name('deletelead');
+Route::delete('/deleteTransaction/{id}', [AdminController::class, 'deleteTransaction'])->name('deleteTransaction');
 
 Route::delete('/deleteagent/{id}',[AdminController::class,'deleteagent'])->name('deleteagent');
 
 
 
 Route::post('/updatelead/{id}',[AdminController::class,'updatelead'])->name('updatelead');
+Route::post('/updateTransaction/{id}',[AdminController::class,'updateTransaction'])->name('updateTransaction');
 
 Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
 
@@ -101,3 +103,8 @@ Route::get('leaddetails', [AdminController::class, 'details'])->name('lead.detai
 Route::get('agentdetails', [AdminController::class, 'agentdetails'])->name('agent.details');
 
 Route::post('api/fetch-leads', [AdminController::class, 'fetchleads']);
+Route::get('api/fetch-transaction', [AdminController::class, 'fetchtransaction'])->name('transaction.details');
+
+Route::get('/leadnoteview/{id}',[AdminController::class,'leadnoteview'])->name('leadnoteview')->middleware('isLoggedIn');
+
+Route::get('api/fetchAgentTransactionDetailsByAgent', [AdminController::class, 'fetchAgentTransactionDetailsByAgent'])->name('fetchAgenttransaction.details');

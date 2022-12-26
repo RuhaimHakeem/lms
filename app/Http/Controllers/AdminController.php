@@ -8,6 +8,7 @@ use App\Models\Lead;
 use App\Models\User;
 use App\Models\Status;
 use App\Models\Countrydetail;
+use App\Models\TransactionDetail;
 use App\Models\Leaddetail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\LeadsImport;
@@ -56,14 +57,19 @@ class AdminController extends Controller
         
         $userId = Session::get('loginId');
         $admin = User::where('id','=', $userId)->first();
-      
+        $agents = DB::table('users')->where('admin', 0)->get();
 
         return view('admin.leadnote', [        
             'admin' => $admin,
+            'agents' => $agents,
         ]);
+
            
        
     }
+
+
+    
 
     public function updatedetails(Request $request, $id) {
         
@@ -136,6 +142,47 @@ class AdminController extends Controller
 
      }
 
+     public function fetchtransaction(Request $request) {
+    
+
+        $agentid = Session::get('loginId'); 
+
+        if(request()->ajax())
+        {
+           if(!empty($request->from)) {
+            $from = date('Y-m-d', strtotime($request->from));
+            $to = date('Y-m-d', strtotime($request->to));
+            
+            $data = DB::table('leads')
+            ->join('transactiondetails', 'leads.id', '=', 'transactiondetails.leadid')
+            ->where('leads.agentid', '=', $agentid)
+            ->where('reminder', '!=', NULL)
+            ->orderBy('reminder', 'asc')
+            ->orderBy('time', 'asc')
+            ->whereBetween('reminder', [$from, $to])     
+            ->get();
+            }
+            
+            else {
+                
+            $data = DB::table('leads')
+            ->join('transactiondetails', 'leads.id', '=', 'transactiondetails.leadid')
+            ->where('leads.agentid', '=', $agentid)
+            ->where('reminder', '!=', NULL)
+            ->orderBy('reminder', 'asc')
+            ->orderBy('time', 'asc')
+            ->get(); 
+    
+        }
+            foreach($data as $transaction) {
+                $transaction->reminder = date('d-m-Y', strtotime($transaction->reminder)); 
+            }
+            
+            return datatables()->of($data)->make(true);
+        }
+
+    }
+
      public function agentdetails() {
 
         if(request()->ajax())
@@ -197,7 +244,7 @@ class AdminController extends Controller
         
      }
 
-     public function updatelead(Request $request,$id){
+    public function updatelead(Request $request,$id){
 
 
         //update basic details of the lead
@@ -254,7 +301,7 @@ class AdminController extends Controller
         else {
             return redirect('/admindashboard/viewleads')->with('fail','Something went wrong. Please try again');
         }
-     }
+    }
 
      public function deletelead($id){
 
@@ -522,33 +569,140 @@ class AdminController extends Controller
     $admin = User::where('id','=', $userId)->first();
     
     $leads = DB::table('leads')->get();
-        if($leads){  
- 
-         return view('admin.leadsummary', [
-             'leads' => $leads,
-             'admin' => $admin,
-         ]);
- 
-        }
-   
+    if($leads){  
 
-   
-}
+        return view('admin.leadsummary', [
+            'leads' => $leads,
+            'admin' => $admin,
+        ]);
 
-   public function logout(){
-
-    $userId = Session::get('loginId');;
-
-    $user = User::where('id','=', $userId)->first();
-
-    if(Session::has('loginId')){
-        $user->verified = false;
-        $user->update();
-        Session::pull('loginId');
-        Session::forget('loginId');
-
-        return redirect('/adminlogin');
     }
+   
+
+   
 }
+
+    public function logout(){
+
+        $userId = Session::get('loginId');;
+
+        $user = User::where('id','=', $userId)->first();
+
+        if(Session::has('loginId')){
+            $user->verified = false;
+            $user->update();
+            Session::pull('loginId');
+            Session::forget('loginId');
+
+            return redirect('/adminlogin');
+        }
+    }
+    
+
+    public function fetchAgentTransactionDetailsByAgent(Request $request) {
+        // $input = $request->only('agentId');
+        // return Lead::where('agentid', $input['agentId'])->with(['transactionDetails' => function ($q) {
+        //         $q->select('id','transaction','leadid');
+        //     }])
+        // ->select('id','name','batchid')
+        // ->get();
+
+        if(request()->ajax())
+        {
+           if(!empty($request->id)) {
+                
+                    $data = DB::table('leads')
+                    ->join('transactiondetails', 'leads.id', '=', 'transactiondetails.leadid')
+                    ->where('leads.agentid', '=', $request->id)
+                    ->get();
+
+           }
+            // foreach($data as $lead) {
+            //     $lead->transaction = "No Transaction Data";
+            //     $transactiondata = Transactiondetail::where('leadid','=', $lead->leadid)
+            //     ->where('transaction', '!=', null)
+            //     ->orderBy('created_at', 'desc')
+            //     ->first();
+            //     if($transactiondata != null){
+            //         array_push($transaction, $transactiondata);
+            //     }        
+                
+            // }
+
+            // foreach($data as $lead) {
+            //     foreach($transaction as $tdata) {
+            //         if ($tdata->leadid == $lead->leadid) {
+            //            $lead->transaction = $tdata->transaction;
+            //         }
+            //     }
+            // }
+            
+            return datatables()->of($data)->make(true);
+        }
+    }
+
+    public function leadnoteview($id) {
+
+
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+        $agentid = Session::get('loginId');
+        $lead = Lead::where('id','=', $id)->first();
+        $leaddetails = Leaddetail::where('leadid','=', $id)->first();
+        $status = Status::where('leadid','=', $id)->first();
+        $countrydetails = Countrydetail::where('leadid','=', $id)->first();
+        $agent = User::where('id','=', $agentid)->first();
+
+        $leadtransaction = DB::table('leads')
+        ->join('transactiondetails', 'leads.id', '=', 'transactiondetails.leadid')
+        ->where('leads.agentid', '=', $agentid)
+        ->where('leads.id', '=', $id)
+        ->orderBy('transactiondetails.created_at', 'desc')
+        ->get();
+      
+        return view('admin.leadnoteview', [
+            'admin' => $admin,
+            'lead' => $lead,
+            'agent' => $agent,
+            'leaddetails' => $leaddetails,
+            'countrydetails' => $countrydetails,
+            'leadtransaction' => $leadtransaction,
+            'status' => $status,
+        ]);
+    }
+
+
+    public function updateTransaction(Request $request,$id){
+
+
+        //update basic details of the lead
+
+        $res = DB::table('transactiondetails')
+        ->where('id', $id)
+        ->update(['transaction' => $request->transaction]);
+
+        $trans = transactiondetails::where('id', $id)->first();
+            
+        if($res || isset($result) || isset($success) ) {
+            return redirect('/admindashboard/leadnote')->with('success','Lead updated successfully');
+        }
+        else {
+            return redirect('/admindashboard/leadnote')->with('fail','Something went wrong. Please try again');
+        }
+    }
+
+
+    public function deleteTransaction($id){
+
+        $transacDetete = TransactionDetail::findOrFail($id);
+        $res = $transacDetete->delete();
+  
+        if($res) {
+            return redirect('/admindashboard/leadnote')->with('success','Lead deleted successfully');
+        }
+        else {
+            return redirect('/admindashboard/leadnote')->with('fail','Something went wrong. Please try again');
+        }
+     }
   
 }

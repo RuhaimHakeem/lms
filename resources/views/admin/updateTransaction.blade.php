@@ -15,10 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
     <base href="">
-    <title>EDGE [Admin] Lead Transaction</title>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <title>EDGE [Admin] Update Lead</title>
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Blazor, Django, Flask &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -45,9 +42,6 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -107,6 +101,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="dashboardnew" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
+
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -311,7 +306,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end:Menu sub-->
                                 </div>
 
-                                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -383,7 +378,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link active" href="leadtransaction">
+                                            <a class="menu-link" href="/leadtransaction">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -412,7 +407,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion ">
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                     <!--begin:Menu link-->
                                     <span class="menu-link">
                                         <span class="menu-icon">
@@ -451,7 +446,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link " href="/admindashboard/viewagents">
+                                            <a class="menu-link" href="/admindashboard/viewagents">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -461,7 +456,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
-                                            <a class="menu-link" href="../agentregister">
+                                            <a class="menu-link" href="/agentregister">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -485,7 +480,14 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::sidebar menu-->
                     <!--begin::Footer-->
-
+                    <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
+                        style="color:gray;font-size:10px">
+                        <div class="d-flex px-2">
+                            <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
+                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                        </div>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                    </footer>
                 </div>
                 <!--end::sidebar-->
                 <!--begin::Main-->
@@ -493,15 +495,17 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
                         <!--begin::Toolbar-->
-                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                        <div id="kt_app_toolbar">
                             <!--begin::Toolbar container-->
                             <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                                 <!--begin::Page title-->
                                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                                    <!--begin::Title-->
 
+                                    <!--end::Title-->
+                                    <!--begin::Breadcrumb-->
 
-
-
+                                    <!--end::Breadcrumb-->
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
@@ -512,178 +516,286 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                        <div style="margin-left:20px" class="mb-5">
+                       
+                        <div id="kt_app_content" class="mt-10 app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!--begin::Content container-->
+                        <!--    <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+            style="color:white;margin-top:0.2rem"></i></button> -->
+                            <form class="form w-100 px-5 ms-5" action="/updateTransaction/{{$trans->id}}" method="post">
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('fail'))
+                                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                @endif
+                                @csrf
 
-                            <h2 style="font-size:20px">REMINDER DETAILS</h2>
 
 
-                            <!--end::Title-->
-                            <!--begin::Subtitle-->
+                                <div class="mb-10">
 
-                            <!--end::Subtitle=-->
+                                    <h2 style="font-size:20px">LEAD UPDATE </h2>
+
+
+                                    <!--end::Title-->
+                                    <!--begin::Subtitle-->
+
+                                    <!--end::Subtitle=-->
+                                </div>
+                                <!--begin::Heading-->
+                                <!--begin::Login options-->
+
+                                <!--end::Login options-->
+                                <!--begin::Separator-->
+
+                                <!--end::Separator-->
+                                <!--begin::Input group=-->
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Name" name="name" autocomplete="off"
+                                        class="form-control bg-transparent" value="{{$lead->name}}">
+                                    <span class="text-danger">@error('name') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Phone-->
+                                    <input type="text" placeholder="Phone Number" name="phonenumber" autocomplete="off"
+                                        class="form-control bg-transparent" value={{$lead->phonenumber}}>
+                                    <span class="text-danger">@error('phonenumber') {{$message}} @enderror</span>
+                                    <!--end::Phone-->
+                                </div>
+                                <div class="fv-row mb-8">
+                                    <!--begin::Email-->
+                                    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
+                                        class="form-control bg-transparent" value="{{$lead->email}}">
+                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <!--end::Email-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Account Number-->
+                                    <input type="text" placeholder="Account Number" name="accountnumber"
+                                        autocomplete="off" class="form-control bg-transparent"
+                                        value={{$lead->accountnumber}}>
+                                    <span class="text-danger">@error('accountnumber') {{$message}} @enderror</span>
+                                    <!--end::Account Number-->
+                                </div>
+
+
+
+                                <div class="form-group mb-8">
+                                    <select name="countryid" id="country-dd" class="form-control">
+                                        @if($countrydetail && $country)
+                                        <option value={{$country->id}}>{{$countrydetail->countryname}}</option>
+                                        @else
+                                        <option value="">Select Country</option>
+                                        @endif
+
+                                        @foreach ($countries as $data)
+                                        <option value="{{$data->id}}">
+                                            {{$data->name}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group mb-8">
+
+                                    <select name="stateid" id="state-dd" class="form-control">
+                                        @if($countrydetail && $state)
+                                        <option value={{$state->id}}>{{$countrydetail->state}}</option>
+                                        @else
+                                        <option value="">Select State</option>
+                                        @endif
+
+                                    </select>
+                                </div>
+                                <div class="form-group mb-8">
+                                    <select name="cityid" id="city-dd" class="form-control">
+                                        @if($countrydetail && $city)
+                                        <option value={{$city->id}}>{{$countrydetail->city}}</option>
+                                        @else
+                                        <option value="">Select City</option>
+                                        @endif
+                                    </select>
+                                </div>
+
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Position" name="position" autocomplete="off"
+                                        class="form-control bg-transparent" @if (isset($leaddata))
+                                        value="{{$leaddata->position}}" @endif>
+                                    <span class=" text-danger">@error('position') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="fv-row mb-8">
+                                    <!--begin::Phone-->
+                                    <input type="text" placeholder="Phone Number 2" name="phonenumber2"
+                                        autocomplete="off" class="form-control bg-transparent" @if (isset($leaddata))
+                                        value={{$leaddata->phonenumber2}} @endif>
+                                    <span class="text-danger">@error('phonenumber2') {{$message}} @enderror</span>
+                                    <!--end::Phone-->
+                                </div>
+                                <div class="form-group mb-8">
+                                    @if($leaddata)
+                                    <select name="leadtype" class="form-control">
+                                        <option hidden value={{$leaddata->leadtype}}>{{$leaddata->leadtype}}
+                                        </option>
+                                        <option value="new">new</option>
+                                        <option value="experienced">experienced</option>
+
+                                    </select>
+                                    @else
+                                    <select name="leadtype" class="form-control">
+
+                                        <option value="">Select Type</option>
+                                        <option value="new">new</option>
+                                        <option value="experienced">experienced</option>
+
+                                    </select>
+                                    @endif
+
+                                </div>
+                                <!--begin::Link-->
+
+                                <!--end::Link-->
+                                <!--end::Wrapper-->
+                                <!--begin::Submit button-->
+                                <div class="d-flex mb-8 mt-10">
+                                    <button type="submit" id="kt_sign_in_submit" class="btnfile"><i
+                                            class="fa-sharp fa-solid fa-file-import" style="color:white"></i>
+
+                                        <!--begin::Indicator label-->
+                                        <span class="indicator-label">Update Lead</span>
+                                        <!--end::Indicator label-->
+                                        <!--begin::Indicator progress-->
+                                        <span class="indicator-progress">Please wait...
+                                            <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                        <!--end::Indicator progress-->
+                                    </button>
+
+                                </div>
+                                <!--end::Submit button-->
+                                <!--begin::Sign up-->
+
+                            </form>
                         </div>
-
-                      
-                        
-
-
-
-
-                        <div class="mt-10 m-5 ">
-
-<!--end::Title-->
-<!--begin::Subtitle-->
-
-<!--end::Subtitle=-->
-
-
-<!--Agent DropDown Start-->
-<div class="d-flex"> 
-    <label class="d-flexw-25  bg-transparent ">
-        <div class="box fw-bold  mx-5 ">
-            Select Agents:
-                <select id="agent" name="agent">
-                    @foreach ($agents as $agent )
-                    <option value={{$agent->id}}>{{$agent->name}}</option>
-                    @endforeach
-                </select>
-        </div>
-    </label>
-</div>
-</div>
-<!--Agent DropDown End-->
-
-<div class="container">
-<div class="row">
-    <div class="col-12 table-responsive">
-        <table class="table table-bordered user_datatable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Transaction Details</th>
-                    <th>Reminder Date</th>
-                    <th>Reminder Time</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap5.min.js"></script>
-<script type="text/javascript">
-
-function form(id) {
-                    return '<form method="POST" action="/deleteTransaction/' + id + ' "> @csrf @method("delete")<a class="btndelete btn btn-danger btn-sm show_confirm" style= title="Delete" id="show_confirm" data-toggle="tooltip"> Delete </a> </form>'
-                }
-
-$(document).ready(function(e) {
-
-    function fetchtransaction(id) {
-       
-        var table = $('.user_datatable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url:'{{ route("fetchAgenttransaction.details") }}',
-            data: { id:id }
-            },
-        columns: [
-        {data: 'name', name: 'name'},
-        {data: 'transaction', name: 'transaction'},
-        {data: 'reminder', name: 'reminder'},
-        {data: 'time', name: 'time'},
-        {data: 'created_at', name: 'created_at'},
-        {
-            data: function(row) {
-                return  '<div style="display:flex; flex-wrap: no-wrap; align-items:center"> <a href="callto:'+ row.phonenumber +'" class="edit btn btn-secondary mx-4 btn-sm">Call</a><a href="/updateTransaction/' + row.leadid + '" class="edit btn btn-secondary btn-sm mx-4">Update</a>' + form(row.leadid) + '</div>'
-            }
-        }
-
-    ]
-});
-}
-
-$('#agent').on('change', function() {
-        var id = $('#agent').val();
-        if(id != '') {
-            $('.user_datatable').DataTable().destroy();
-            fetchtransaction(id);
-        }
-            
-    });
-       
-});
-
-
-        $(document).on('click','#show_confirm',function(event){
-            event.preventDefault();
-                var form =  $(this).closest("form");
-                var name = $(this).data("name");
-                
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
-                })
-        }); 
-</script>
-
-
-
-
-
-
-
-
-
-
-
+                        <!--end::Content-->
                     </div>
-                    <!--end::Content-->
+                    <!--end::Content wrapper-->
+                    <!--begin::Footer-->
+
+                    <!--end::Footer-->
                 </div>
-                <!--end::Content wrapper-->
-                <!--begin::Footer-->
-                <footer class="d-flex justify-content-end mb-2 px-2 page-footer footer fixed-bottom font-small pt-5"
-                    style="color:gray;font-size:10px">
-                    <div class="d-flex px-2">
-                        <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                        <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
-                    </div>
-                    <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
-                </footer>
-                <!--end::Footer-->
+                <!--end:::Main-->
             </div>
-            <!--end:::Main-->
+            <!--end::Wrapper-->
         </div>
-        <!--end::Wrapper-->
-    </div>
-    <!--end::Page-->
+        <!--end::Page-->
     </div>
     <!--end::App-->
     <!--begin::Drawers-->
     <!--begin::Activities drawer-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <script>
+    $(document).ready(function() {
+
+        var countryid = document.getElementById("country-dd");
+        if (countryid.value != "") {
+            $("#state-dd").html('');
+
+            function postajax() {
+                return $.ajax({
+                    url: "{{url('api/fetch-states')}}",
+                    type: "POST",
+                    data: {
+                        country_id: countryid.value,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                });
+            }
+            async function test() {
+                try {
+                    const res = await postajax();
+                    $('#state-dd').html(@if($countrydetail && $city)
+                        '<option value={{$state->id}}>{{$countrydetail->state}}</option>'
+                        @else '<option value="">Select Type</option>'
+                        @endif);
+                    $.each(res.states, function(key, value) {
+                        $("#state-dd").append('<option value="' + value.id + '">' + value
+                            .name + '</option>');
+                    });
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+            test();
+        }
+
+    })
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        $('#country-dd').on('change', function() {
+            var idCountry = this.value;
+
+            $("#state-dd").html('');
+            $.ajax({
+                url: "{{url('api/fetch-states')}}",
+                type: "POST",
+                data: {
+                    country_id: idCountry,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#state-dd').html('<option value="">Select State</option>');
+                    $.each(result.states, function(key, value) {
+                        $("#state-dd").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                    $('#city-dd').html('<option value="">Select City</option>');
+                }
+            });
+        });
+        $('#state-dd').on('change', function() {
+            var idState = this.value;
+            $("#city-dd").html('');
+            $.ajax({
+                url: "{{url('api/fetch-cities')}}",
+                type: "POST",
+                data: {
+                    state_id: idState,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(res) {
+                    $('#city-dd').html('<option value="">Select City</option>');
+                    $.each(res.cities, function(key, value) {
+                        $("#city-dd").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+    });
+    </script>
 
 
     <!--begin::Javascript-->
     <script>
     var hostUrl = "../";
     </script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="../plugins/global/plugins.bundle.js"></script>
     <script src="../js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
