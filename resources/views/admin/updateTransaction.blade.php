@@ -516,10 +516,11 @@ License: For each use you must have a valid license purchased only from above li
                         </div>
                         <!--end::Toolbar-->
                         <!--begin::Content-->
-                       
-                        <div id="kt_app_content" class="mt-10 app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+
+                        <div id="kt_app_content"
+                            class="mt-10 app-content flex-column-fluid col-6 col-sm-6  col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                             <!--begin::Content container-->
-                        <!--    <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
+                            <!--    <button onclick="history.back()" class="btnback mx-5 mt-5"><i class="fa-solid fa-angles-left"
             style="color:white;margin-top:0.2rem"></i></button> -->
                             <form class="form w-100 px-5 ms-5" action="/updateTransaction/{{$trans->id}}" method="post">
                                 @if(Session::has('success'))
@@ -542,6 +543,26 @@ License: For each use you must have a valid license purchased only from above li
 
                                     <!--end::Subtitle=-->
                                 </div>
+                                <div class="fv-row mb-8">
+                                    <!--begin::User-->
+                                    <input type="text" placeholder="Transaction Details" name="transaction"
+                                        autocomplete="off" class="form-control bg-transparent"
+                                        value="{{$trans->transaction}}">
+                                    <span class="text-danger">@error('transaction') {{$message}} @enderror</span>
+                                    <!--end::User-->
+                                </div>
+
+                                <div class="d-flex fv-row mb-8">
+                                    <label class="me-6 form-control bg-transparent" for="">Reminder Date</label>
+                                    <input value="{{$trans->reminder}}" class="form-control bg-transparent"
+                                        placeholder="DD/MM/YYYY" type="date" id="datepicker" name="date">
+                                </div>
+
+                                <div class="d-flex fv-row mb-8">
+                                    <label class="me-6 form-control bg-transparent" for="">Reminder Time</label>
+                                    <input value="{{$trans->time}}" class="form-control bg-transparent" type="time"
+                                        name="time">
+                                </div>
                                 <!--begin::Heading-->
                                 <!--begin::Login options-->
 
@@ -551,114 +572,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Separator-->
                                 <!--begin::Input group=-->
 
-                                <div class="fv-row mb-8">
-                                    <!--begin::User-->
-                                    <input type="text" placeholder="Name" name="name" autocomplete="off"
-                                        class="form-control bg-transparent" value="{{$lead->name}}">
-                                    <span class="text-danger">@error('name') {{$message}} @enderror</span>
-                                    <!--end::User-->
-                                </div>
 
-                                <div class="fv-row mb-8">
-                                    <!--begin::Phone-->
-                                    <input type="text" placeholder="Phone Number" name="phonenumber" autocomplete="off"
-                                        class="form-control bg-transparent" value={{$lead->phonenumber}}>
-                                    <span class="text-danger">@error('phonenumber') {{$message}} @enderror</span>
-                                    <!--end::Phone-->
-                                </div>
-                                <div class="fv-row mb-8">
-                                    <!--begin::Email-->
-                                    <input type="email" placeholder="Email Address" name="email" autocomplete="off"
-                                        class="form-control bg-transparent" value="{{$lead->email}}">
-                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
-                                    <!--end::Email-->
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::Account Number-->
-                                    <input type="text" placeholder="Account Number" name="accountnumber"
-                                        autocomplete="off" class="form-control bg-transparent"
-                                        value={{$lead->accountnumber}}>
-                                    <span class="text-danger">@error('accountnumber') {{$message}} @enderror</span>
-                                    <!--end::Account Number-->
-                                </div>
-
-
-
-                                <div class="form-group mb-8">
-                                    <select name="countryid" id="country-dd" class="form-control">
-                                        @if($countrydetail && $country)
-                                        <option value={{$country->id}}>{{$countrydetail->countryname}}</option>
-                                        @else
-                                        <option value="">Select Country</option>
-                                        @endif
-
-                                        @foreach ($countries as $data)
-                                        <option value="{{$data->id}}">
-                                            {{$data->name}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group mb-8">
-
-                                    <select name="stateid" id="state-dd" class="form-control">
-                                        @if($countrydetail && $state)
-                                        <option value={{$state->id}}>{{$countrydetail->state}}</option>
-                                        @else
-                                        <option value="">Select State</option>
-                                        @endif
-
-                                    </select>
-                                </div>
-                                <div class="form-group mb-8">
-                                    <select name="cityid" id="city-dd" class="form-control">
-                                        @if($countrydetail && $city)
-                                        <option value={{$city->id}}>{{$countrydetail->city}}</option>
-                                        @else
-                                        <option value="">Select City</option>
-                                        @endif
-                                    </select>
-                                </div>
-
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::User-->
-                                    <input type="text" placeholder="Position" name="position" autocomplete="off"
-                                        class="form-control bg-transparent" @if (isset($leaddata))
-                                        value="{{$leaddata->position}}" @endif>
-                                    <span class=" text-danger">@error('position') {{$message}} @enderror</span>
-                                    <!--end::User-->
-                                </div>
-
-                                <div class="fv-row mb-8">
-                                    <!--begin::Phone-->
-                                    <input type="text" placeholder="Phone Number 2" name="phonenumber2"
-                                        autocomplete="off" class="form-control bg-transparent" @if (isset($leaddata))
-                                        value={{$leaddata->phonenumber2}} @endif>
-                                    <span class="text-danger">@error('phonenumber2') {{$message}} @enderror</span>
-                                    <!--end::Phone-->
-                                </div>
-                                <div class="form-group mb-8">
-                                    @if($leaddata)
-                                    <select name="leadtype" class="form-control">
-                                        <option hidden value={{$leaddata->leadtype}}>{{$leaddata->leadtype}}
-                                        </option>
-                                        <option value="new">new</option>
-                                        <option value="experienced">experienced</option>
-
-                                    </select>
-                                    @else
-                                    <select name="leadtype" class="form-control">
-
-                                        <option value="">Select Type</option>
-                                        <option value="new">new</option>
-                                        <option value="experienced">experienced</option>
-
-                                    </select>
-                                    @endif
-
-                                </div>
                                 <!--begin::Link-->
 
                                 <!--end::Link-->
@@ -700,95 +614,6 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::App-->
     <!--begin::Drawers-->
     <!--begin::Activities drawer-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-
-    <script>
-    $(document).ready(function() {
-
-        var countryid = document.getElementById("country-dd");
-        if (countryid.value != "") {
-            $("#state-dd").html('');
-
-            function postajax() {
-                return $.ajax({
-                    url: "{{url('api/fetch-states')}}",
-                    type: "POST",
-                    data: {
-                        country_id: countryid.value,
-                        _token: '{{csrf_token()}}'
-                    },
-                    dataType: 'json',
-                });
-            }
-            async function test() {
-                try {
-                    const res = await postajax();
-                    $('#state-dd').html(@if($countrydetail && $city)
-                        '<option value={{$state->id}}>{{$countrydetail->state}}</option>'
-                        @else '<option value="">Select Type</option>'
-                        @endif);
-                    $.each(res.states, function(key, value) {
-                        $("#state-dd").append('<option value="' + value.id + '">' + value
-                            .name + '</option>');
-                    });
-                } catch (err) {
-                    console.log(err);
-                }
-            }
-            test();
-        }
-
-    })
-    </script>
-
-    <script>
-    $(document).ready(function() {
-        $('#country-dd').on('change', function() {
-            var idCountry = this.value;
-
-            $("#state-dd").html('');
-            $.ajax({
-                url: "{{url('api/fetch-states')}}",
-                type: "POST",
-                data: {
-                    country_id: idCountry,
-                    _token: '{{csrf_token()}}'
-                },
-                dataType: 'json',
-                success: function(result) {
-                    $('#state-dd').html('<option value="">Select State</option>');
-                    $.each(result.states, function(key, value) {
-                        $("#state-dd").append('<option value="' + value
-                            .id + '">' + value.name + '</option>');
-                    });
-                    $('#city-dd').html('<option value="">Select City</option>');
-                }
-            });
-        });
-        $('#state-dd').on('change', function() {
-            var idState = this.value;
-            $("#city-dd").html('');
-            $.ajax({
-                url: "{{url('api/fetch-cities')}}",
-                type: "POST",
-                data: {
-                    state_id: idState,
-                    _token: '{{csrf_token()}}'
-                },
-                dataType: 'json',
-                success: function(res) {
-                    $('#city-dd').html('<option value="">Select City</option>');
-                    $.each(res.cities, function(key, value) {
-                        $("#city-dd").append('<option value="' + value
-                            .id + '">' + value.name + '</option>');
-                    });
-                }
-            });
-        });
-    });
-    </script>
 
 
     <!--begin::Javascript-->

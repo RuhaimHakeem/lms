@@ -40,7 +40,8 @@ Route::delete('/deleteagent/{id}',[AdminController::class,'deleteagent'])->name(
 
 
 Route::post('/updatelead/{id}',[AdminController::class,'updatelead'])->name('updatelead');
-Route::post('/updateTransaction/{id}',[AdminController::class,'updateTransaction'])->name('updateTransaction');
+Route::get('/updateTransaction/{id}',[AdminController::class,'updateTransaction'])->name('updateTransaction');
+Route::post('/updateTransaction/{id}',[AdminController::class,'updateTransactionData']);
 
 Route::get('/adminlogin',[CustomAuthController::class,'loginadmin'])->name('loginadmin')->middleware('alreadyLoggedIn');
 

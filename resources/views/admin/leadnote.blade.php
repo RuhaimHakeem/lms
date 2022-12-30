@@ -523,126 +523,148 @@ License: For each use you must have a valid license purchased only from above li
                             <!--end::Subtitle=-->
                         </div>
 
-                      
-                        
+
+
 
 
 
 
                         <div class="mt-10 m-5 ">
 
-<!--end::Title-->
-<!--begin::Subtitle-->
+                            <!--end::Title-->
+                            <!--begin::Subtitle-->
 
-<!--end::Subtitle=-->
-
-
-<!--Agent DropDown Start-->
-<div class="d-flex"> 
-    <label class="d-flexw-25  bg-transparent ">
-        <div class="box fw-bold  mx-5 ">
-            Select Agents:
-                <select id="agent" name="agent">
-                    @foreach ($agents as $agent )
-                    <option value={{$agent->id}}>{{$agent->name}}</option>
-                    @endforeach
-                </select>
-        </div>
-    </label>
-</div>
-</div>
-<!--Agent DropDown End-->
-
-<div class="container">
-<div class="row">
-    <div class="col-12 table-responsive">
-        <table class="table table-bordered user_datatable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Transaction Details</th>
-                    <th>Reminder Date</th>
-                    <th>Reminder Time</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap5.min.js"></script>
-<script type="text/javascript">
-
-function form(id) {
-                    return '<form method="POST" action="/deleteTransaction/' + id + ' "> @csrf @method("delete")<a class="btndelete btn btn-danger btn-sm show_confirm" style= title="Delete" id="show_confirm" data-toggle="tooltip"> Delete </a> </form>'
-                }
-
-$(document).ready(function(e) {
-
-    function fetchtransaction(id) {
-       
-        var table = $('.user_datatable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url:'{{ route("fetchAgenttransaction.details") }}',
-            data: { id:id }
-            },
-        columns: [
-        {data: 'name', name: 'name'},
-        {data: 'transaction', name: 'transaction'},
-        {data: 'reminder', name: 'reminder'},
-        {data: 'time', name: 'time'},
-        {data: 'created_at', name: 'created_at'},
-        {
-            data: function(row) {
-                return  '<div style="display:flex; flex-wrap: no-wrap; align-items:center"> <a href="callto:'+ row.phonenumber +'" class="edit btn btn-secondary mx-4 btn-sm">Call</a><a href="/updateTransaction/' + row.leadid + '" class="edit btn btn-secondary btn-sm mx-4">Update</a>' + form(row.leadid) + '</div>'
-            }
-        }
-
-    ]
-});
-}
-
-$('#agent').on('change', function() {
-        var id = $('#agent').val();
-        if(id != '') {
-            $('.user_datatable').DataTable().destroy();
-            fetchtransaction(id);
-        }
-            
-    });
-       
-});
+                            <!--end::Subtitle=-->
 
 
-        $(document).on('click','#show_confirm',function(event){
-            event.preventDefault();
-                var form =  $(this).closest("form");
-                var name = $(this).data("name");
-                
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
-                })
-        }); 
-</script>
+                            <!--Agent DropDown Start-->
+                            <div class="d-flex">
+                                <label class="d-flexw-25  bg-transparent ">
+                                    <div class="box fw-bold  mx-5 ">
+                                        Select Agents:
+                                        <select id="agent" name="agent">
+                                            @foreach ($agents as $agent )
+                                            <option value={{$agent->id}}>{{$agent->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!--Agent DropDown End-->
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 table-responsive">
+                                    <table class="table table-bordered user_datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Transaction Details</th>
+                                                <th>Reminder Date</th>
+                                                <th>Reminder Time</th>
+                                                <th>Created At</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js">
+                        </script>
+                        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap5.min.js"></script>
+                        <script type="text/javascript">
+                        function form(id) {
+                            return '<form method="POST" action="/deleteTransaction/' + id +
+                                ' "> @csrf @method("delete")<a class="btndelete btn btn-danger btn-sm show_confirm" style= title="Delete" id="show_confirm" data-toggle="tooltip"> Delete </a> </form>'
+                        }
+
+                        $(document).ready(function(e) {
+
+                            function fetchtransaction(id) {
+
+                                var table = $('.user_datatable').DataTable({
+                                    processing: true,
+                                    serverSide: true,
+                                    ajax: {
+                                        url: '{{ route("fetchAgenttransaction.details") }}',
+                                        data: {
+                                            id: id
+                                        }
+                                    },
+                                    columns: [{
+                                            data: 'name',
+                                            name: 'name'
+                                        },
+                                        {
+                                            data: 'transaction',
+                                            name: 'transaction'
+                                        },
+                                        {
+                                            data: 'reminder',
+                                            name: 'reminder'
+                                        },
+                                        {
+                                            data: 'time',
+                                            name: 'time'
+                                        },
+                                        {
+                                            data: 'created_at',
+                                            name: 'created_at'
+                                        },
+                                        {
+                                            data: function(row) {
+                                                return '<div style="display:flex; flex-wrap: no-wrap; align-items:center"> <a href="callto:' +
+                                                    row.phonenumber +
+                                                    '" class="edit btn btn-secondary mx-4 btn-sm">Call</a><a href="/updateTransaction/' +
+                                                    row.id +
+                                                    '" class="edit btn btn-secondary btn-sm mx-4">Update</a>' +
+                                                    form(row.id) + '</div>'
+                                            }
+                                        }
+
+                                    ]
+                                });
+                            }
+
+                            $('#agent').on('change', function() {
+                                var id = $('#agent').val();
+                                if (id != '') {
+                                    $('.user_datatable').DataTable().destroy();
+                                    fetchtransaction(id);
+                                }
+
+                            });
+
+                        });
+
+
+                        $(document).on('click', '#show_confirm', function(event) {
+                            event.preventDefault();
+                            var form = $(this).closest("form");
+                            var name = $(this).data("name");
+
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: "You won't be able to revert this!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    form.submit();
+                                }
+                            })
+                        });
+                        </script>
 
 
 

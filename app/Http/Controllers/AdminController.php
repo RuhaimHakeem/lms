@@ -672,22 +672,48 @@ class AdminController extends Controller
     }
 
 
-    public function updateTransaction(Request $request,$id){
+    public function updateTransaction($id){
 
 
-        //update basic details of the lead
+        // //update basic details of the lead
 
-        $res = DB::table('transactiondetails')
-        ->where('id', $id)
-        ->update(['transaction' => $request->transaction]);
+        // $res = DB::table('transactiondetails')
+        // ->where('id', $id)
+        // ->update(['transaction' => $request->transaction]);
 
-        $trans = transactiondetails::where('id', $id)->first();
+        // $trans = transactiondetails::where('id', $id)->first();
             
-        if($res || isset($result) || isset($success) ) {
-            return redirect('/admindashboard/leadnote')->with('success','Lead updated successfully');
+        // if($res || isset($result) || isset($success) ) {
+        //     return redirect('/admindashboard/leadnote')->with('success','Lead updated successfully');
+        // }
+        // else {
+        //     return redirect('/admindashboard/leadnote')->with('fail','Something went wrong. Please try again');
+        // }
+        $userId = Session::get('loginId');
+        $admin = User::where('id','=', $userId)->first();
+
+        $trans =  DB::table('transactiondetails')->where('id', '=', $id)->first();
+
+        return view('admin.updateTransaction', [
+            'admin' => $admin,
+            'trans' => $trans,
+        ]);
+
+        
+    }
+
+    public function updateTransactionData(Request $request, $id) {
+
+
+        $result = Transactiondetail::where('id', $id)
+        ->update(['transaction' => $request->transaction, 'reminder' => $request->date, 'time' => $request->time]);
+
+          if($result) {
+            return back()->with('success',"Transaction details updated");
         }
+
         else {
-            return redirect('/admindashboard/leadnote')->with('fail','Something went wrong. Please try again');
+            return back()->with('fail',"Something went wrong");
         }
     }
 
