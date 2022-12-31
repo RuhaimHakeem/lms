@@ -541,8 +541,9 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-flex">
                                 <label class="d-flexw-25  bg-transparent ">
                                     <div class="box fw-bold  mx-5 ">
-                                        Select Agents:
-                                        <select id="agent" name="agent">
+                                        Select Agent:
+                                        <select id="agent" name="agent" class="form-control m-5 box fw-bold" style="width:13rem">
+                                            <option value=''>Select Agent</option>
                                             @foreach ($agents as $agent )
                                             <option value={{$agent->id}}>{{$agent->name}}</option>
                                             @endforeach
