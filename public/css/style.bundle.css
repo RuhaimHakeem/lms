@@ -30548,7 +30548,7 @@ html:not([theme="dark"]) .theme-light-bg-body {
     .menu-item:not(.here)
     .menu-link:hover:not(.disabled):not(.active):not(.here) {
     transition: color 0.2s ease;
-    color: var(--kt-menu-link-color-hover);
+    color:gray;
 }
 .menu-state-color
     .menu-item.hover:not(.here)
