@@ -100,7 +100,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--end::sidebar mobile toggle-->
                     <!--begin::Mobile logo-->
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                        <a href="dashboardnew" class="d-lg-none">
+                        <a href="/admindashboard" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
 
                         </a>
@@ -600,13 +600,13 @@ License: For each use you must have a valid license purchased only from above li
                                     <div class="form-check pe-4">
                                         <input type="checkbox" class="form-check-input" id="male" name="gender"
                                             value="male" onclick="onlyOne(this)" checked>
-                                        <label class="form-check-label" for="male">Male</label>
+                                        <label class="form-check-label theme-white" for="male">Male</label>
                                     </div>
 
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="female" name="gender"
                                             value="female" onclick="onlyOne(this)">
-                                        <label class="form-check-label" for="female">Female</label>
+                                        <label class="form-check-label theme-white" for="female">Female</label>
                                     </div>
 
                                 </div>

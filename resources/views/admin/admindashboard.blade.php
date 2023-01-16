@@ -97,7 +97,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--end::sidebar mobile toggle-->
                     <!--begin::Mobile logo-->
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                        <a href="dashboardnew" class="d-lg-none">
+                        <a href="/admindashboard" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
 
                         </a>
@@ -528,7 +528,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Card widget 20-->
                                         <a href="/admindashboard/viewleads">
                                             <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                                style="background-color: rgb(22, 22, 22);background-image:url('assets/media/patterns/vector-1.png')">
                                                 <!--begin::Header-->
 
                                                 <div class=" pt-5 justify-content-center">
@@ -569,7 +569,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Card widget 20-->
                                         <a href="/admindashboard/viewagents">
                                             <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-100 mb-5 mb-xl-10"
-                                                style="background-color: #1E1E2D;background-image:url('assets/media/patterns/vector-1.png')">
+                                                style="background-color: rgb(22, 22, 22);background-image:url('assets/media/patterns/vector-1.png')">
                                                 <!--begin::Header-->
 
                                                 <div class=" pt-5 justify-content-center">

@@ -102,7 +102,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--end::sidebar mobile toggle-->
                     <!--begin::Mobile logo-->
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                        <a href="dashboardnew" class="d-lg-none">
+                        <a href="/admindashboard" class="d-lg-none">
                             <img alt="Logo" src="../media/logos/edge.png" class="h-40px" />
 
                         </a>
@@ -543,7 +543,7 @@ License: For each use you must have a valid license purchased only from above li
                                 </div>
 
                                 <label class="d-flexw-25  bg-transparent ">
-                                    <div class="box fw-bold  mx-5 ">
+                                    <div class="box fw-bold  mx-5 theme-white" >
                                         Select Agents:
                                         <select name="agent">
                                             @foreach ($agents as $agent )
