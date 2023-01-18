@@ -482,9 +482,9 @@ License: For each use you must have a valid license purchased only from above li
                         style="color:gray;font-size:10px">
                         <div class="d-flex px-2">
                             <img alt="Logo" src="../media/logos/prag.png" class="h-15px" style="margin-right:0.2rem" />
-                            <p class="mb-0 fw-semibold" target="_blank">Engineered by PragICTS | </p>
+                            <p class="mb-0 fw-semibold" target="_blank" style="color:gray">Engineered by PragICTS | </p>
                         </div>
-                        <p class="mb-0 fw-semibold h-1px" target="_blank">https://pragicts.com | edge@pragicts.com</p>
+                        <p class="mb-0 fw-semibold h-1px" target="_blank" style="color:gray">https://pragicts.com | edge@pragicts.com</p>
                     </footer>
                 </div>
                 <!--end::sidebar-->
@@ -551,7 +551,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::User-->
                                     <input type="text" placeholder="User Name" name="name" autocomplete="off"
-                                        class="form-control bg-transparent" value={{old('name')}}>
+                                        class="form-control bg-transparent theme-white" value={{old('name')}}>
                                     <span class="text-danger">@error('name') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
@@ -559,7 +559,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::User-->
                                     <input type="text" placeholder="First Name" name="firstname" autocomplete="off"
-                                        class="form-control bg-transparent" value={{old('firstname')}}>
+                                        class="form-control bg-transparent theme-white" value={{old('firstname')}}>
                                     <span class="text-danger">@error('firstname') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
@@ -567,14 +567,14 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::User-->
                                     <input type="text" placeholder="Last Name" name="lastname" autocomplete="off"
-                                        class="form-control bg-transparent" value={{old('lastname')}}>
+                                        class="form-control bg-transparent theme-white" value={{old('lastname')}}>
                                     <span class="text-danger">@error('lastname') {{$message}} @enderror</span>
                                     <!--end::User-->
                                 </div>
 
                                 <div class="d-flex fv-row mb-8">
                                     <label class="me-6 form-control bg-transparent " for="">DOB</label>
-                                    <input class="form-control bg-transparent" placeholder="DD/MM/YYYY" type="date" id="dob" name="dob">
+                                    <input class="form-control bg-transparent theme-white" placeholder="DD/MM/YYYY" type="date" id="dob" name="dob">
                                 </div>
 
                                 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -596,7 +596,7 @@ License: For each use you must have a valid license purchased only from above li
 
 
                                 <div class="fv-row mb-8 d-flex align-items-center justify-content-between">
-                                    <label class="me-6 form-control bg-transparent" for="">Gender</label>
+                                    <label class="me-6 form-control bg-transparent " for="">Gender</label>
                                     <div class="form-check pe-4">
                                         <input type="checkbox" class="form-check-input" id="male" name="gender"
                                             value="male" onclick="onlyOne(this)" checked>
@@ -614,14 +614,14 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-8">
                                     <!--begin::Phone-->
                                     <input type="text" placeholder="Phone Number" name="phone" autocomplete="off"
-                                        class="form-control bg-transparent" value={{old('phone')}}>
+                                        class="form-control bg-transparent theme-white" value={{old('phone')}}>
                                     <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                                     <!--end::Phone-->
                                 </div>
                                 <div class="fv-row mb-8">
                                     <!--begin::Email-->
                                     <input type="email" placeholder="Email Address" name="email" autocomplete="off"
-                                        class="form-control bg-transparent" value={{old('email')}}>
+                                        class="form-control bg-transparent theme-white" value={{old('email')}}>
                                     <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                     <!--end::Email-->
                                 </div>
@@ -630,7 +630,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="fv-row mb-3">
                                     <!--begin::Password-->
                                     <input type="password" placeholder="Password" name="password" autocomplete="off"
-                                        class="form-control bg-transparent">
+                                        class="form-control bg-transparent theme-white">
                                     <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                     <!--end::Password-->
                                 </div>
